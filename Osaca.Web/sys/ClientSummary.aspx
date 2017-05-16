@@ -5,7 +5,7 @@
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/moment.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js"></script>    
+    <script src="/Scripts/sys/Common.min.js?v=1.2"></script>    
     <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -84,6 +84,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/client-summary.min.js?v=1.2"></script>
+    <script src="/Scripts/sys/client-summary.min.js?v=1.3"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

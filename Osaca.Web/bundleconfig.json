@@ -478,5 +478,11 @@
     "inputFiles": [
       "Scripts/sys/client-summary.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/client-statement.min.js",
+    "inputFiles": [
+      "Scripts/sys/client-statement.js"
+    ]
   }
 ]
