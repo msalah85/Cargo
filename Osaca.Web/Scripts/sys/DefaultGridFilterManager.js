@@ -62,6 +62,7 @@ var DefaultGridManager = function () {
 
                     }, commonManger.errorException);
                 },
+                "iDisplayLength": 50,
                 "aaSorting": [], // default none sorting none.
                 "aoColumns": gridColumns
             });

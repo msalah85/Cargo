@@ -484,5 +484,11 @@
     "inputFiles": [
       "Scripts/sys/client-statement.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/DefaultGridManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/DefaultGridManager.js"
+    ]
   }
 ]
