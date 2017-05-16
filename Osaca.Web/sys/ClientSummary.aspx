@@ -56,12 +56,14 @@
                                         <tr>
                                             <td class="center">1</td>
                                             <td>Total Invoices</td>
-                                            <td><a href="InvoicesView.aspx" class="invoices" id="TotalInvoices">0</a></td>
+                                            <td><a href="#InvoicesView.aspx" class="invoices" id="TotalInvoices">0</a></td>
                                         </tr>
                                         <tr>
                                             <td class="center">2</td>
                                             <td>Total Payments</td>
-                                            <td><a href="ClientPayments.aspx" class="payments" id="TotalPayments">0</a></td>
+                                            <td><a href="#ClientPayments.aspx" class="payments" id="TotalPayments">0</a>
+                                                <a href="#Statement.aspx" class="clientStatements">Statement <i class="fa fa-external-link"></i></a>
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -69,7 +71,7 @@
                             <div class="hr hr8 hr-double hr-dotted"></div>
                             <div class="row">
                                 <div class="col-sm-6 pull-right">
-                                    <h4 title="Balance = Total Payments - Total Invoices">Client`s due amount : <span class="red" id="TotalBalances">0</span> <sub>AED</sub>
+                                    <h4 title="Balance = Total Payments - Total Invoices">Due amount : <span class="red" id="TotalBalances">0</span> <sub>AED</sub>
                                     </h4>
                                 </div>
                                 <div class="col-sm-6 pull-left"></div>

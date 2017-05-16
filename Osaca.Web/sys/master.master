@@ -184,7 +184,7 @@
                         CARGO &copy; 2010-<%: DateTime.Now.Year %>
                     </span>
                     &nbsp; &nbsp;
-                        <span class="action-buttons">
+                        <span class="action-buttons hidden-print">
                             <a href="https://fb.com/sharewebdesigndotcom" target="_blank">
                                 <i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
                             </a>

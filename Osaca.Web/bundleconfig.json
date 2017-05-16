@@ -460,5 +460,23 @@
     "inputFiles": [
       "Content/sys/assets/js/jquery.nestable.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/InvoicesPrint.min.js",
+    "inputFiles": [
+      "Scripts/sys/InvoicesPrint.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Common.min.js",
+    "inputFiles": [
+      "Scripts/sys/Common.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/client-summary.min.js",
+    "inputFiles": [
+      "Scripts/sys/client-summary.js"
+    ]
   }
 ]

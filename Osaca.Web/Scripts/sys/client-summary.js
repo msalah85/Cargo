@@ -15,7 +15,7 @@ var
             // print report
             $('#printMe').click(function (e) {
                 e.preventDefault();
-                window.print();
+                commonManger.printPage();
             });
         },
         getReport = function () {
@@ -37,6 +37,7 @@ var
                         $('.ClientName').text(jsn.ClientName);
                         $('.payments').attr('href', 'ClientPayments.aspx?id=' + _id + '&name=' + _name);
                         $('.invoices').attr('href', 'InvoicesView.aspx?id=' + _id + '&name=' + _name);
+                        $('.clientStatements').attr('href', 'Statement.aspx?id=' + _id );
 
 
                         // balance

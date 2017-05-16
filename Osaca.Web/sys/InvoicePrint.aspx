@@ -157,7 +157,8 @@
                                 <div class="col-sm-7 pull-left"></div>
                             </div>
                             <div class="space-6"></div>
-                            <div class="well" id="Notes"></div>
+                            <div class="well">Thank you for choosing OSAKA cargo. We believe you will be satisfied by our services.</div>
+                            <p id="Notes"></p>
                         </div>
                     </div>
                 </div>
@@ -166,6 +167,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.1"></script>
+    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.2"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

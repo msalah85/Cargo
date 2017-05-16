@@ -127,6 +127,10 @@
                                             <span class="ace-icon fa fa-search icon-on-right bigger-110 btn-client-summary"></span>
                                             Summary
                                         </button>
+                                        <button type="button" class="btn btn-white btn-green btn-xlg btn-client-statement">
+                                            <span class="ace-icon fa fa-search icon-on-right bigger-110"></span>
+                                            Statement
+                                        </button>
                                     </div>
                                 </form>
                             </div>
@@ -146,16 +150,23 @@
     <script src="/Scripts/sys/Common.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
     <script type="text/javascript">
-        var $btnDetails = $('.btn-client-details');
+        var $btnDetails = $('.btn-client-details'),
+            $btnSatetment = $('.btn-client-statement'),
+            openPage = function (pageType) {
+                var clientID = $('.select-client-id').val(),
+                    clientName = $('.select-client-id').next().find('.select2-selection__rendered').attr('title'),
+                    _url = pageType + '.aspx?id=' + clientID + '&name=' + (clientName ? clientName.split(' ').join('+') : '');
+                if (clientName && clientID) {
+                    window.location.href = _url;
+                } else {
+                    alert('Please select the customer first.');
+                }
+            };
         $btnDetails.click(function () {
-            var clientID = $('.select-client-id').val(),
-                clientName = $('.select-client-id').next().find('.select2-selection__rendered').attr('title'),
-                _url = 'InvoicesView.aspx?id=' + clientID + '&name=' + (clientName ? clientName.split(' ').join('+') : '');
-            if (clientName && clientID) {
-                window.location.href = _url;
-            } else {
-                alert('Please select the customer first.');
-            }
+            openPage('InvoicesView');
+        });
+        $btnSatetment.click(function () {
+            openPage('Statement');
         });
     </script>
 </asp:Content>
