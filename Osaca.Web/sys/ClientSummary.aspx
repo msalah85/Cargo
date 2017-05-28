@@ -5,7 +5,7 @@
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/moment.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js?v=1.2"></script>    
+    <script src="/Scripts/sys/Common.min.js?v=1.2"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -62,7 +62,6 @@
                                             <td class="center">2</td>
                                             <td>Total Payments</td>
                                             <td><a href="#ClientPayments.aspx" class="payments" id="TotalPayments">0</a>
-                                                <a href="#Statement.aspx" class="clientStatements">Statement <i class="fa fa-external-link"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -73,6 +72,7 @@
                                 <div class="col-sm-6 pull-right">
                                     <h4 title="Balance = Total Payments - Total Invoices">Due amount : <span class="red" id="TotalBalances">0</span> <sub>AED</sub>
                                     </h4>
+                                    <a href="#Statement.aspx" class="clientStatements hidden-print">Statement <i class="fa fa-external-link"></i></a>
                                 </div>
                                 <div class="col-sm-6 pull-left"></div>
                             </div>

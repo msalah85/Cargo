@@ -21,6 +21,28 @@
             <h1>OSAKA CARGO: Customer Statement</h1>
         </div>
         <div class="space-6"></div>
+
+        <div class="row hidden-print">
+            <div class="col-sm-10 col-sm-offset-1">
+                <form role="form" class="form-horizontal">
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="From">Date from</label><div class="col-sm-9">
+                                <input type="text" id="From" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="To">Date to</label><div class="col-sm-9">
+                                <input type="text" id="To" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                                <button id="btnSearch" class="btn btn-info btn-sm" type="button"><i class="ace-icon fa fa-search bigger-110"></i>Search </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
         <div class="row" id="masterForm">
             <div class="col-sm-10 col-sm-offset-1">
                 <div class="widget-box transparent">
@@ -47,6 +69,8 @@
                                         <tr>
                                             <th class="center">#</th>
                                             <th>Date</th>
+                                            <th>Container No</th>
+                                            <th>Declaration No</th>
                                             <th>Debit <sub>AED</sub></th>
                                             <th>Credit <sub>AED</sub></th>
                                             <th>Balance <sub>AED</sub></th>
@@ -74,6 +98,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/client-statement.js?v=1.0"></script>
+    <script src="/Scripts/sys/client-statement.js?v=1.3"></script>
     <script>pageManager.Init();</script>
 </asp:Content>
