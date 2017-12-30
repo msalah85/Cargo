@@ -4,7 +4,7 @@
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.2"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="breadcrumbs ace-save-state hidden-print" id="breadcrumbs">
@@ -28,12 +28,12 @@
                     <div class="col-xs-6">
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="From">Date from</label><div class="col-sm-9">
-                                <input type="text" id="From" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                                <input type="text" id="From" class="required date-picker col-xs-8 col-sm-8" data-date-format="dd-mm-yyyy" />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label no-padding-right" for="To">Date to</label><div class="col-sm-9">
-                                <input type="text" id="To" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                                <input type="text" id="To" class="required date-picker col-xs-8 col-sm-8" data-date-format="dd-mm-yyyy" />
                                 <button id="btnSearch" class="btn btn-info btn-sm" type="button"><i class="ace-icon fa fa-search bigger-110"></i>Search </button>
                             </div>
                         </div>
@@ -98,6 +98,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/client-statement.js?v=1.3"></script>
+    <script src="/Scripts/sys/client-statement.js?v=1.25"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

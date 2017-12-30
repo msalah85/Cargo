@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Collections.Generic;
 
-namespace IraqCars.Business.DataUtility
+namespace ShareWeb.Business.DataUtility
 {
     public static class DataUtilities
     {

@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using IraqCars.Business.DataAccess;
+using ShareWeb.Business.DataAccess;
 
-namespace IraqCars.Business.Business
+namespace ShareWeb.Business.Business
 {
     [DataObject(true)]
     public class Select

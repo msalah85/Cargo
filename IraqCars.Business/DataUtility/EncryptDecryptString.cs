@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
 using System.IO;
 using System.Security.Cryptography;
 
-namespace IraqCars.Business.DataUtility
+namespace ShareWeb.Business.DataUtility
 {
     public static class EncryptDecryptString
     {

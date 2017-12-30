@@ -2,9 +2,9 @@
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" id="AddDate" required class="required today date-picker col-xs-10 col-sm-10" data-date-format="mm/dd/yyyy" />
+                            <input type="text" id="AddDate" required class="required today date-picker col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="DeclarationNo">Declaration no <span class="text-danger">*</span></label>
                         <div class="col-sm-9">
-                            <input type="text" id="DeclarationNo" required class="required col-xs-10 col-sm-10" data-date-format="mm/dd/yyyy" />
+                            <input type="text" id="DeclarationNo" required class="required col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
                         </div>
                     </div>
                 </div>
@@ -170,6 +170,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.min.js?v=2.2"></script>
+    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.25"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

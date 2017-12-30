@@ -490,5 +490,23 @@
     "inputFiles": [
       "Scripts/sys/DefaultGridManager.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/users-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/users-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/expenses-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/expenses-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/home-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/home-manager.js"
+    ]
   }
 ]

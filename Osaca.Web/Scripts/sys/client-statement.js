@@ -27,8 +27,8 @@ var
                     e.preventDefault();
 
 
-                    searchPrm.from = $('#From').val();
-                    searchPrm.to = $('#To').val();
+                    searchPrm.from = commonManger.dateFormat($('#From').val());
+                    searchPrm.to = commonManger.dateFormat($('#To').val());
 
 
                     getReport();
@@ -50,7 +50,7 @@ var
 
 
                         // header details
-                        $('#AddDate').text(commonManger.formatJSONDateCal(new Date(), 'MM/dd/yyyy'));
+                        $('#AddDate').text(commonManger.formatJSONDateCal(new Date(), 'dd-MM-yyyy'));
 
                         if (jsn) {
                             $('#ClientName').text(jsn.ClientName);
@@ -61,7 +61,7 @@ var
                         var
                             rows = $(jsn1).map(function (i, v) {
                                 latestBalance = v.Balance;
-                                return `<tr><td class="center">${v.Note === 'Invoice' ? '<a title="Go to invoice details" target="_blank" href="InvoicePrint.aspx?id=' + v.ID + '">' + v.ID + '</a>' : v.ID}</td><td>${commonManger.formatJSONDateCal(v.Date, 'dd/MM/yyyy')}</td><td>${v.ContainerNo}</td><td>${v.DeclarationNo}</td><td>${numeral(v.InAmount).format('0,0.00')}</td><td>${numeral(v.OutAmount).format('0,0.00')}</td><td>${numeral(v.Balance).format('0,0.00')}</td></tr>`;
+                                return `<tr><td class="center">${v.Note === 'Invoice' ? '<a title="Go to invoice details" target="_blank" href="InvoicePrint.aspx?id=' + v.ID + '">' + v.ID + '</a>' : v.ID}</td><td>${commonManger.formatJSONDateCal(v.Date, 'dd-MM-yyyy')}</td><td>${v.ContainerNo}</td><td>${v.DeclarationNo}</td><td>${numeral(v.InAmount).format('0,0.00')}</td><td>${numeral(v.OutAmount).format('0,0.00')}</td><td>${numeral(v.Balance).format('0,0.00')}</td></tr>`;
                             }).get().join(),
                             $stet = $('.listItems tbody');
 

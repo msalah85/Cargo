@@ -137,7 +137,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -147,27 +146,7 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script type="text/javascript">
-        var $btnDetails = $('.btn-client-details'),
-            $btnSatetment = $('.btn-client-statement'),
-            openPage = function (pageType) {
-                var clientID = $('.select-client-id').val(),
-                    clientName = $('.select-client-id').next().find('.select2-selection__rendered').attr('title'),
-                    _url = pageType + '.aspx?id=' + clientID + '&name=' + (clientName ? clientName.split(' ').join('+') : '');
-                if (clientName && clientID) {
-                    window.location.href = _url;
-                } else {
-                    alert('Please select the customer first.');
-                }
-            };
-        $btnDetails.click(function () {
-            openPage('InvoicesView');
-        });
-        $btnSatetment.click(function () {
-            openPage('Statement');
-        });
-    </script>
+    <script src="/Scripts/sys/home-manager.min.js"></script>
 </asp:Content>
-

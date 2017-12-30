@@ -1,15 +1,10 @@
-﻿using IraqCars.Business.Business;
-using Minutesuae.SystemUtilities;
+﻿using Minutesuae.SystemUtilities;
+using ShareWeb.Business.Business;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Services;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using WebMarkupMin.AspNet4.WebForms;
 
-public partial class sys_Default : MinifiedAndCompressedHtmlPage
+public partial class sys_Default : Page
 {
     void Page_Load(object sender, EventArgs e)
     {
@@ -63,7 +58,6 @@ public partial class sys_Default : MinifiedAndCompressedHtmlPage
         {
             try
             {
-
                 string body = "User Name:" + dt.Rows[0][0].ToString() + "Password:" + dt.Rows[0][1].ToString();
                 SendEmail snemail = new SendEmail();
                 snemail.SendAnEmail2("noreplay@admin.com", Email, "Login Information", body);
@@ -73,7 +67,6 @@ public partial class sys_Default : MinifiedAndCompressedHtmlPage
             catch //(Exception ex)
             {
                 Send_state = false;
-
             }
         }
 

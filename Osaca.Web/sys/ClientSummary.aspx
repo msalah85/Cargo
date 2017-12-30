@@ -6,7 +6,7 @@
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/moment.min.js"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.2"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="breadcrumbs ace-save-state hidden-print" id="breadcrumbs">

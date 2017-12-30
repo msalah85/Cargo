@@ -3,7 +3,6 @@
 // Email: eng.msalah.abdullah@gmail.com
 //=======================================
 var
-    pageManager = pageManager || {},
     pageManager = function () {
         "use strict";
         var
@@ -69,7 +68,7 @@ var
                     }).get(),
 
                         namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'Deleted', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo', 'Notes'],
-                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), $('#AddDate').val(), 0, numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val()],
+                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), 0, numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val()],
                         namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'];
 
                     SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -91,9 +90,9 @@ var
                     requiredFields = {
                         client: $('#ClientID').val(),
                         gridLength: $('#listItems tbody tr').length,
-                        date: $('#AddDate').val(),
-                        container: $('#AddDate').val(),
-                        declaration: $('#AddDate').val()
+                        date: commonManger.dateFormat($('#AddDate').val()),
+                        container: $('#ContainerNo').val(),
+                        declaration: $('#DeclarationNo').val()
                     };
 
                 if (requiredFields.client === '' || requiredFields.gridLength <= 0 || requiredFields.date === '' || requiredFields.container === '' || requiredFields.declaration === '')
@@ -162,7 +161,8 @@ var
                     acName = 'Invoices_Properties', // function name
                     DTO = _id ? { 'actionName': acName, value: _id } : { actionName: acName }; // set paramers for edit only.
 
-                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetData' + (_id ? '' : 'Direct'), bindFormControls, commonManger.errorException);
+                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetData' + (_id ? '' : 'Direct'),
+                    bindFormControls, commonManger.errorException);
             },
             BindGrid = function () {
                 var jsn = {

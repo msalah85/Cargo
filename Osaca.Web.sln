@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Osaca.Web", "http://localhost:54573", "{551AF319-25D9-4690-BFCF-93E29863152C}"
 	ProjectSection(WebsiteProperties) = preProject
@@ -25,7 +25,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Osaca.Web", "http://localho
 		SlnRelativePath = "Osaca.Web\"
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IraqCars.Business", "IraqCars.Business\IraqCars.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareWeb.Business", "IraqCars.Business\ShareWeb.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -44,5 +44,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2594EB1-C4AB-400B-A6A8-217EAAE0173A}
 	EndGlobalSection
 EndGlobal

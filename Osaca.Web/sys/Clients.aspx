@@ -1,9 +1,9 @@
 <%@ Page Title="Clients" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="Clients.aspx.cs" Inherits="sys_Clients" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
 
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>

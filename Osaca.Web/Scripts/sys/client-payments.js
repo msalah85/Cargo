@@ -10,11 +10,7 @@
     filterNames = '',
     filterValues = '',
     $clientID = $('.txtSearch'),
-
-
-
-
-    pageManager = pageManager || {},
+        
     pageManager = function () {
         var
             init = function () {
@@ -88,7 +84,8 @@
             },
             setDataToSearch = function () {
                 var dto = { actionName: "ClientPayments_Properties" };
-                dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataDirect', BindListSearch, commonManger.errorException);
+                dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataDirect',
+                    BindListSearch, commonManger.errorException);
             },
             initProperties = function () {
 
@@ -106,7 +103,6 @@
                         data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
                     });
                 }
-
 
 
                 ////////////////////////// //////////////////////////

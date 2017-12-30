@@ -4,15 +4,14 @@
 //=======================================
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
-using IraqCars.Business.Business;
 using System.Web.Script.Services;
-using IraqCars.Business.DataUtility;
 using System.IO;
 using System.Collections;
+using ShareWeb.Business.DataUtility;
+using ShareWeb.Business.Business;
 
 public partial class api_data : System.Web.UI.Page
 {
@@ -26,7 +25,8 @@ public partial class api_data : System.Web.UI.Page
 
         // get all of data.
         var _ds = new Select().SelectPagedLists(actionName, _params);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     [WebMethod]
@@ -72,7 +72,8 @@ public partial class api_data : System.Web.UI.Page
 
         // get all of data.
         var _ds = new Select().SelectLists(actionName, _params);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     [WebMethod]
@@ -81,7 +82,8 @@ public partial class api_data : System.Web.UI.Page
     {
         // get all of data.
         var _ds = new Select().SelectLists(actionName);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     [WebMethod]
@@ -90,7 +92,8 @@ public partial class api_data : System.Web.UI.Page
     {
         // get all of data.
         var _ds = new Select().SelectLists(actionName, names, values);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     [WebMethod]
@@ -162,7 +165,8 @@ public partial class api_data : System.Web.UI.Page
         string[,] _params = { { "ClientID", SessionManager.Current.ID } };
         // get all of data.
         var _ds = new Select().SelectLists("Clients_SelectRow", _params);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     #endregion
@@ -226,9 +230,9 @@ public partial class api_data : System.Web.UI.Page
             var _body = new api_data().CreateEmailStr(name, pass, full);
             var checkSent = mail.SendNow("eng.msalah.abdullah@gmail.com", email, Resources.Resource_ar.PasswordForget, _body);
             result = new
-             {
-                 Status = checkSent,
-             };
+            {
+                Status = checkSent,
+            };
         }
 
         return result;
@@ -259,9 +263,9 @@ public partial class api_data : System.Web.UI.Page
         var checkSent = mail.SendNow("eng.msalah.abdullah@gmail.com", email, Resources.Resource_ar.FriendMail, _body);
 
         var result = new
-         {
-             Status = checkSent,
-         };
+        {
+            Status = checkSent,
+        };
         return result;
     }
 
@@ -290,7 +294,8 @@ public partial class api_data : System.Web.UI.Page
 
         // get all of data.
         var _ds = new Select().SelectPagedList(actionName, _params);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     #endregion
@@ -316,10 +321,10 @@ public partial class api_data : System.Web.UI.Page
         string to = String.IsNullOrEmpty(Context.Request["To"]) ? null : Convert.ToDateTime(Context.Request["To"]).ToShortDateString();
 
         // create filter paramters
-        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()}, 
+        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()},
                                 {"DisplayLength", param.iDisplayLength.ToString()},
-                                {"SearchParam", param.sSearch}, 
-                                {"SortColumn", sortColumnIndex.ToString()}, 
+                                {"SearchParam", param.sSearch},
+                                {"SortColumn", sortColumnIndex.ToString()},
                                 {"SortDirection", sortDirection},
                                 {"ClientID", SessionManager.Current.ID},
                                 {"CustomID", customCo}, {"From", from}, {"To", to}};
@@ -357,9 +362,9 @@ public partial class api_data : System.Web.UI.Page
         param.sSearch = String.IsNullOrEmpty(Context.Request["sSearch"]) ? "" : Context.Request["sSearch"];
 
         // create filter paramters
-        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()}, 
+        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()},
                              {"DisplayLength", param.iDisplayLength.ToString()},
-                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()}, 
+                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()},
                              {"SortDirection", sortDirection}, {"ClientID", SessionManager.Current.ID},
                              {"IsDone", finished}};
 
@@ -396,9 +401,9 @@ public partial class api_data : System.Web.UI.Page
         param.sSearch = String.IsNullOrEmpty(Context.Request["sSearch"]) ? "" : Context.Request["sSearch"];
 
         // create filter paramters
-        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()}, 
+        string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()},
                              {"DisplayLength", param.iDisplayLength.ToString()},
-                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()}, 
+                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()},
                              {"SortDirection", sortDirection}, {"ClientID", SessionManager.Current.ID}};
 
         // get all of data.
@@ -446,7 +451,8 @@ public partial class api_data : System.Web.UI.Page
     {
         // get all of data.
         var _ds = new Select().SelectPagedList("SiteSearchCars", param, values);
-        return _ds.GetXml();
+        string compressedXML = TrimmerUtil.RemoveSpaces(_ds.GetXml());
+        return compressedXML;
     }
 
     #endregion
@@ -492,21 +498,17 @@ public partial class api_data : System.Web.UI.Page
                names = Context.Request["names"],
                values = Context.Request["values"];
 
-
         // grid static parameters
         string[] defaultNames = { "pageNum", "pageSize", "key" },
                  defaultValues = { pageNum, pageSize, searchTerm },
-
 
         // get dynamic more parameters from user
         addtionNames = string.IsNullOrEmpty(names) ? new string[0] : names.Split('~'),
         addtionValues = string.IsNullOrEmpty(values) ? new string[0] : values.Split('~'),
 
-
         // merge all parameters (union)
         namesAll = defaultNames.Concat(addtionNames).ToArray(),
         valuesAll = defaultValues.Concat(addtionValues).ToArray();
-
 
         var _ds = new Select().SelectLists(fnName, namesAll, valuesAll);
         return LZStringUpdated.compressToUTF16(_ds.GetXml());

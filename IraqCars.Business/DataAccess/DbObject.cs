@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace IraqCars.Business.DataAccess
+namespace ShareWeb.Business.DataAccess
 {
     /// <summary>
     /// DbObject is the class from which all classes in the Data Services

@@ -3,9 +3,9 @@
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="breadcrumbs ace-save-state hidden-print" id="breadcrumbs">

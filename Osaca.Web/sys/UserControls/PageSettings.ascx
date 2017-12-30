@@ -20,8 +20,6 @@
                 <span>&nbsp; Choose Skin</span>
             </div>
 
-            <!-- /section:settings.skins -->
-
             <!-- #section:settings.navbar -->
             <div class="ace-settings-item">
                 <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-navbar" autocomplete="off" />
@@ -43,23 +41,13 @@
                 <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-breadcrumbs" autocomplete="off" />
                 <label class="lbl" for="ace-settings-breadcrumbs">Fixed Breadcrumbs</label>
             </div>
-
-            <!-- /section:settings.breadcrumbs -->
-
-            <!-- #section:settings.rtl -->
-            <div class="ace-settings-item">
-                <input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl" autocomplete="off" />
-                <label class="lbl" for="ace-settings-rtl">Right To Left (rtl)</label>
-            </div>
-
             <!-- /section:settings.rtl -->
 
             <!-- #section:settings.container -->
             <div class="ace-settings-item">
                 <input type="checkbox" class="ace ace-checkbox-2 ace-save-state" id="ace-settings-add-container" autocomplete="off" />
                 <label class="lbl" for="ace-settings-add-container">
-                    Inside
-											<b>.container</b>
+                    Small<b>screen</b>
                 </label>
             </div>
 

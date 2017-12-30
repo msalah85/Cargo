@@ -51,7 +51,7 @@ var
 
                         //// date format
                         $('#AddDate').text(function () {
-                            return commonManger.formatJSONDateCal(new Date(), 'dd/MM/yyyy');
+                            return commonManger.formatJSONDateCal(new Date(), 'dd-MM-yyyy');
                         });
                     }
                 };

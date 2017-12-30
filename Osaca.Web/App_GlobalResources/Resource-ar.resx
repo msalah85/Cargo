@@ -207,4 +207,7 @@
   <data name="UserNotExist" xml:space="preserve">
     <value>البريد الإلكترونى الذى تم إدخاله غير موجود فى النظام ، يرجى المحاولة مرة أخرة باستخدام البريد الصحيح أو اتصل بالإدارة.</value>
   </data>
+  <data name="Version" xml:space="preserve">
+    <value>1.2365</value>
+  </data>
 </root>

@@ -9,11 +9,12 @@
     <title><%: Page.Title %> - Basher</title>
     <meta name="description" content="Basher Systems - eng.msalah.abdullah@gmail.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-    <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.min.css?v=1" />
     <link rel="stylesheet" href="/Content/sys/assets/css/jquery.gritter.min.css" />
-    <link rel="stylesheet" href="/Content/sys/assets/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/ace-fonts.min.css" />
-    <link rel="stylesheet" href="/Content/sys/assets/css/ace.min.css?v=1.1" />
+    <link rel="stylesheet" href="/Content/sys/assets/css/ace.min.css?v=1" />
+    <link rel="stylesheet" href="/Content/sys/assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap-datepicker3.min.css" />
     <!--[if lte IE 9]>
             <link rel="stylesheet" href="/Content/sys/assets/css/ace-part2.css" class="ace-main-stylesheet" />
@@ -47,7 +48,7 @@
     <script src="/Content/sys/assets/js/chosen.jquery.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
-<body class="no-skin">
+<body class="skin-2">
     <div id="navbar" class="navbar navbar-default ace-save-state">
         <div class="navbar-container ace-save-state" id="navbar-container">
             <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">

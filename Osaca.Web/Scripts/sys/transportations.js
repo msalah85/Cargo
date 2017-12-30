@@ -98,7 +98,7 @@ gridColumns.push(
     });
 
 $.extend(true, $.fn.dataTable.defaults, {
-    "footerCallback": function (tfoot, data, start, end, display) {        
+    "footerCallback": function (tfoot, data, start, end, display) {
         var api = this.api();
         $('.tranCharge').html(
             api.column(5).data().reduce(function (a, b) {
@@ -114,7 +114,7 @@ $.extend(true, $.fn.dataTable.defaults, {
 
         $('.totalCharge').html(
             api.column(7).data().reduce(function (a, b) {
-                return (a *1) + (b * 1);
+                return (a * 1) + (b * 1);
             }, 0)
         );
     }
@@ -169,8 +169,8 @@ $('#btnSearch').click(function (e) {
     var searchObj = {
         client: $('#Client').val(),
         user: $('#User').val(),
-        from: $('#DateFrom').val(),
-        to: $('#DateTo').val(),
+        from: commonManger.dateFormat($('#DateFrom').val()),
+        to: commonManger.dateFormat($('#DateTo').val()),
     };
     filterNames = 'Client~User~From~To';
     filterValues = $.map(searchObj, function (el) { return el }).join('~');

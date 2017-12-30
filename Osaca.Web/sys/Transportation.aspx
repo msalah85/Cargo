@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Scripts/select2/select2.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.css" rel="stylesheet" />
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
     <style>
@@ -58,13 +58,13 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date from</label>
                         <div class="col-sm-9">
-                            <input type="text" id="DateFrom" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                            <input type="text" id="DateFrom" class="required date-picker col-xs-8 col-sm-8" data-date-format="dd-mm-yyyy" />
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="DeclarationNo">Date to</label>
                         <div class="col-sm-9">
-                            <input type="text" id="DateTo" class="required date-picker col-xs-8 col-sm-8" data-date-format="mm/dd/yyyy" />
+                            <input type="text" id="DateTo" class="required date-picker col-xs-8 col-sm-8" data-date-format="dd-mm-yyyy" />
                             <button id="btnSearch" class="btn btn-info btn-sm" type="button">
                                 <i class="ace-icon fa fa-search bigger-110"></i>
                                 Search
@@ -162,7 +162,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right" for="TransportDate">Transport date <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10 date-picker" required id="TransportDate" name="TransportDate" placeholder="mm/dd/yyyy" />
+                                                    <input type="text" class="col-sm-10 date-picker" data-date-format="dd-mm-yyyy" required id="TransportDate" name="TransportDate" placeholder="dd-mm-yyyy" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -243,5 +243,5 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/sys/transportations.js?v=1"></script>
+    <script src="/Scripts/sys/transportations.js?v=1.25"></script>
 </asp:Content>

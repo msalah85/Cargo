@@ -1,9 +1,9 @@
 <%@ Page Title="Invoices List" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicesView.aspx.cs" Inherits="sys_InvoicesView" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -126,11 +126,11 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.3"></script>
+    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.25"></script>
     <link href="/Scripts/select2/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.min.css" rel="stylesheet" />
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/invoices-list.min.js?v=1.3"></script>
+    <script src="/Scripts/sys/invoices-list.min.js?v=1.25"></script>
 </asp:Content>

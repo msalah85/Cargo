@@ -326,8 +326,13 @@ var commonManger = function () {
                             var Ctype = $(this).prop('type');
                             if (Ctype != "undefined" || Ctype != '') {
                                 if (Ctype == "text" || Ctype == "hidden" || Ctype == "number" || Ctype == "email" || Ctype == "date" || Ctype == "tel") {
-                                    values.push($(this).val());
-                                    valuesids.push($(this).attr('id'));
+                                    if ($(this).hasClass('date-picker')) { // date format
+                                        values.push(changeDateFormat($(this).val()));
+                                        valuesids.push($(this).attr('id'));
+                                    } else {
+                                        values.push($(this).val());
+                                        valuesids.push($(this).attr('id'));
+                                    }
                                 }
                                 else if (Ctype == "hidden") {
                                     if ($(this).val() == "") {
@@ -464,14 +469,25 @@ var commonManger = function () {
             if (jsonDate == null)
                 return '';
             var newDate = new Date(parseInt(jsonDate.substr(6))); //dateFormat(jsonDate, "mm/dd/yyyy");
-            var dat = newDate.getMonth() + 1 + "/" + newDate.getDate() + "/" + newDate.getFullYear();
+            var dat = newDate.getDate() + "-" + newDate.getMonth() + 1 + "-" + newDate.getFullYear();
             return dat;
         },
         formatJSONDateCal = function (jsonDate) {
             if (jsonDate === null)
                 return '';
-            var newDate = moment(jsonDate).format("MM/DD/YYYY");
+            var newDate = moment(jsonDate).format("DD-MM-YYYY");
             return newDate;
+        },
+        changeDateFormat = function (date, currentFormat, endFormat) {
+            if (!date || date == '')
+                return '';
+
+            // default formats
+            currentFormat = currentFormat ? currentFormat : 'D-M-YYYY'; // UAE format
+            endFormat = endFormat ? endFormat : 'MM-DD-YYYY'; // US format
+
+            var _date = moment(date, currentFormat);
+            return _date.format(endFormat);
         },
         formatCurrency = function (n, sep, decimals) {
             sep = sep || "."; // Default to period as decimal separator
@@ -563,6 +579,7 @@ var commonManger = function () {
         setData2Grid: prepareData2Grid,
         comp2json: comp2Json,
         xml2Json: xml2Json,
-        printPage: printPage
+        printPage: printPage,
+        dateFormat: changeDateFormat,
     };
 }();

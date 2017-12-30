@@ -52,7 +52,7 @@ var
                     });
                     // date format
                     $('#AddDate').text(function () {
-                        return commonManger.formatJSONDateCal($(this).text(), 'dd/MM/yyyy');
+                        return commonManger.formatJSONDateCal($(this).text(), 'dd-MM-yyyy');
                     });
                 }
 

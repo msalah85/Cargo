@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <style>
         body .page-content::before {
             content: url(/Content/sys/assets/images/CargoLogo.png);
@@ -167,6 +167,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.2"></script>
+    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.25"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

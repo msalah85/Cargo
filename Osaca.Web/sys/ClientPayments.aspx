@@ -4,7 +4,7 @@
     <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/moment.min.js"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.1"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -113,7 +113,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10 date-picker" data-date-format="mm/dd/yyyy" required id="AddDate" name="AddDate" placeholder="mm/dd/yyyy" />
+                                                    <input type="text" class="col-sm-10 date-picker" data-date-format="dd-mm-yyyy" required id="AddDate" name="AddDate" placeholder="dd-mm-yyyy" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
@@ -191,13 +191,13 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.3"></script>
+    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.25"></script>
     <link href="/Scripts/select2/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.min.css" rel="stylesheet" />
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/client-payments.min.js?v=1.2"></script>
+    <script src="/Scripts/sys/client-payments.min.js?v=1.25"></script>
     <style>
         #aspnetForm .select2, #aspnetForm .select2-container {
             width: 83% !important;

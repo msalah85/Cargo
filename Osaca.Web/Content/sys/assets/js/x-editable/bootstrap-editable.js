@@ -4949,7 +4949,7 @@ and set `language` option.
 $(function(){
     $('#last_seen').editable({
         format: 'yyyy-mm-dd hh:ii',    
-        viewformat: 'dd/mm/yyyy hh:ii',    
+        viewformat: 'dd-MM-yyyy hh:ii',    
         datetimepicker: {
                 weekStart: 1
            }
