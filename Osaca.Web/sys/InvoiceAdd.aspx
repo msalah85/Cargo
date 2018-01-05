@@ -22,49 +22,45 @@
         <div class="page-header">
             <h1>Add Invoice</h1>
         </div>
-        <div class="row">
-            <form class="form-horizontal" role="form" id="masterForm">
-                <div class="col-xs-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="ClientID">Customer <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <input type="hidden" id="InvoiceID" value="0" />
-                            <select id="ClientID" class="required col-xs-10 col-sm-10" required data-placeholder="Choose a customer...">
-                                <option></option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" id="AddDate" required class="required today date-picker col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
-                        </div>
+        <form class="form-horizontal" role="form" id="masterForm">
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="ClientID">Customer <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="hidden" id="InvoiceID" value="0" />
+                        <select id="ClientID" class="form-control required col-xs-10 col-sm-10" required data-placeholder="Choose a customer...">
+                            <option></option>
+                        </select>
                     </div>
                 </div>
-                <div class="col-xs-6">
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Container no <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" id="ContainerNo" required class="required col-xs-10 col-sm-10" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="DeclarationNo">Declaration no <span class="text-danger">*</span></label>
-                        <div class="col-sm-9">
-                            <input type="text" id="DeclarationNo" required class="required col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
-                        </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="text" id="AddDate" required class="form-control required today date-picker col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
                     </div>
                 </div>
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label no-padding-right" for="Notes">Notes</label>
-                        <div class="col-sm-10">
-                            <textarea cols="12" rows="3" id="Notes" style="width:92%" placeholder="Remarks..."></textarea>
-                        </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Container no <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="text" id="ContainerNo" required class="form-control required col-xs-10 col-sm-10" />
                     </div>
                 </div>
-            </form>
-        </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="DeclarationNo">Declaration no <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="text" id="DeclarationNo" required class="form-control required col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-11 col-xs-offset-1">
+                    Notes
+                        <textarea cols="12" rows="3" id="Notes" class="form-control" placeholder="Remarks..."></textarea>
+                </div>
+            </div>
+        </form>
         <div class="row">
             <div class="hr hr-24 sp-hr"></div>
         </div>

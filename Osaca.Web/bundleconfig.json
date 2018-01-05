@@ -508,5 +508,23 @@
     "inputFiles": [
       "Scripts/sys/home-manager.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/expensetypes-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/expensetypes-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoings.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoing/OutgoingsAdd.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoing/OutgoingsAdd.js"
+    ]
   }
 ]

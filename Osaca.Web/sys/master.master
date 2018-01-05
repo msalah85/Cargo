@@ -9,6 +9,7 @@
     <title><%: Page.Title %> - Basher</title>
     <meta name="description" content="Basher Systems - eng.msalah.abdullah@gmail.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <base href="/sys/" />
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.min.css?v=1" />
     <link rel="stylesheet" href="/Content/sys/assets/css/jquery.gritter.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
@@ -146,25 +147,37 @@
                 <li>
                     <a href="Expenses.aspx">
                         <i class="menu-icon fa fa-credit-card"></i>
-                        <span class="menu-text">Expenses </span>
+                        <span class="menu-text">Expenses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Outgoing/ExpenseTypes.aspx">
+                        <i class="menu-icon fa fa-credit-card"></i>
+                        <span class="menu-text">Out Types</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="Outgoing/Outgoings.aspx">
+                        <i class="menu-icon fa fa-credit-card"></i>
+                        <span class="menu-text">Outgoings</span>
                     </a>
                 </li>
                 <li>
                     <a href="Balances.aspx">
                         <i class="menu-icon fa fa-th"></i>
-                        <span class="menu-text">Balances </span>
+                        <span class="menu-text">Balances</span>
                     </a>
                 </li>
                 <li>
                     <a href="Users.aspx">
                         <i class="menu-icon fa fa-user"></i>
-                        <span class="menu-text">Users </span>
+                        <span class="menu-text">Users</span>
                     </a>
                 </li>
                 <li>
                     <a href="Banks.aspx">
                         <i class="menu-icon fa fa-pencil"></i>
-                        <span class="menu-text">Banks </span>
+                        <span class="menu-text">Banks</span>
                     </a>
                 </li>
             </ul>
