@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="Add/Edit Outgoing" Language="C#" MasterPageFile="~/sys/master.master" AutoEventWireup="true" CodeFile="OutgoingsAddEdit.aspx.cs" Inherits="sys_Outgoing_OutgoingsAddEdit" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">    
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Scripts/select2/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.min.css" rel="stylesheet" />
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
@@ -27,16 +27,16 @@
         <form class="form-horizontal" role="form" id="masterForm">
             <div class="col-xs-12 col-md-6">
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="ClientID">Amount <span class="text-danger">*</span></label>
+                    <label class="col-sm-3 control-label no-padding-right" for="Amount">Amount <span class="text-danger">*</span></label>
                     <div class="col-sm-9 col-xs-12">
                         <input type="hidden" id="OutgoingID" value="0" />
-                        <input type="text" name="Amount" id="Amount" placeholder="00.00" class="form-control required col-xs-12 col-md-10" />
+                        <input type="number" name="Amount" id="Amount" placeholder="00.00" class="form-control required col-xs-12 col-md-10 money" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="ClientID">Outgoing Type <span class="text-danger">*</span></label>
                     <div class="col-sm-9 col-xs-12">
-                        <select id="ExpenseTypeID" name="ExpenseTypeID" class="form-control required col-xs-12 col-sm-10 select2" 
+                        <select id="ExpenseTypeID" name="ExpenseTypeID" class="form-control required col-xs-12 col-sm-10 select2"
                             required data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
                             <option></option>
                         </select>
@@ -63,11 +63,11 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            <div class="row hidden">
                 <div class="col-md-11 col-lg-offset-1">
                     <div class="">
                         Choose receipt image:
-                            <input multiple="" type="file" id="id-input-file-3" accept="image/*" capture class="form-control" />
+                            <input multiple="" type="file" accept="image/*" capture class="form-control" />
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js"></script>
+    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.js"></script>
     <script>pageManager.Init();</script>
 </asp:Content>
 

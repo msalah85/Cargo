@@ -318,6 +318,7 @@ var commonManger = function () {
         },
         Returncontrolsval = function (controlid) {
             var values = [], valuesids = [], valuecollection = [], ElementId = "";
+            console.log(controlid);
             $("#" + controlid).find('input,select,textarea')
                 .each(function () {
                     if ($(this).attr('id')) {
@@ -380,11 +381,10 @@ var commonManger = function () {
                 return;
             }
             var ParamValues = [], ParamNames = [], arrayall = Returncontrolsval(formName), actionName = tableName + "_Save";
-
             ParamNames = arrayall[0]; ParamValues = arrayall[1];
 
             var DTO = { 'actionName': actionName, 'names': ParamNames, 'values': ParamValues };
-
+            console.log(DTO);
             modalDialog = $('#' + modalDialog);
 
             // if validation complete 

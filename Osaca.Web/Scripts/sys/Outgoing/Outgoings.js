@@ -48,8 +48,8 @@ gridColumns.push(
         "mDataProp": null,
         "bSortable": false,
         sClass: 'hidden-print',
-        "mData": function () {
-            return '<button class="btn btn-primary btn-mini edit" title="Edit"><i class="fa fa-pencil"></i></button> ' +
+        "mData": function (d) {
+            return '<a href="outgoing/outgoingsaddedit.aspx?id=' + d.OutgoingID + '" class="btn btn-primary btn-mini" title="Edit"><i class="fa fa-pencil"></i></a> ' +
                 '<button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>';
         }
     });
@@ -57,7 +57,7 @@ gridColumns.push(
 $.extend(true, $.fn.dataTable.defaults, {
     "footerCallback": function (tfoot, data, start, end, display) {
         var api = this.api();
-       
+
         $('.totalCharge').text(
             api.column(5).data().reduce(function (a, b) {
                 return (a * 1) + (b * 1);
@@ -67,8 +67,6 @@ $.extend(true, $.fn.dataTable.defaults, {
 });
 
 DefaultGridManager.Init();
-
-
 
 //validation
 $('#aspnetForm').validate({

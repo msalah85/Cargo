@@ -4,7 +4,6 @@
 //=======================================
 
 var
-    pageManager = pageManager || {},
     pageManager = function () {
         "use strict";
         var Init = function () {
