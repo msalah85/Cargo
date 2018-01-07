@@ -28,20 +28,21 @@ gridColumns.push(
         "bSortable": true
     },
     {
-        "mDataProp": "RefID",
+        "mData": function (d) { return d.RefID ? d.RefID : '' },
         "bSortable": true
     },
     {
-        "mDataProp": "Notes",
+        "mData": function (d) { return d.Notes ? d.Notes : '' },
         "bSortable": false,
-        "sClass": "hidden-480"
+        "sClass": "hidden-480",
+
     },
     {
         "mDataProp": "Amount",
         "bSortable": false,
         "sClass": "hidden-480",
         "mData": function (row) {
-            return numeral((row.TransportCharge * 1) + (row.CarageCharge * 1)).format('0,0.00');
+            return numeral(row.Amount * 1).format('0,0.00');
         }
     },
     {
@@ -58,66 +59,30 @@ $.extend(true, $.fn.dataTable.defaults, {
     "footerCallback": function (tfoot, data, start, end, display) {
         var api = this.api();
 
-        $('.totalCharge').text(
-            api.column(5).data().reduce(function (a, b) {
-                return (a * 1) + (b * 1);
-            }, 0)
-        );
+        var _total = api.column(5).data().reduce(function (a, b) {
+            return a + (numeral().unformat(b) * 1);
+        }, 0);
+
+        $('.totalCharge').text(numeral(_total).format('0,0.00'));
     }
 });
 
 DefaultGridManager.Init();
 
-//validation
-$('#aspnetForm').validate({
-    errorElement: 'div',
-    errorClass: 'help-block',
-    focusInvalid: false,
-    ignore: "",
-    highlight: function (e) {
-        $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
-    },
-    success: function (e) {
-        $(e).closest('.form-group').removeClass('has-error');//.addClass('has-info');
-        $(e).remove();
-    },
-    errorPlacement: function (error, element) {
-        if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-            var controls = element.closest('div[class*="col-"]');
-            if (controls.find(':checkbox,:radio').length > 1) controls.append(error);
-            else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
-        }
-        else if (element.is('.select2')) {
-            error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
-        }
-        else if (element.is('.chosen-select')) {
-            error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
-        }
-        else error.insertAfter(element.parent());
-    },
-
-    submitHandler: function (form) {
-    },
-    invalidHandler: function (form) {
-    }
-});
-
-$('#btnSave').click(function (e) {
-    e.preventDefault();
-    $('#aspnetForm').submit();
-});
-
 // serach
 $('#btnSearch').click(function (e) {
     e.preventDefault();
+
+    // set filter paramters
     var searchObj = {
-        client: $('#Client').val(),
-        user: $('#User').val(),
+        user: $('#ExpenseTypeID').val(),
         from: commonManger.dateFormat($('#DateFrom').val()),
         to: commonManger.dateFormat($('#DateTo').val()),
     };
-    filterNames = 'Client~User~From~To';
+
+    filterNames = 'ExpenseTypeID~From~To';
     filterValues = $.map(searchObj, function (el) { return el }).join('~');
+
     // update result
     DefaultGridManager.updateGrid();
 });

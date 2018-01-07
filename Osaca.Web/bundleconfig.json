@@ -526,5 +526,17 @@
     "inputFiles": [
       "Scripts/sys/Outgoing/OutgoingsAdd.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoing/Outgoings.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoing/Outgoings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/balances.min.js",
+    "inputFiles": [
+      "Scripts/sys/balances.js"
+    ]
   }
 ]

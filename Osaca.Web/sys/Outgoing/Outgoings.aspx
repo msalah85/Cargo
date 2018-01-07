@@ -1,14 +1,14 @@
-﻿<%@ Page Title="Outgoing" Language="C#" MasterPageFile="../master.master" AutoEventWireup="true" EnableTheming="false"
-    EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
+﻿<%@ Page Title="Outgoings" Language="C#" MasterPageFile="../master.master" AutoEventWireup="true" EnableTheming="false"
+    EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly"%>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <link href="/Scripts/select2/select2.css" rel="stylesheet" />
-    <link href="/Scripts/select2/select2-optional.css" rel="stylesheet" />
+    <link href="/Scripts/select2/select2.css?v=1.25" rel="stylesheet" />
+    <link href="/Scripts/select2/select2-optional.css?v=1.25" rel="stylesheet" />
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
-    <script src="/content/sys/assets/js/jquery.validate.js"></script>
-    <script src="/content/sys/assets/js/additional-methods.min.js"></script>
+    <script src="/content/sys/assets/js/jquery.validate.js?v=1.25"></script>
+    <script src="/content/sys/assets/js/additional-methods.min.js?v=1.25"></script>
     <style>
         #masterForm .form-group {
             margin-bottom: 5px;
@@ -26,12 +26,12 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">Outgoing</li>
+            <li class="active">Outgoings</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Outgoing Manager</h1>
+            <h1>Outgoings Manager</h1>
         </div>
         <!-- search box -->
         <div class="row">
@@ -41,7 +41,7 @@
                         <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Type</label>
                         <div class="col-sm-9">
                             <select id="ExpenseTypeID" name="ExpenseTypeID" class="form-control required col-xs-12 col-sm-10 select2"
-                                required data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
+                                data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
                                 <option></option>
                             </select>
                         </div>
@@ -49,15 +49,10 @@
                 </div>
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date from-to</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="DateFrom">Date from-to</label>
                         <div class="col-sm-9">
                             <input type="text" id="DateFrom" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
                             <input type="text" id="DateTo" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3"></label>
-                        <div class="col-sm-9">
                             <button id="btnSearch" class="btn btn-info btn-sm" type="button">
                                 <i class="ace-icon fa fa-search bigger-110"></i>
                                 Search
@@ -150,15 +145,11 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
-    <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/lz-string/lz-string.min.js"></script>
+    <script src="/Scripts/sys/jquery.xml2json.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/numeral.min.js?v=1.25"></script>
+    <script src="/Scripts/lz-string/lz-string.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
-
-    <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.25"></script>
-
-
-    <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js"></script>
+    <script src="/Scripts/sys/Outgoing/Outgoings.min.js?v=1.25"></script>
+    <script src="/Scripts/select2/select2.min.js?v=1.25"></script>
+    <script src="/Scripts/select2/select2-optinal.min.js?v=1.25"></script>
 </asp:Content>
