@@ -23,16 +23,16 @@
             <h1>Documents List</h1>
         </div>
 
-        <form class="form-horizontal" role="form" id="masterForm">
+        <form class="form-horizontal" role="form" id="searchForm">
             <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search By Customer</label>
                     <div class="col-sm-9">
-                        <select class="select2 form-control txtSearch inline" name="clientid" data-fn-name="Clients_GetNames" data-placeholder="Choose a customer" data-allow-clear="true"></select>
+                        <select class="select2 form-control txtSearch inline" id="ClientID" data-fn-name="Clients_GetNames" data-placeholder="Choose a customer" data-allow-clear="true"></select>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="AddDate">Document status</label>
+                    <label class="col-sm-3 control-label no-padding-right" for="SubmissionStatus">Document status</label>
                     <div class="col-sm-9">
                         <select id="SubmissionStatus" class="inline form-control">
                             <option value="0">Documents submission pending</option>
@@ -52,7 +52,9 @@
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="DateTo"></label>
                     <div class="col-sm-9">
-                        <button type="submit" class="btn btn-sm btn-info2 btnSearch">Search</button>
+                        <button type="submit" class="btn btn-info btn-sm btnSearch">
+                            <i class="ace-icon fa fa-search bigger-110"></i>
+                            Search</button>
                     </div>
                 </div>
             </div>
@@ -101,14 +103,14 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         <span class="white">&times;</span>
                                     </button>
-                                    Delete item
+                                    Verifying Document Submission
                                 </div>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-12">
                                         <form action="#" class="form-horizontal" id="removeForm">
-                                            <label id="Label2">Are you sure to delete the selected item (<label class="removeField"></label>)?</label>
+                                            <label id="Label2">Are you sure to submitted the selected document (<label class="removeField"></label>)?</label>
                                         </form>
                                     </div>
                                 </div>
@@ -116,7 +118,7 @@
                             <div class="modal-footer no-margin-top">
                                 <button class="btn btn-sm btn-primary btn-delete" id="btnDelete">
                                     <i class="ace-icon fa fa-check"></i>
-                                    Delete
+                                    Verify
                                 </button>
                                 <button class="btn btn-sm btn-danger" data-dismiss="modal">
                                     <i class="ace-icon fa fa-times"></i>

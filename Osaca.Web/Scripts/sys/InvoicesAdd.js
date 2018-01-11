@@ -68,7 +68,7 @@ var
                     }).get(),
 
                         namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo', 'Notes', 'BillOfEntryDate'],
-                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val(), $('#BillOfEntryDate').val()],
+                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val())],
                         namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'];
 
                     SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);

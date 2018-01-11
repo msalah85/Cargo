@@ -472,7 +472,7 @@ var commonManger = function () {
             var dat = newDate.getDate() + "-" + newDate.getMonth() + 1 + "-" + newDate.getFullYear();
             return dat;
         },
-        formatJSONDateCal = function (jsonDate) {
+        formatJSONDateCal = function (jsonDate) {            
             if (jsonDate === null)
                 return '';
             var newDate = moment(jsonDate).format("DD-MM-YYYY");

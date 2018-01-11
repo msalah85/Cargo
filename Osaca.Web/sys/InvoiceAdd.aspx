@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add/Edit Invoice" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoiceAdd.aspx.cs" Inherits="sys_InvoiceAdd" %>
+﻿<%@ Page Title="Add/Edit Invoice" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoiceAdd.aspx.cs" Inherits="sys_InvoiceAdd" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

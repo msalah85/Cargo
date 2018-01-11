@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="sys_Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="sys_Default"
+    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <!DOCTYPE html>
 
@@ -7,29 +8,19 @@
     <title>Login - Basher Systems</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-
     <meta name="description" content="OSAKA Employee login" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
-
-
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/font-awesome.css" />
-
-
     <link rel="stylesheet" href="/Content/sys/assets/css/ace-fonts.css" />
-
-    <!-- ace styles -->
     <link rel="stylesheet" href="/Content/sys/assets/css/ace.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/jquery.gritter.css" />
-
     <!--[if lte IE 9]>
 			<link rel="stylesheet" href="/Content/sys/assets/css/ace-part2.css" />
 		<![endif]-->
-
     <!--[if lte IE 9]>
 		  <link rel="stylesheet" href="/Content/sys/assets/css/ace-ie.css" />
 		<![endif]-->
-
     <!--[if lt IE 9]>
 		<script src="/Content/sys/assets/js/html5shiv.js"></script>
 		<script src="/Content/sys/assets/js/respond.js"></script>
@@ -91,12 +82,6 @@
                                     </div>
                                     <!-- /.widget-main -->
                                     <div class="toolbar clearfix">
-                                        <div>
-                                            <%--<a href="#" data-target="#forgot-box" class="forgot-password-link">
-                                                <i class="ace-icon fa fa-arrow-left"></i>
-                                                I forgot my password
-                                            </a>--%>
-                                        </div>
                                     </div>
                                 </div>
                                 <!-- /.widget-body -->
@@ -110,12 +95,10 @@
                                             <i class="ace-icon fa fa-key"></i>
                                             Retrieve Password
                                         </h4>
-
                                         <div class="space-6"></div>
                                         <p>
                                             Enter your email and to receive instructions
                                         </p>
-
                                         <form>
                                             <fieldset>
                                                 <label class="block clearfix">
@@ -135,20 +118,14 @@
                                         </form>
                                     </div>
                                     <!-- /.widget-main -->
-
                                     <div class="toolbar center">
                                         <a href="#" data-target="#login-box" class="back-to-login-link">Back to login
 												<i class="ace-icon fa fa-arrow-right"></i>
                                         </a>
                                     </div>
                                 </div>
-                                <!-- /.widget-body -->
                             </div>
-                            <!-- /.forgot-box -->
-
                         </div>
-                        <!-- /.position-relative -->
-
                         <div class="navbar-fixed-top align-right">
                             <br />
                             &nbsp;
@@ -165,69 +142,19 @@
                         </div>
                     </div>
                 </div>
-                <!-- /.col -->
             </div>
-            <!-- /.row -->
         </div>
-        <!-- /.main-content -->
     </div>
-    <!-- /.main-container -->
-
-    <!-- basic scripts -->
-
     <!--[if !IE]> -->
     <script src="/Content/sys/assets/js/jquery.js"></script>
     <!-- <![endif]-->
-
     <!--[if IE]>
-<script src="/Content/sys/assets/js/jquery1x.js"></script>
-<![endif]-->
+    <script src="/Content/sys/assets/js/jquery1x.js"></script>
+    <![endif]-->
     <script type="text/javascript">
-        if ('ontouchstart' in document.documentElement) document.write("<script src='../assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
+        if ('ontouchstart' in document.documentElement) document.write("<script src='/Content/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
-
-    <!-- inline scripts related to this page -->
-    <script type="text/javascript">
-        jQuery(function ($) {
-            $(document).on('click', '.toolbar a[data-target]', function (e) {
-                e.preventDefault();
-                var target = $(this).data('target');
-                $('.widget-box.visible').removeClass('visible');//hide others
-                $(target).addClass('visible');//show target
-            });
-        });
-
-        //you don't need this, just used for changing background
-        jQuery(function ($) {
-            $('#btn-login-dark').on('click', function (e) {
-                $('body').attr('class', 'login-layout');
-                $('#id-text2').attr('class', 'white');
-                $('#id-company-text').attr('class', 'blue');
-
-                e.preventDefault();
-            });
-            $('#btn-login-light').on('click', function (e) {
-                $('body').attr('class', 'login-layout light-login');
-                $('#id-text2').attr('class', 'grey');
-                $('#id-company-text').attr('class', 'blue');
-
-                e.preventDefault();
-            });
-            $('#btn-login-blur').on('click', function (e) {
-                $('body').attr('class', 'login-layout blur-login');
-                $('#id-text2').attr('class', 'white');
-                $('#id-company-text').attr('class', 'light-blue');
-
-                e.preventDefault();
-            });
-
-
-            //$('.btn-primary').on('click', function (e) {
-            //    e.preventDefault();
-            //    window.location.href = 'home.aspx';
-            //});
-        });
-    </script>
+    <script src="/Scripts/sys/login.js"></script>
     <script src="/Content/sys/assets/js/ace/ace.js"></script>
     <script src="/Content/sys/assets/js/ace-extra.js"></script>
     <script src="/Content/sys/assets/js/jquery.gritter.js"></script>

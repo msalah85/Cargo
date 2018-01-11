@@ -5,7 +5,6 @@ tableName = "Docs";
 pKey = "InvoiceID";
 gridId = "listItems";
 gridColumns = [];
-$clientID = $('.txtSearch');
 filterNames = '';
 filterValues = '';
 
@@ -21,29 +20,23 @@ var
                 $('.btnSearch').click(function (e) {
                     e.preventDefault();
 
+                    var formName = 'searchForm',
+                        allKeys = commonManger.Returncontrolsval(formName);
+
+                    filterNames = allKeys[0].join('~');
+                    filterValues = allKeys[1].join('~');
+
+                    // update list
+                    DefaultGridManager.updateGrid();
                 });
             },
             initProperties = function () {
 
-                ////////////////////////// //////////////////////////
-                // check filter id.
-                var qs = commonManger.getQueryStrs();
-                if (qs.id) {
-
-                    filterNames = 'ID';
-                    filterValues = qs.id;
-
-
-                    //// set selected client
-                    //$clientID.select2("trigger", "select", {
-                    //    data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
-                    //});
-                }
-
-
                 gridColumns.push(
                     {
-                        "mData": function (d) { return d.DeclarationNo ? d.DeclarationNo : '' },
+                        "mData": function (d) {
+                            return '<a title="Details" href="InvoicePrint.aspx?id=' + d.InvoiceID + '">' + (d.DeclarationNo ? d.DeclarationNo : '') + '</a>';
+                        },
                         "bSortable": false
                     },
                     {
@@ -62,10 +55,13 @@ var
                     {
                         "bSortable": false,
                         "mData": function (d) {
-                            return '---';
+                            if (d.DocVerified === 'false')
+                                return '<button class="btn btn-success btn-mini remove" title="Verify"><i class="fa fa-check"></i></button>';
+                            else
+                                return 'Delivered';
                         }
                     });
-
+                
                 // init grid
                 DefaultGridManager.Init();
             };

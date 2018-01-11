@@ -1,4 +1,5 @@
-<%@ Page Title="Client Summary" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" %>
+<%@ Page Title="Client Summary" Language="C#" MasterPageFile="master.master" AutoEventWireup="true"
+    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

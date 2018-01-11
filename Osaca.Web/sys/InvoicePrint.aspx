@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Print Invoice" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicePrint.aspx.cs" Inherits="sys_InvoicePrint" %>
+﻿<%@ Page Title="Print Invoice" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicePrint.aspx.cs" Inherits="sys_InvoicePrint" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>

@@ -1,5 +1,5 @@
-﻿<%@ Page Title="Outgoing" Language="C#" MasterPageFile="../master.master" AutoEventWireup="true" EnableTheming="false"
-    EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
+﻿<%@ Page Title="Outgoings" Language="C#" MasterPageFile="../master.master" AutoEventWireup="true"
+    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Scripts/select2/select2.css" rel="stylesheet" />
@@ -9,15 +9,6 @@
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
-    <style>
-        #masterForm .form-group {
-            margin-bottom: 5px;
-        }
-
-        .hr-24 {
-            margin-top: 7px
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -26,12 +17,12 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">Outgoing</li>
+            <li class="active">Outgoings</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Outgoing Manager</h1>
+            <h1>Outgoings Manager</h1>
         </div>
         <!-- search box -->
         <div class="row">
@@ -68,7 +59,6 @@
             </form>
         </div>
         <div class="hr hr-24"></div>
-        <!-- end search box -->
         <div class="row">
             <div class="col-xs-12 widget-container-col">
                 <div class="clearfix">
@@ -80,7 +70,7 @@
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
-                            Outgoing List
+                            Outgoings List
                         </h5>
                         <div class="widget-toolbar">
                             <a href="#" data-action="fullscreen" class="white">
@@ -154,11 +144,17 @@
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
-
     <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.25"></script>
-
-
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js"></script>
+    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.25"></script>
+    <style>
+        #masterForm .form-group {
+            margin-bottom: 5px;
+        }
+
+        .hr-24 {
+            margin-top: 7px
+        }
+    </style>
 </asp:Content>

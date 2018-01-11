@@ -1,4 +1,5 @@
-﻿<%@ Page Title="Expenses" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="Expenses.aspx.cs" Inherits="sys_Expenses" %>
+﻿<%@ Page Title="Expenses" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="Expenses.aspx.cs" Inherits="sys_Expenses"
+    EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">

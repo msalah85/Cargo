@@ -133,8 +133,7 @@ public partial class api_data : System.Web.UI.Page
         param.iDisplayLength = String.IsNullOrEmpty(Context.Request["iDisplayLength"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayLength"]);
         var sortColumnIndex = Convert.ToInt32(Context.Request["iSortCol_0"]);
         var sortDirection = Context.Request["sSortDir_0"] ?? "desc"; // asc or desc
-
-
+        
         // grid static parameters
         string[] names = { "DisplayStart", "DisplayLength", "SortColumn", "SortDirection", "SearchParam" },
                  values = { param.iDisplayStart.ToString(), param.iDisplayLength.ToString(), sortColumnIndex.ToString(), sortDirection, param.sSearch },

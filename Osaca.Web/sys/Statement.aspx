@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Client Statement" Language="C#" MasterPageFile="~/sys/master.master" AutoEventWireup="true" %>
+﻿<%@ Page Title="Client Statement" Language="C#" MasterPageFile="~/sys/master.master" AutoEventWireup="true" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
