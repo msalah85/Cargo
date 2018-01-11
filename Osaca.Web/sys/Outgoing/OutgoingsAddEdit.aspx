@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Add/Edit Outgoing" Language="C#" MasterPageFile="~/sys/master.master" AutoEventWireup="true" %>
+﻿<%@ Page Title="Add/Edit Outgoing" Language="C#" MasterPageFile="~/sys/master.master" AutoEventWireup="true" CodeFile="OutgoingsAddEdit.aspx.cs" Inherits="sys_Outgoing_OutgoingsAddEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Scripts/select2/select2.min.css" rel="stylesheet" />

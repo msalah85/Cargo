@@ -2,8 +2,7 @@
 // Developer: M. Salah (07-01-2017)
 // Email: eng.msalah.abdullah@gmail.com
 //=======================================
-var
-    pageManager = pageManager || {},
+var    
     pageManager = function () {
         "use strict";
         var Init = function () {
@@ -51,7 +50,7 @@ var
                         return numeral($(this).text()).format('0,0');
                     });
                     // date format
-                    $('#AddDate').text(function () {
+                    $('.date').text(function () {
                         return commonManger.formatJSONDateCal($(this).text(), 'dd-MM-yyyy');
                     });
                 }

@@ -528,15 +528,9 @@
     ]
   },
   {
-    "outputFileName": "Scripts/sys/Outgoing/Outgoings.min.js",
+    "outputFileName": "Scripts/Documents/Documents-list.min.js",
     "inputFiles": [
-      "Scripts/sys/Outgoing/Outgoings.js"
-    ]
-  },
-  {
-    "outputFileName": "Scripts/sys/balances.min.js",
-    "inputFiles": [
-      "Scripts/sys/balances.js"
+      "Scripts/Documents/Documents-list.js"
     ]
   }
 ]

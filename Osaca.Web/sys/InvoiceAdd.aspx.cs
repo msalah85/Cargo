@@ -1,22 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Web;
 using System.Web.Script.Services;
 using System.Web.Services;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.Xml;
 
 public partial class sys_InvoiceAdd : System.Web.UI.Page
 {
-    protected void Page_Load(object sender, EventArgs e)
-    {
-
-    }
-
     [WebMethod]
     [ScriptMethod(UseHttpGet = false)]
     public static object SaveDataMasterDetails(string[] fieldsMaster, string[] valuesMaster, string[] fieldsDetails, string[] valuesDetails)
@@ -31,19 +21,13 @@ public partial class sys_InvoiceAdd : System.Web.UI.Page
         {
             xmlelement.SetAttribute(fieldsMaster[i], valuesMaster[i]);
         }
-        
-        //if (flage == "1")
-        //{
-        //    xmlelement.SetAttribute("UserId", SessionManager.Current.ID);
-        //    xmlelement.SetAttribute("IP", SessionManager.Current.IP);
-        //}
 
         for (int i = 0; i < valuesDetails.Length; i++)
         {
             XmlElement xmlelementDetails = xmldoc.CreateElement("Details");
             doc.AppendChild(xmlelementDetails);
             xmlelementDetails.SetAttribute(fieldsMaster[0], valuesMaster[0]);
-            
+
             if (valuesDetails[0].Contains("لاتوجــد بيانات متاحة"))
             {
                 for (int j = 0; j < fieldsDetails.Length; j++)
@@ -60,9 +44,9 @@ public partial class sys_InvoiceAdd : System.Web.UI.Page
                 }
             }
         }
-        
+
         object data = new { };
-        
+
         SqlCommand command = DataAccess.CreateCommand();
 
         try
@@ -71,8 +55,7 @@ public partial class sys_InvoiceAdd : System.Web.UI.Page
             command.Parameters.AddWithValue("@doc", xmldoc.OuterXml);
             var returnParameter = command.Parameters.Add("RetVal", SqlDbType.Int);
             returnParameter.Direction = ParameterDirection.ReturnValue;
-
-
+            
             int result = -1;
             command.Connection.Open();
             result = command.ExecuteNonQuery();
@@ -105,5 +88,5 @@ public partial class sys_InvoiceAdd : System.Web.UI.Page
         }
         return data;
     }
-    
+
 }

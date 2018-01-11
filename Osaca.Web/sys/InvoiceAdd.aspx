@@ -23,7 +23,7 @@
             <h1>Add Invoice</h1>
         </div>
         <form class="form-horizontal" role="form" id="masterForm">
-            <div class="col-xs-6">
+            <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="ClientID">Customer <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
@@ -39,8 +39,14 @@
                         <input type="text" id="AddDate" required class="form-control required today date-picker col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="BillOfEntryDate">Bill of entry date <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
+                        <input type="text" id="BillOfEntryDate" name="BillOfEntryDate" required class="form-control required today date-picker col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
+                    </div>
+                </div>
             </div>
-            <div class="col-xs-6">
+            <div class="col-xs-12 col-md-6">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Container no <span class="text-danger">*</span></label>
                     <div class="col-sm-9">
@@ -53,11 +59,11 @@
                         <input type="text" id="DeclarationNo" required class="form-control required col-xs-10 col-sm-10" data-date-format="dd-mm-yyyy" />
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-11 col-xs-offset-1">
-                    Notes
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="Notes">Notes <span class="text-danger">*</span></label>
+                    <div class="col-sm-9">
                         <textarea cols="12" rows="3" id="Notes" class="form-control" placeholder="Remarks..."></textarea>
+                    </div>
                 </div>
             </div>
         </form>

@@ -79,7 +79,7 @@
                             #<span id="InvoiceID" class="red"></span>
                             <br />
                             <span class="invoice-info-label">Date:</span>
-                            <span class="blue" id="AddDate"></span>
+                            <span class="blue date" id="AddDate"></span>
                         </div>
                         <div class="widget-toolbar hidden-480 hidden-print">
                             <a href="javascript:void(0);" id="printMe" title="Print">
@@ -127,6 +127,10 @@
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right green"></i>
                                                 Declaration no: <span class="bolder" id="DeclarationNo"></span>
+                                            </li>
+                                            <li>
+                                                <i class="ace-icon fa fa-caret-right green"></i>
+                                                Bill Of entry date: <span class="bolder date" id="BillOfEntryDate"></span>
                                             </li>
                                             <li class="divider"></li>
                                         </ul>

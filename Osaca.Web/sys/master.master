@@ -163,6 +163,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="documents/docsview.aspx">
+                        <i class="menu-icon fa fa-file"></i>
+                        <span class="menu-text">Documents</span>
+                    </a>
+                </li>
+                <li>
                     <a href="Balances.aspx">
                         <i class="menu-icon fa fa-th"></i>
                         <span class="menu-text">Balances</span>

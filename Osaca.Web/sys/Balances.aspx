@@ -2,9 +2,9 @@
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/jquery-dateFormat.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/DataService.min.js"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
@@ -62,20 +62,10 @@
                                             <td>Total Payments</td>
                                             <td id="TotalPayments">0</td>
                                         </tr>
-                                        <tr class="info">
+                                        <tr>
                                             <td class="center">3</td>
-                                            <td>Total Profit</td>
+                                            <td>Profit</td>
                                             <td id="Profit">0</td>
-                                        </tr>
-                                        <tr class="warning">
-                                            <td class="center">4</td>
-                                            <td>Outgoings</td>
-                                            <td id="Outgoings">0</td>
-                                        </tr>
-                                        <tr class="success">
-                                            <td class="center">5</td>
-                                            <td>Net Profit</td>
-                                            <td id="NetProfit">0</td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -94,8 +84,8 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/sys/jquery.xml2json.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/numeral.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/balances.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
+    <script src="/Scripts/sys/numeral.min.js"></script>
+    <script src="/Scripts/sys/balances.min.js?v=1.2"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

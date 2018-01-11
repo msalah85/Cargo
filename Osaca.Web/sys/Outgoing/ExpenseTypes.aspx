@@ -30,12 +30,14 @@
                         tabindex="0" title="Add new"><i class="fa fa-plus bigger-110"></i>Add new</a>
                     <div class="pull-right tableTools-container"></div>
                 </div>
+
                 <div class="widget-box widget-color-blue" id="widget-box-2">
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
                             Expense Types List
                         </h5>
+
                         <div class="widget-toolbar">
                             <a href="#" data-action="fullscreen" class="white">
                                 <i class="1 ace-icon fa fa-expand bigger-125"></i>
@@ -135,5 +137,5 @@
         </div>
     </div>
     <script src="/Scripts/sys/DefaultGridManager.js?v=1.25"></script>
-    <script src="/Scripts/sys/expensetypes-manager.js?v=1.25"></script>
+    <script src="/Scripts/sys/expensetypes-manager.js"></script>
 </asp:Content>

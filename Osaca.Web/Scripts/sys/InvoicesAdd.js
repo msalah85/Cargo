@@ -67,8 +67,8 @@ var
                         return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').text() + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
                     }).get(),
 
-                        namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'Deleted', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo', 'Notes'],
-                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), 0, numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val()],
+                        namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo', 'Notes', 'BillOfEntryDate'],
+                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val(), $('#BillOfEntryDate').val()],
                         namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'];
 
                     SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -79,7 +79,8 @@ var
             },
             SaveDataMasterDetails = function (fieldsMaster, valuesMaster, fieldsDetails, valuesDetails) {
                 var DTO = {
-                    'fieldsMaster': fieldsMaster, 'valuesMaster': valuesMaster, 'fieldsDetails': fieldsDetails, 'valuesDetails': valuesDetails
+                    'fieldsMaster': fieldsMaster, 'valuesMaster': valuesMaster,
+                    'fieldsDetails': fieldsDetails, 'valuesDetails': valuesDetails
                 };
 
                 dataService.callAjax('Post', JSON.stringify(DTO), 'InvoiceAdd.aspx/SaveDataMasterDetails', successSaved, commonManger.errorException);
@@ -152,8 +153,7 @@ var
                         return commonManger.formatJSONDateCal($(this).text());
                     });
                 }
-
-
+                
             },
             setFormProperties = function () {
                 // Edit invoice

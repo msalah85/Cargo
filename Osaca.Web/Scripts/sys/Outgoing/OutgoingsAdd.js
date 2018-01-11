@@ -99,12 +99,20 @@ var
                         $('#masterForm #' + k).val(v);
                     });
 
-                    $('.date-picker').val(moment(jsn.AddDate).format('DD-MM-YYYY'));
-                    $('.money').val(numeral(jsn.Amount).format('0.00'));
+                    $('.date-picker').text(
+                        commonManger.dateFormat(jsn.AddDate)
+                    );
 
+                    $('.money').text(function () {
+                        return numeral($(this).text()).format('0.00');
+                    });
+
+                    //var selectedItem = { id: jsn.ExpenseTypeID, text: jsn.ExpenseTypeName };
                     var newOption = new Option(jsn.ExpenseTypeName, jsn.ExpenseTypeID, true, true);
-                    $("select.select2").append(newOption).trigger('change');
+                    $(".select2").append(newOption).trigger('change.select2');
                 }
+
+
             },
             setFormProperties = function () {
                 var
