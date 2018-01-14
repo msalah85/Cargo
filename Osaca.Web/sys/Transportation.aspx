@@ -106,7 +106,7 @@
                                         <th>Trans. Date</th>
                                         <th class="hidden-480">Container No</th>
                                         <th class="hidden-480">Trans. Charge</th>
-                                        <th class="hidden-480">Carage Charge</th>
+                                        <th class="hidden-480">Crane Charge</th>
                                         <th class="hidden-480">Total Amount</th>
                                         <th width="77px" class="hidden-print"></th>
                                     </tr>

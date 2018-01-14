@@ -111,13 +111,14 @@ $('#btnSave').click(function (e) {
 $('#btnSearch').click(function (e) {
     e.preventDefault();
     var searchObj = {
-        client: $('#Client').val(),
-        user: $('#User').val(),
+        ExpenseTypeID: $('#ExpenseTypeID').val(),
         from: commonManger.dateFormat($('#DateFrom').val()),
         to: commonManger.dateFormat($('#DateTo').val()),
     };
-    filterNames = 'Client~User~From~To';
-    filterValues = $.map(searchObj, function (el) { return el }).join('~');
+
+    filterNames = 'ExpenseTypeID~From~To';
+    filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
+
     // update result
     DefaultGridManager.updateGrid();
 });

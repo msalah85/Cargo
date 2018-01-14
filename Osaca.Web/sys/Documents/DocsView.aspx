@@ -86,7 +86,7 @@
                                 <thead>
                                     <tr>
                                         <th>Declaration no</th>
-                                        <th>Bill of date</th>
+                                        <th>Bill of entry date</th>
                                         <th>Container no</th>
                                         <th width="110px">Verify</th>
                                     </tr>

@@ -12,7 +12,6 @@ gridColumns = [],
 
 
 var
-    pageManager = pageManager || {},
     pageManager = function () {
         var
             init = function () {
@@ -24,9 +23,22 @@ var
                 $('.btnSearch').click(function (e) {
                     e.preventDefault();
 
-                    if ($clientID.val() !== null && $clientID.val() !== '') {
-                        window.location.href = 'InvoicesView.aspx?id=' + $clientID.val() + '&name=' + $clientID.find('option:selected').text().split(' ').join('+');
-                    }
+                    //if ($clientID.val() !== null && $clientID.val() !== '') {
+                    //    window.location.href = 'InvoicesView.aspx?id=' + $clientID.val() + '&name=' + $clientID.find('option:selected').text().split(' ').join('+');
+                    //}
+
+
+                    var searchObj = {
+                        client: $clientID.val() * 1 > 0 ? $clientID.val() : '',
+                        from: commonManger.dateFormat($('#DateFrom').val()),
+                        to: commonManger.dateFormat($('#DateTo').val()),
+                    };
+
+                    filterNames = 'ID~From~To';
+                    filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
+                    
+                    // update result
+                    DefaultGridManager.updateGrid();
 
                 });
 
@@ -124,6 +136,14 @@ var
                     },
                     {
                         "mData": function (d) { return numeral(d.TotalAmount).format('0,0.00') },
+                        "bSortable": false
+                    },
+                    {
+                        "mData": function (d) { return numeral(d.ServiceChargeAmount).format('0,0.00') },
+                        "bSortable": false
+                    },
+                    { // vat tax applied only on service charge amount.
+                        "mData": function (d) { return numeral(d.VATAmount).format('0,0.00') },
                         "bSortable": false
                     },
                     {

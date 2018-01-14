@@ -29,10 +29,10 @@
             <form class="form-horizontal" role="form" id="masterForm">
                 <div class="col-xs-12 col-md-4">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Type</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="ExpenseTypeID">Search by Type</label>
                         <div class="col-sm-9">
                             <select id="ExpenseTypeID" name="ExpenseTypeID" class="form-control required col-xs-12 col-sm-10 select2"
-                                required data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
+                                data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
                                 <option></option>
                             </select>
                         </div>
@@ -44,11 +44,6 @@
                         <div class="col-sm-9">
                             <input type="text" id="DateFrom" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
                             <input type="text" id="DateTo" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-3"></label>
-                        <div class="col-sm-9">
                             <button id="btnSearch" class="btn btn-info btn-sm" type="button">
                                 <i class="ace-icon fa fa-search bigger-110"></i>
                                 Search
@@ -147,7 +142,7 @@
     <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.25"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.27"></script>
     <style>
         #masterForm .form-group {
             margin-bottom: 5px;

@@ -21,23 +21,39 @@
         <div class="page-header">
             <h1>Invoices List</h1>
         </div>
+        <!-- search box -->
+        <div class="row">
+            <form class="form-horizontal" role="form" id="masterForm">
+                <div class="col-xs-12 col-md-4">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Type</label>
+                        <div class="col-sm-9">
+                            <select class="select2 form-control txtSearch" name="clientid" data-fn-name="Clients_GetNames" data-placeholder="Select a client" data-allow-clear="true"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label no-padding-right" for="AddDate">Date from-to</label>
+                        <div class="col-sm-9">
+                            <input type="text" id="DateFrom" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
+                            <input type="text" id="DateTo" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
+                            <button type="submit" id="btnSearch" class="btn btn-info btn-sm btnSearch">
+                                <i class="ace-icon fa fa-search bigger-110"></i>
+                                Search
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--END SEARCH BOX -->
         <div class="row">
             <div class="col-xs-12 widget-container-col">
                 <div class="clearfix">
                     <div class="col-xs-2">
                         <a role="button" href="InvoiceAdd.aspx" class="btn btn-white btn-warning btn-bold"
                             tabindex="0" title="Add new"><i class="fa fa-plus bigger-110"></i>Add new</a>
-                    </div>
-                    <div class="col-xs-4">
-                        <form role="form">
-                            <div class="input-group">
-                                <span class="input-group-addon info">Client</span>
-                                <select class="select2 form-control txtSearch" name="clientid" data-fn-name="Clients_GetNames" data-placeholder="Select a client" data-allow-clear="true"></select>
-                                <div class="input-group-btn">
-                                    <button type="submit" class="btn btn-sm btn-info2 btnSearch">Search</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                     <div class="pull-right tableTools-container"></div>
                 </div>
@@ -64,6 +80,8 @@
                                         <th>Container no</th>
                                         <th>Declaration no</th>
                                         <th>Total Amount</th>
+                                        <th>Service Charge</th>
+                                        <th>VAT(5%)</th>
                                         <th width="110px"></th>
                                     </tr>
                                 </thead>
@@ -132,5 +150,5 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/invoices-list.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/invoices-list.min.js?v=1.28"></script>
 </asp:Content>

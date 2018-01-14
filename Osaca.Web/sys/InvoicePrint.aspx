@@ -72,7 +72,7 @@
                     <div class="widget-header widget-header-large">
                         <h3 class="widget-title grey lighter">
                             <i class="ace-icon fa fa-th green"></i>
-                            Customer Invoice
+                            Customer Tax Invoice
                         </h3>
                         <div class="widget-toolbar no-border invoice-info">
                             <span class="invoice-info-label">Invoice:</span>
@@ -108,6 +108,9 @@
                                             </li>
                                             <li><i class="ace-icon fa fa-caret-right blue"></i>
                                                 Email: <b class="blue">TAHIRNASEER11@YAHOO.COM</b></li>
+                                            <li class="divider"></li>
+                                            <li><i class="ace-icon fa fa-caret-right blue"></i>
+                                                TRN: <b class="blue" id="Val"></b></li>
                                             <li class="divider"></li>
                                         </ul>
                                     </div>
@@ -171,6 +174,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.26"></script>
     <script>pageManager.Init();</script>
 </asp:Content>
