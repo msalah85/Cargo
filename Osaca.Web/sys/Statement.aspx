@@ -98,6 +98,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/client-statement.js?v=1.25"></script>
+    <script src="/Scripts/sys/client-statement.min.js?v=1.25"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

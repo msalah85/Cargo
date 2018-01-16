@@ -8,7 +8,7 @@
     <title>Login - Basher Systems</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <meta name="description" content="OSAKA Employee login" />
+    <meta name="description" content="OSAKA Cargo login" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/font-awesome.css" />
@@ -160,6 +160,6 @@
     <script src="/Content/sys/assets/js/jquery.gritter.js"></script>
     <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/defaultPage.js"></script>
+    <script src="/Scripts/sys/defaultPage.min.js"></script>
 </body>
 </html>

@@ -144,6 +144,6 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/sys/DefaultGridManager.js?v=1.25"></script>
+    <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.25"></script>
     <script src="/Scripts/sys/expenses-manager.min.js"></script>
 </asp:Content>

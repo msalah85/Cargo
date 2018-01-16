@@ -4,7 +4,6 @@
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
-
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -159,89 +158,5 @@
     </div>
     <script src="/Scripts/sys/DefaultGridManager.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script type="text/javascript">
-        var targetdata; modalDialog = "addModal"; formName = 'aspnetForm'; deleteModalDialog = 'deleteModal';
-        tableName = "Clients";
-        pKey = "ClientID";
-        gridId = "listItems";
-        gridColumns = [];
-        gridColumns.push(
-            {
-                "mDataProp": "ClientID",
-                "bSortable": true
-            },
-        {
-            "mDataProp": "ClientName",
-            "bSortable": true
-        },
-        {
-            "mDataProp": "Phone",
-            "bSortable": false
-        },
-        {
-            "mDataProp": "Mobile",
-            "bSortable": false,
-            "sClass": "hidden-480"
-        },
-        {
-            "mDataProp": "Address",
-            "bSortable": false,
-            "sClass": "hidden-480"
-        },
-        {
-            "mDataProp": null,
-            "bSortable": false,
-            "sClass": "hidden-480",
-            "mData": function (d) {
-                return '<a title="Open client summary" href="ClientSummary.aspx?clientid=' + d.ClientID + '">' + numeral(d.Credit - d.Debit).format('0,0.00') + '</a>';
-            }
-        },
-        {
-            "mDataProp": null,
-            "bSortable": false,
-            "mData": function () {
-                return '<button class="btn btn-primary btn-mini edit" title="Edit"><i class="fa fa-pencil"></i></button> ' +
-                       '<button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>';
-            }
-        });
-        DefaultGridManager.Init();
-
-        //validation
-        $('#aspnetForm').validate({
-            errorElement: 'div',
-            errorClass: 'help-block',
-            focusInvalid: false,
-            ignore: "",
-            highlight: function (e) {
-                $(e).closest('.form-group').removeClass('has-info').addClass('has-error');
-            },
-            success: function (e) {
-                $(e).closest('.form-group').removeClass('has-error');
-                $(e).remove();
-            },
-            errorPlacement: function (error, element) {
-                if (element.is('input[type=checkbox]') || element.is('input[type=radio]')) {
-                    var controls = element.closest('div[class*="col-"]');
-                    if (controls.find(':checkbox,:radio').length > 1) controls.append(error);
-                    else error.insertAfter(element.nextAll('.lbl:eq(0)').eq(0));
-                }
-                else if (element.is('.select2')) {
-                    error.insertAfter(element.siblings('[class*="select2-container"]:eq(0)'));
-                }
-                else if (element.is('.chosen-select')) {
-                    error.insertAfter(element.siblings('[class*="chosen-container"]:eq(0)'));
-                }
-                else error.insertAfter(element.parent());
-            },
-
-            submitHandler: function (form) {
-            },
-            invalidHandler: function (form) {
-            }
-        });
-        $('#btnSave').click(function (e) {
-            e.preventDefault();
-            $('#aspnetForm').submit();
-        });
-    </script>
+    <script src="/Scripts/sys/clients-list.min.js"></script>
 </asp:Content>

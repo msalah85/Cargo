@@ -137,5 +137,5 @@
         </div>
     </div>
     <script src="/Scripts/sys/DefaultGridManager.js?v=1.25"></script>
-    <script src="/Scripts/sys/expensetypes-manager.js"></script>
+    <script src="/Scripts/sys/Outgoing/expensetypes-manager.min.js"></script>
 </asp:Content>

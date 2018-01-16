@@ -550,5 +550,23 @@
     "inputFiles": [
       "Scripts/sys/DataService.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/defaultPage.min.js",
+    "inputFiles": [
+      "Scripts/sys/defaultPage.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/clients-list.min.js",
+    "inputFiles": [
+      "Scripts/sys/clients-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/banks-list.min.js",
+    "inputFiles": [
+      "Scripts/sys/banks-list.js"
+    ]
   }
 ]
