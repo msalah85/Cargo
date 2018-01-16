@@ -2,6 +2,8 @@
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <link href="/Scripts/select2/select2.css" rel="stylesheet" />
+    <link href="/Scripts/select2/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
@@ -81,7 +83,7 @@
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
-                            Clients List
+                            Expenses list
                         </h5>
                         <div class="widget-toolbar">
                             <a href="#" data-action="fullscreen" class="white">
@@ -108,6 +110,16 @@
                 </div>
                 <div class="hr hr-18 dotted hr-double"></div>
                 <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Transporter name <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <select id="TransporterID" name="TransporterID" class="required col-xs-10 col-sm-10 required select2" data-fn-name="Users_Select2"
+                                    required data-placeholder="Choose a transporter name" data-allow-clear="true">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="col-sm-6 pull-right">
                         <h4 class="pull-right">Total amount : <span class="red" id="TotalAmount">0</span> AED,
                             Profit : <span class="red" id="TotalProfit">0</span> AED
@@ -172,6 +184,9 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.26"></script>
+    <script src="/Scripts/select2/select2.min.js"></script>
+    <script src="/Scripts/lz-string/lz-string.min.js"></script>
+    <script src="/Scripts/select2/select2-optinal.min.js"></script>
+    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.29"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

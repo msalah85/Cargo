@@ -30,7 +30,7 @@ var
                         commonManger.showMessage('Required fields', 'Please enter all required fields.');
                     }
                 });
-                
+
                 // save all data
                 $('#SaveAll').click(function (e) {
                     e.preventDefault();
@@ -53,7 +53,7 @@ var
                         el.css({ 'transition': 'background-color 1s', 'background-color': 'red' }).fadeOut('slow').promise().done(function () { el.remove(); showPaymentsTotal(); });
                     }
                 });
-                
+
                 // update total
                 $gridTable.delegate('tr input[type="number"]', 'keyup change', function (e) {
 
@@ -83,8 +83,13 @@ var
                         return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').text() + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
                     }).get(),
 
-                        namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo', 'Notes', 'BillOfEntryDate'],
-                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()), numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(), $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val())],
+                        namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo',
+                            'Notes', 'BillOfEntryDate', 'TransporterID'],
+
+                        valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()),
+                        numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(),
+                        $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val()), $('#TransporterID').val()],
+
                         namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'];
 
                     SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -109,11 +114,15 @@ var
                         gridLength: $('#listItems tbody tr').length,
                         date: commonManger.dateFormat($('#AddDate').val()),
                         container: $('#ContainerNo').val(),
-                        declaration: $('#DeclarationNo').val()
+                        declaration: $('#DeclarationNo').val(),
+                        transporter: $('#TransporterID').val() * 1 > 0 ? $('#TransporterID').val() : ''
                     };
 
-                if (requiredFields.client === '' || requiredFields.gridLength <= 0 || requiredFields.date === '' || requiredFields.container === '' || requiredFields.declaration === '')
+                if (requiredFields.client === '' || requiredFields.gridLength <= 0 || requiredFields.date === '' ||
+                    requiredFields.container === '' || requiredFields.declaration === '' || requiredFields.transporter === '')
                     _valid = false;
+
+                console.log(requiredFields.transporter);
 
                 return _valid;
             },
@@ -146,9 +155,6 @@ var
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
                         }).get(),
                         _tbl = $('#listItems tbody');
-
-                    console.log(detailData); // 
-
 
                     _tbl.append(rows);
 

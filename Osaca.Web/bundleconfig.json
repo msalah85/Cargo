@@ -574,5 +574,11 @@
     "inputFiles": [
       "Scripts/sys/login.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/transporter-payments.min.js",
+    "inputFiles": [
+      "Scripts/sys/transporter-payments.js"
+    ]
   }
 ]

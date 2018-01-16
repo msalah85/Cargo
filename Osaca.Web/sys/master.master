@@ -140,12 +140,7 @@
                     </a>
                 </li>
                 <li><a href="Transportation.aspx"><i class="menu-icon fa fa-car"></i><span class="menu-text">Transportation </span></a><b class="arrow"></b></li>
-                <li>
-                    <a href="Clients.aspx">
-                        <i class="menu-icon fa fa-group"></i>
-                        <span class="menu-text">Clients </span>
-                    </a>
-                </li>
+                <li><a href="TransporterPayments.aspx"><i class="menu-icon fa fa-credit-card-alt"></i><span class="menu-text">Trans. Pay </span></a><b class="arrow"></b></li>
                 <li>
                     <a href="Expenses.aspx">
                         <i class="menu-icon fa fa-credit-card"></i>
@@ -177,9 +172,15 @@
                     </a>
                 </li>
                 <li>
+                    <a href="Clients.aspx">
+                        <i class="menu-icon fa fa-group"></i>
+                        <span class="menu-text">Clients </span>
+                    </a>
+                </li>
+                <li>
                     <a href="Users.aspx">
                         <i class="menu-icon fa fa-user"></i>
-                        <span class="menu-text">Users</span>
+                        <span class="menu-text">Accounts</span>
                     </a>
                 </li>
                 <li>

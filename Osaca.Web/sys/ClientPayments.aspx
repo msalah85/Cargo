@@ -25,7 +25,7 @@
         <!-- search box -->
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-md-6">
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Customer</label>
                         <div class="col-sm-9">
