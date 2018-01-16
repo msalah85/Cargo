@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/Content/sys/assets/css/ace-fonts.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/ace.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/jquery.gritter.css" />
+    <link href="/Scripts/smoke/css/smoke.min.css" rel="stylesheet" />
     <!--[if lte IE 9]>
 			<link rel="stylesheet" href="/Content/sys/assets/css/ace-part2.css" />
 		<![endif]-->
@@ -154,7 +155,8 @@
     <script type="text/javascript">
         if ('ontouchstart' in document.documentElement) document.write("<script src='/Content/assets/js/jquery.mobile.custom.js'>" + "<" + "/script>");
     </script>
-    <script src="/Scripts/sys/login.js"></script>
+    <script src="/Scripts/smoke/js/smoke.min.js"></script>
+    <script src="/Scripts/sys/login.min.js"></script>
     <script src="/Content/sys/assets/js/ace/ace.js"></script>
     <script src="/Content/sys/assets/js/ace-extra.js"></script>
     <script src="/Content/sys/assets/js/jquery.gritter.js"></script>

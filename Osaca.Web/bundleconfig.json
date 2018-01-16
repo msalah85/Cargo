@@ -568,5 +568,11 @@
     "inputFiles": [
       "Scripts/sys/banks-list.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/login.min.js",
+    "inputFiles": [
+      "Scripts/sys/login.js"
+    ]
   }
 ]

@@ -11,8 +11,6 @@
                 barColor: '#69c305',
                 content: 'Progress...'
             });
-
-            console.log('smkProgressBar...');
         },
         endProgress = function () {
             $.smkProgressBar({
