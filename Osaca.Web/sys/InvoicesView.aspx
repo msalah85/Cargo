@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
@@ -26,9 +26,9 @@
             <form class="form-horizontal" role="form" id="masterForm">
                 <div class="col-xs-12 col-md-4">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Type</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Customer</label>
                         <div class="col-sm-9">
-                            <select class="select2 form-control txtSearch" name="clientid" data-fn-name="Clients_GetNames" data-placeholder="Select a client" data-allow-clear="true"></select>
+                            <select class="select2 form-control txtSearch" name="clientid" data-fn-name="Clients_GetNames" data-placeholder="Select a customer" data-allow-clear="true"></select>
                         </div>
                     </div>
                 </div>

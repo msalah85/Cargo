@@ -10,7 +10,7 @@
     filterNames = '',
     filterValues = '',
     $clientID = $('.txtSearch'),
-        
+
     pageManager = function () {
         var
             init = function () {
@@ -23,11 +23,17 @@
                 $('.btnSearch').click(function (e) {
                     e.preventDefault();
 
-                    if ($clientID.val() != null && $clientID.val() != '') {
-                        window.location.href = 'ClientPayments.aspx?id=' + $clientID.val() + '&name=' + $clientID.find('option:selected').text().split(' ').join('+');
-                        //DefaultGridManager.updateGrid();
-                    }
+                    var searchObj = {
+                        client: $clientID.val() * 1 > 0 ? $clientID.val() : '',
+                        from: commonManger.dateFormat($('#DateFrom').val()),
+                        to: commonManger.dateFormat($('#DateTo').val()),
+                    };
 
+                    filterNames = 'ID~From~To';
+                    filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
+
+                    // update result
+                    DefaultGridManager.updateGrid();
                 });
 
                 //validation
@@ -103,8 +109,6 @@
                         data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
                     });
                 }
-
-
                 ////////////////////////// //////////////////////////
 
 

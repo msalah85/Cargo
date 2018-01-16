@@ -544,5 +544,11 @@
     "inputFiles": [
       "Scripts/Documents/Documents-list.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/DataService.min.js",
+    "inputFiles": [
+      "Scripts/sys/DataService.js"
+    ]
   }
 ]

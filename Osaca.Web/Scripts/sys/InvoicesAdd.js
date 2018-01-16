@@ -30,22 +30,7 @@ var
                         commonManger.showMessage('Required fields', 'Please enter all required fields.');
                     }
                 });
-
-                // remove row from grid.
-                $('#listItems tbody').delegate('tr button.remove', 'click', function (e) {
-                    e.preventDefault();
-                    var el = $(this).closest('tr');
-                    if (el) {
-                        el.css({ 'transition': 'background-color 1s', 'background-color': 'red' }).fadeOut('slow').promise().done(function () { el.remove(); showPaymentsTotal(); });
-                    }
-                });
-
-                // update total
-                $('#listItems tbody').delegate('tr input[type="number"]', 'keyup', function (e) {
-                    showPaymentsTotal();
-                });
-
-
+                
                 // save all data
                 $('#SaveAll').click(function (e) {
                     e.preventDefault();
@@ -57,6 +42,37 @@ var
                     $("#ExpenseID").val('');
                     $("#Cost,#Amount").val('0.0');
                 });
+
+                // grid events
+                var $gridTable = $('#listItems tbody');
+                // remove row from grid.
+                $gridTable.delegate('tr button.remove', 'click', function (e) {
+                    e.preventDefault();
+                    var el = $(this).closest('tr');
+                    if (el) {
+                        el.css({ 'transition': 'background-color 1s', 'background-color': 'red' }).fadeOut('slow').promise().done(function () { el.remove(); showPaymentsTotal(); });
+                    }
+                });
+                
+                // update total
+                $gridTable.delegate('tr input[type="number"]', 'keyup change', function (e) {
+
+                    // update vat expense by changing service charge expense value.
+                    var _this = $(this),
+                        expId = _this.attr('data-expid'),
+                        expValue = _this.val(),
+                        updateVatInGrid = function (parentID, parentValue) {
+                            // find/update all children VAT value = parentValue * 0.05.
+
+                            $gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * 0.05).toFixed(2));
+                        };
+
+                    if (expId && expValue)
+                        updateVatInGrid(expId, expValue);
+
+                    showPaymentsTotal();
+                });
+
             },
             // start Save data.
             SaveAllData = function () {
@@ -126,10 +142,13 @@ var
                     var detailData = (_id) ? jsn3 : jsn,
                         rows = $(detailData).map(function (i, v) {
                             return $('<tr><td data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '">' + v.ExpenseID + '</td><td>' + v.ExpenseName + '</td>\
-                             <td><input type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td><td><input type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
+                             <td><input data-expid="'+ v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td><td><input data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
                         }).get(),
                         _tbl = $('#listItems tbody');
+
+                    console.log(detailData); // 
+
 
                     _tbl.append(rows);
 
@@ -153,7 +172,7 @@ var
                         return commonManger.formatJSONDateCal($(this).text());
                     });
                 }
-                
+
             },
             setFormProperties = function () {
                 // Edit invoice
@@ -242,8 +261,10 @@ var
                     };
 
 
-                dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData', bindData, commonManger.errorException);
+                dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData',
+                    bindData, commonManger.errorException);
             };
+
 
         return {
             Init: Init

@@ -1,9 +1,23 @@
-﻿/// <reference path="../vendor/jquery-1.9.1.min.js" />
-
-var dataService = function () {
+﻿var dataService = function () {
     var
         callAjax = function (reqestType, postedData, url, successCallback, errorCallback) {
             jqueryAjax(reqestType, postedData, url, successCallback, errorCallback);
+        },
+        startProgress = function () {
+            $.smkProgressBar({
+                element: 'body',
+                status: 'start',
+                bgColor: '#ffab00',
+                barColor: '#69c305',
+                content: 'Progress...'
+            });
+
+            console.log('smkProgressBar...');
+        },
+        endProgress = function () {
+            $.smkProgressBar({
+                status: 'end'
+            });
         },
         jqueryAjax = function (reqestType, postedData, url, successCallback, errorCallback) {
             $.ajax({
@@ -16,13 +30,16 @@ var dataService = function () {
                     successCallback(data);
                 },
                 beforeSend: function () {
-                    $(".sinpper").html("<i class='icon-spinner icon-spin orange bigger-125'></i>");
-                    $('div[id$=UpdateProgress1]').css('display', 'block');
+                    //$(".sinpper").html("<i class='icon-spinner icon-spin orange bigger-125'></i>");
+                    //$('div[id$=UpdateProgress1]').css('display', 'block');
+                    startProgress();
                 },
                 complete: function () {
-                    $(".sinpper").html(""); $('div[id$=UpdateProgress1]').css('display', 'none');
+                    //$(".sinpper").html(""); $('div[id$=UpdateProgress1]').css('display', 'none');
+                    endProgress();
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
+                    endProgress();
                     errorCallback(jqXHR, textStatus, errorThrown);
                 }
             });

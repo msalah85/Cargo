@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="/Content/sys/assets/css/ace.min.css?v=1" />
     <link rel="stylesheet" href="/Content/sys/assets/css/ace-skins.min.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap-datepicker3.min.css" />
+    <link href="/Scripts/smoke/css/smoke.min.css" rel="stylesheet" />
     <!--[if lte IE 9]>
             <link rel="stylesheet" href="/Content/sys/assets/css/ace-part2.css" class="ace-main-stylesheet" />
     <![endif]-->
@@ -47,6 +48,7 @@
     <script src="/Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.colVis.min.js"></script>
     <script src="/Content/sys/assets/js/dataTables/extensions/Select/js/dataTables.select.min.js"></script>
     <script src="/Content/sys/assets/js/chosen.jquery.min.js"></script>
+    <script src="/Scripts/smoke/js/smoke.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server" />
 </head>
 <body class="skin-2">

@@ -158,7 +158,7 @@
     <script src="/Content/sys/assets/js/ace/ace.js"></script>
     <script src="/Content/sys/assets/js/ace-extra.js"></script>
     <script src="/Content/sys/assets/js/jquery.gritter.js"></script>
-    <script src="/Scripts/sys/DataService.min.js"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
     <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
     <script src="/Scripts/sys/defaultPage.js"></script>
 </body>
