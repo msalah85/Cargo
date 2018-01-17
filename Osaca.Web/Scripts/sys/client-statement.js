@@ -4,7 +4,6 @@
 //=======================================
 
 var
-    pageManager = pageManager || {},
     pageManager = function () {
         "use strict";
         var
@@ -13,8 +12,18 @@ var
                 to: ''
             },
             Init = function () {
-                getReport();
+
                 pageEvents();
+
+
+                // init start and end date range
+                var begin = moment().format("01-MM-YYYY"),
+                    end = moment().daysInMonth() + moment().format("-MM-YYYY");
+
+                $('#From').val(begin);
+                $('#To').val(end);
+                $('#btnSearch').trigger('click');
+                //getReport();
             },
             pageEvents = function () {
                 // print report
@@ -46,6 +55,7 @@ var
                         var data = commonManger.xml2Json(d.d),
                             jsn = data.list,
                             jsn1 = data.list1,
+                            jsn2 = data.list2,
                             latestBalance = 0;
 
 
@@ -71,6 +81,9 @@ var
 
                         // show final balance.
                         $('.FinalBalance').text(numeral(latestBalance).format('0,0.00'));
+
+                        if (jsn2 && jsn2.Profit * 1 > 0)
+                            $('.period-profit').text(numeral(jsn2.Profit).format('0,0.00'));
                     };
 
 

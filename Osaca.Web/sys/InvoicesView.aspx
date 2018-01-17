@@ -1,9 +1,9 @@
 <%@ Page Title="Invoices List" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicesView.aspx.cs" Inherits="sys_InvoicesView" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -24,7 +24,7 @@
         <!-- search box -->
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-md-6">
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Customer</label>
                         <div class="col-sm-9">
@@ -144,7 +144,7 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/DefaultGridFilterManager.min.js?v=1.30"></script>
     <link href="/Scripts/select2/select2.min.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.min.css" rel="stylesheet" />
     <script src="/Scripts/select2/select2.min.js"></script>

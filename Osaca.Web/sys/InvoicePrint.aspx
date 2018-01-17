@@ -2,9 +2,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <style>
         body .page-content::before {
             content: url(/Content/sys/assets/images/CargoLogo.png);
@@ -34,6 +34,12 @@
 
             #water-mark img {
                 margin-left: 1em !important;
+            }
+
+            ul.list-unstyled  {
+                columns: 2;
+                -webkit-columns: 2;
+                -moz-columns: 2;
             }
         }
 
@@ -97,7 +103,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <ul class="list-unstyled spaced">
+                                        <ul class="list-unstyled ">
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right blue"></i>
                                                 Dubai, United Arab Emirates
@@ -108,10 +114,8 @@
                                             </li>
                                             <li><i class="ace-icon fa fa-caret-right blue"></i>
                                                 Email: <b class="blue">TAHIRNASEER11@YAHOO.COM</b></li>
-                                            <li class="divider"></li>
                                             <li><i class="ace-icon fa fa-caret-right blue"></i>
                                                 TRN: <b class="blue" id="Val"></b></li>
-                                            <li class="divider"></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -122,7 +126,7 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <ul class="list-unstyled  spaced">
+                                        <ul class="list-unstyled">
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right green"></i>
                                                 Container no: <span class="bolder" id="ContainerNo"></span>
@@ -133,9 +137,8 @@
                                             </li>
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right green"></i>
-                                                Bill Of entry date: <span class="bolder date" id="BillOfEntryDate"></span>
+                                                Bill of entry date: <span class="bolder date" id="BillOfEntryDate"></span>
                                             </li>
-                                            <li class="divider"></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -174,6 +177,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.26"></script>
+    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.30"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

@@ -8,6 +8,9 @@ gridColumns.push(
         "mDataProp": "UserID",
         "bSortable": true
     }, {
+        "mDataProp": "TypeName",
+        "bSortable": true
+    }, {
         "mDataProp": "UserFullName",
         "bSortable": true
     }, {
@@ -28,8 +31,12 @@ DefaultGridManager.Init();
 
 // password in words
 $.fn.afterLoadDatawithdata = function (ArrayData) {
-    dataService.callAjax('Post', JSON.stringify({ 'value': ArrayData['Password'] }), sUrl + 'decryptPassword',
-        function (data) { $('#Password').val(data.d); }, commonManger.errorException);
+    if (ArrayData['Password'])
+        dataService.callAjax('Post',
+            JSON.stringify({ 'value': ArrayData['Password'] }),
+            sUrl + 'decryptPassword',
+            function (data) { $('#Password').val(data.d); },
+            commonManger.errorException);
 }
 
 //validation

@@ -145,8 +145,8 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
     <script src="/Scripts/sys/home-manager.min.js"></script>
 </asp:Content>

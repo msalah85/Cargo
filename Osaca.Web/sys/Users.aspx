@@ -2,9 +2,9 @@
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -30,14 +30,12 @@
                         tabindex="0" title="Add new"><i class="fa fa-plus bigger-110"></i>Add new</a>
                     <div class="pull-right tableTools-container"></div>
                 </div>
-
                 <div class="widget-box widget-color-blue" id="widget-box-2">
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
                             Accounts List
                         </h5>
-
                         <div class="widget-toolbar">
                             <a href="#" data-action="fullscreen" class="white">
                                 <i class="1 ace-icon fa fa-expand bigger-125"></i>
@@ -50,6 +48,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
+                                        <th>Type</th>
                                         <th>Name</th>
                                         <th>Phone</th>
                                         <th>Username</th>
@@ -78,6 +77,15 @@
                                         <form class="form-horizontal" role="form" id="aspnetForm">
                                             <div>
                                                 <input type="hidden" id="UserID" value="0" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="UserFullName">Type <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-sm-10 required" required id="TypeID" name="TypeID">
+                                                        <option value="1">Employee</option>
+                                                        <option value="2">Transporter</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right" for="UserFullName">Name <span class="text-danger">*</span></label>
@@ -176,6 +184,6 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/users-manager.min.js"></script>
+    <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/users-manager.min.js?v=1.30"></script>
 </asp:Content>

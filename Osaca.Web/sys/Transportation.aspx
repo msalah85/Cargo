@@ -3,9 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="/Scripts/select2/select2.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.css" rel="stylesheet" />
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
     <style>
@@ -35,7 +35,7 @@
         <!-- search box -->
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
-                <div class="col-xs-5">
+                <div class="col-xs-6">
                     <div class="form-group">
                         <label class="col-sm-3 control-label no-padding-right" for="ClientID">Search by Consignee</label>
                         <div class="col-sm-9">
@@ -243,5 +243,5 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/sys/transportations.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/transportations.min.js?v=1.30"></script>
 </asp:Content>

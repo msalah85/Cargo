@@ -3,9 +3,9 @@
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
-    <script src="/Scripts/sys/Common.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.25"></script>
-    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
 </asp:Content>
@@ -144,6 +144,6 @@
             </div>
         </div>
     </div>
-    <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.30"></script>
     <script src="/Scripts/sys/expenses-manager.min.js"></script>
 </asp:Content>

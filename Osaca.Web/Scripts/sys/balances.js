@@ -27,16 +27,27 @@ var
                         balanceObj = {
                             totalBillAmount: parseFloat(jsn.TotalInvoices),
                             totalPayments: parseFloat(jsn.TotalPayments),
+
+                            transFees: parseFloat(jsn.TransFees),
+                            transPayments: parseFloat(jsn.TransPayments),
+
                             totalOutgoings: parseFloat(jsn.Outgoings),
                             companyProfit: parseFloat(jsn.Profit)
                         },
                         balanceTotal = balanceObj.totalBillAmount - balanceObj.totalPayments,
+                        transFeesTotal = balanceObj.transFees - balanceObj.transPayments,
                         netProfit = balanceObj.companyProfit - balanceObj.totalOutgoings;
 
                     // balance
                     $('#TotalBalances').text(function () {
                         if (balanceTotal > 0) { $(this).removeClass('red').addClass('green'); } // profit case
                         return numeral(balanceTotal).format('0,0.00');
+                    });
+
+                    // transportation total fees
+                    $('#TransTotalFees').text(function () {
+                        if (transFeesTotal < 0) { $(this).removeClass('red').addClass('green'); } // profit case
+                        return numeral(transFeesTotal).format('0,0.00');
                     });
 
                     // net profit

@@ -88,7 +88,7 @@ public partial class api_data : System.Web.UI.Page
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = false)]
-    public static object GetDataList(string actionName, string[] names, string[] values)
+    public static string GetDataList(string actionName, string[] names, string[] values)
     {
         // get all of data.
         var _ds = new Select().SelectLists(actionName, names, values);
