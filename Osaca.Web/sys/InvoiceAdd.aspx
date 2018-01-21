@@ -195,6 +195,6 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.31"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

@@ -105,7 +105,8 @@ var
                     'fieldsDetails': fieldsDetails, 'valuesDetails': valuesDetails
                 };
 
-                dataService.callAjax('Post', JSON.stringify(DTO), 'InvoiceAdd.aspx/SaveDataMasterDetails', successSaved, commonManger.errorException);
+                dataService.callAjax('Post', JSON.stringify(DTO), 'InvoiceAdd.aspx/SaveDataMasterDetails',
+                    successSaved, commonManger.errorException);
             },
             validateMayData = function () {
                 // validate all data before SaveAllData.
@@ -122,8 +123,6 @@ var
                 if (requiredFields.client === '' || requiredFields.gridLength <= 0 || requiredFields.date === '' ||
                     requiredFields.container === '' || requiredFields.declaration === '' || requiredFields.transporter === '')
                     _valid = false;
-
-                console.log(requiredFields.transporter);
 
                 return _valid;
             },
@@ -178,6 +177,18 @@ var
                     $('.date-picker').text(function () {
                         return commonManger.formatJSONDateCal($(this).text());
                     });
+                    
+
+                    // bind down select2(transfer/crane)
+                    if (jsn2.TransporterID)
+                        $('#TransporterID').select2("trigger", "select", {
+                            data: { id: jsn2.TransporterID, text: jsn2.TransporterName }
+                        });
+
+                    if (jsn2.CraneDriverID)
+                        $('#CraneDriverID').select2("trigger", "select", {
+                            data: { id: jsn2.CraneDriverID, text: jsn2.CraneDriverName }
+                        });
                 }
 
             },
@@ -185,7 +196,7 @@ var
                 // Edit invoice
                 var
                     acName = 'Invoices_Properties', // function name
-                    DTO = _id ? { 'actionName': acName, value: _id } : { actionName: acName }; // set paramers for edit only.
+                    DTO = _id ? { actionName: acName, value: _id } : { actionName: acName }; // set paramers for edit only.
 
                 dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetData' + (_id ? '' : 'Direct'),
                     bindFormControls, commonManger.errorException);
@@ -261,10 +272,18 @@ var
             },
             getDefaultValue = function (no) {
                 var functionName = "Expenses_SelectRow",
-                    prm = { 'actionName': functionName, 'value': no },
+                    prm = {
+                        actionName: functionName,
+                        value: no
+                    },
                     bindData = function (data) {
-                        var xml = $.parseXML(data.d), jsn = $.xml2json(xml).list;
-                        if (jsn) { $('#Cost').val(numeral(jsn.DefaultValue).format('0.00')); $('#Amount').val(numeral((jsn.DefaultValue)).format('0.00')); }
+                        var xml = $.parseXML(data.d),
+                            jsn = $.xml2json(xml).list;
+
+                        if (jsn) {
+                            $('#Cost').val(numeral(jsn.DefaultValue).format('0.00'));
+                            $('#Amount').val(numeral((jsn.DefaultValue)).format('0.00'));
+                        }
                     };
 
 
