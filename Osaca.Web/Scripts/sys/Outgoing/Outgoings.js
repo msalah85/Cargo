@@ -41,7 +41,7 @@ gridColumns.push(
         "bSortable": false,
         "sClass": "hidden-480",
         "mData": function (row) {
-            return numeral((row.TransportCharge * 1) + (row.CarageCharge * 1)).format('0,0.00');
+            return numeral(row.Amount * 1).format('0,0.00');
         }
     },
     {

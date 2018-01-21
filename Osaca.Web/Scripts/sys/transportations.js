@@ -1,38 +1,79 @@
-﻿var BindListSearch = function (d) {
-    var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list, jsn1 = $.xml2json(xml).list1;
-
-    // clients
-    if (jsn) {
-        var options = $(jsn).map(function (i, v) { return $('<option />').val(v.ClientID).text(v.ClientName); }).get();
-        $('#ConsigneeID, #Client').append(options);
-    }
-    // users
-    if (jsn1) {
-        var options = $(jsn1).map(function (i, v) { return $('<option />').val(v.UserID).text(v.UserFullName); }).get();
-        $('#TransporterID, #User').append(options);
-    }
-
-    $('select').trigger('chosen:updated').trigger("liszt:updated");
-
-
-    $(".select2-filter").select2({ allowClear: true });
-
-},
-    setDataToSearch = function () {
-        var functionName = "Transportation_Properties", DTO = { 'actionName': functionName };
-        dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetDataDirect', BindListSearch, commonManger.errorException);
-    };
-
-setDataToSearch();
-////////////////////////////////////
-
+﻿
 var
     filterNames = '',
     filterValues = '',
-    targetdata;
+    qs = commonManger.getQueryStrs(),
+    initMe = function () {
+        if (qs.type) {
+            $('#TypeID').val(qs.type);
+
+            filterNames = 'TypeID';
+            filterValues = qs.type;
+
+            // update page name/title
+            UpdatePageTypeTitle(qs.type);
+        }
+
+        setDataToSearch();
+
+    },
+    UpdatePageTypeTitle = function (typeId) {
+        var headTitle = 'Transportation Fees',
+            elementTitle = 'Transporter';
+
+        switch (typeId) {
+            case "3": {
+                headTitle = 'Crane/Driver Fees';
+                elementTitle = 'Crane/Driver';
+                break;
+            };
+        }
+
+        document.title = headTitle;
+        $('.head-title').text(headTitle);
+        $('.el-title').text(elementTitle);
+    },
+    BindListSearch = function (d) {
+        var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list, jsn1 = $.xml2json(xml).list1;
+
+        // clients
+        if (jsn) {
+            var options = $(jsn).map(function (i, v) { return $('<option />').val(v.ClientID).text(v.ClientName); }).get();
+            $('#ConsigneeID, #Client').append(options);
+        }
+        // users
+        if (jsn1) {
+            var options = $(jsn1).map(function (i, v) { return $('<option />').val(v.UserID).text(v.UserFullName); }).get();
+            $('#TransporterID, #User').append(options);
+        }
+
+        $('select').trigger('chosen:updated').trigger("liszt:updated");
+
+
+        $(".select2-filter").select2({ allowClear: true });
+
+    },
+    setDataToSearch = function () {
+        var functionName = "Transportation_Properties",
+            DTO = {
+                actionName: functionName,
+                names: ['ID'],
+                values: [qs.type ? qs.type : '2']
+            };
+
+
+        dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetDataList',
+            BindListSearch, commonManger.errorException);
+    };
+
+initMe();
+
+////////////////////////////////////
+
 
 deleteModalDialog = 'deleteModal';
-modalDialog = "addModal"; formName = 'aspnetForm';
+modalDialog = "addModal";
+formName = 'aspnetForm';
 tableName = "Transportation";
 pKey = "TransportID";
 gridId = "listItems";
@@ -40,7 +81,7 @@ gridColumns = [];
 
 gridColumns.push(
     {
-        "mDataProp": "TransportID",
+        "mDataProp": "Serial",
         "bSortable": true
     },
     {
@@ -72,22 +113,6 @@ gridColumns.push(
         }
     },
     {
-        "mDataProp": "CarageCharge",
-        "bSortable": false,
-        "sClass": "hidden-480",
-        "mData": function (row) {
-            return numeral(row.CarageCharge).format('0,0.00');
-        }
-    },
-    {
-        "mDataProp": "TotalAmount",
-        "bSortable": false,
-        "sClass": "hidden-480",
-        "mData": function (row) {
-            return numeral((row.TransportCharge * 1) + (row.CarageCharge * 1)).format('0,0.00');
-        }
-    },
-    {
         "mDataProp": null,
         "bSortable": false,
         sClass: 'hidden-print',
@@ -97,31 +122,46 @@ gridColumns.push(
         }
     });
 
+// calculate every page total
 $.extend(true, $.fn.dataTable.defaults, {
     "footerCallback": function (tfoot, data, start, end, display) {
         var api = this.api();
         $('.tranCharge').html(
-            api.column(5).data().reduce(function (a, b) {
-                return (a * 1) + (b * 1);
-            }, 0)
-        );
-
-        $('.caragCharge').html(
-            api.column(6).data().reduce(function (a, b) {
-                return (a * 1) + (b * 1);
-            }, 0)
-        );
-
-        $('.totalCharge').html(
-            api.column(7).data().reduce(function (a, b) {
-                return (a * 1) + (b * 1);
-            }, 0)
+            numeral(
+                api.column(5).data().reduce(function (a, b) {
+                    return (a * 1) + (b * 1);
+                }, 0)
+            ).format('0,0.00')
         );
     }
 });
 
-DefaultGridManager.Init();
 
+// footer call to show total payments, invoices and calculate client due amount for this result.
+var footerCallBack = function (data) {
+    var dAll = commonManger.comp2json(data.d), // get decompress data
+        jsn1 = dAll.list1; // get footer totals
+
+
+    if (jsn1) {
+
+        var summaryData = {
+            fees: jsn1.TotalFees ? jsn1.TotalFees * 1 : 0,
+            payments: jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0
+        };
+
+        $('.TotalFees').text(numeral(summaryData.fees).format('0,0.00'));
+        $('.TotalPayments').text(numeral(summaryData.payments).format('0,0.00'));
+
+        // balance
+        var dueAmount = (summaryData.fees) - (summaryData.payments);
+        $('.DueAmount').text(numeral(dueAmount).format('0,0.00'));
+    }
+
+};
+
+// init grid
+DefaultGridManager.Init(footerCallBack);
 
 
 //validation
@@ -174,6 +214,12 @@ $('#btnSearch').click(function (e) {
     };
     filterNames = 'Client~User~From~To';
     filterValues = $.map(searchObj, function (el) { return el }).join('~');
+
+    if (qs.type) {
+        filterNames += "~TypeID";
+        filterValues += "~" + qs.type;
+    }
+
     // update result
     DefaultGridManager.updateGrid();
 });

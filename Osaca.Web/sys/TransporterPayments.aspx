@@ -16,22 +16,22 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">Transporter Payments</li>
+            <li class="active head-title">Transporter Payments</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Transporter Payments Manager</h1>
+            <h1 class="head-title">Transporter Payments Manager</h1>
         </div>
         <!-- search box -->
         <div class="row">
             <form class="form-horizontal" role="form" id="masterForm">
                 <div class="col-xs-12 col-md-6">
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Search by Transporter</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Search by <span class="el-title">Transporter</span></label>
                         <div class="col-sm-9">
                             <select class="select2 form-control txtSearch" name="TransporterID" data-fn-name="Users_Select2"
-                                data-placeholder="Select a transporter" data-allow-clear="true">
+                                data-placeholder="Choose one" data-allow-clear="true">
                             </select>
                         </div>
                     </div>
@@ -66,7 +66,7 @@
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
-                            Transporter Payments List
+                            <span class="head-title">Transporter</span> List
                         </h5>
                         <div class="widget-toolbar">
                             <a href="#fullscreen" data-action="fullscreen" class="white">
@@ -80,7 +80,7 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Transporter</th>
+                                        <th class="el-title">Transporter</th>
                                         <th>Date</th>
                                         <th class="hidden-480">Amount <sub>AED</sub></th>
                                         <th>Check No</th>
@@ -92,13 +92,18 @@
                             </table>
                             <div class="add-print">
                                 <table class="table">
-                                    <tbody>
-                                        <tr class="info">
-                                            <td width="40%"><strong class="pull-right">Total:</strong></td>
-                                            <td><strong class="totalPayments blue">0</strong>
-                                                AED</td>
-                                        </tr>
-                                    </tbody>
+                                    <tr class="info">
+                                        <td width="80%"><strong class="pull-right">Total fees:</strong></td>
+                                        <td><span class="TotalFees">0</span> AED</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td><strong class="pull-right">Total payments:</strong></td>
+                                        <td><span class="TotalPayments">0</span> AED</td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td><strong class="pull-right">Due amount to transporers:</strong></td>
+                                        <td><span class="DueAmount">0</span> AED</td>
+                                    </tr>
                                 </table>
                             </div>
                         </div>
@@ -112,7 +117,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         <span class="white">&times;</span>
                                     </button>
-                                    Add/Edit Transporter Payment
+                                    Add/Edit <span class="el-title">Transporter</span> Payment
                                 </div>
                             </div>
                             <div class="modal-body">
@@ -120,10 +125,11 @@
                                     <div class="col-xs-12 col-sm-12">
                                         <form class="form-horizontal" role="form" id="aspnetForm">
                                             <div>
+                                                <input type="hidden" class="noreset" id="TypeID" value="2" />
                                                 <input type="hidden" id="PaymentID" value="0" />
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Transporter name <span class="text-danger">*</span></label>
+                                                <label class="col-sm-3 control-label no-padding-right" for="TransporterID"><span class="el-title">Transporter</span> name <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
                                                     <select class="col-sm-10 required" required id="TransporterID" name="TransporterID">
                                                         <option></option>
@@ -217,7 +223,7 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Transporter-payments.min.js?v=1.28"></script>
+    <script src="/Scripts/sys/Transporter-payments.min.js?v=1.30"></script>
     <style>
         #aspnetForm .select2, #aspnetForm .select2-container {
             width: 83% !important;

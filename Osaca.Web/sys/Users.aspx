@@ -84,6 +84,7 @@
                                                     <select class="col-sm-10 required" required id="TypeID" name="TypeID">
                                                         <option value="1">Employee</option>
                                                         <option value="2">Transporter</option>
+                                                        <option value="3">Crane/Driver</option>
                                                     </select>
                                                 </div>
                                             </div>

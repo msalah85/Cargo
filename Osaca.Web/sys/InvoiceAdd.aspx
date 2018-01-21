@@ -119,6 +119,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Crane/Driver name <span class="text-danger">*</span></label>
+                            <div class="col-sm-9">
+                                <select id="CraneDriverID" name="CraneDriverID" class="required col-xs-10 col-sm-10 required select2" data-fn-name="Users_Select2"
+                                    required data-placeholder="Choose a crane/driver name" data-allow-clear="true">
+                                </select>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-sm-6 pull-right">
                         <h4 class="pull-right">Total amount : <span class="red" id="TotalAmount">0</span> AED,
@@ -187,6 +195,6 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.29"></script>
+    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.30"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

@@ -13,6 +13,7 @@
 
     pageManager = function () {
         var
+            qs = commonManger.getQueryStrs(),
             init = function () {
                 pageEvent();
                 initProperties();
@@ -31,6 +32,12 @@
 
                     filterNames = 'ID~From~To';
                     filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
+
+
+                    if (qs.type) {
+                        filterNames += "~TypeID";
+                        filterValues += "~" + qs.type;
+                    }
 
                     // update result
                     DefaultGridManager.updateGrid();
@@ -93,11 +100,27 @@
                 dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataDirect',
                     BindListSearch, commonManger.errorException);
             },
+            UpdatePageTypeTitle = function (typeId) {
+                var headTitle = 'Transportation Payments',
+                    elementTitle = 'Transporter';
+
+                switch (typeId) {
+                    case "3": {
+                        headTitle = 'Crane/Driver Payments';
+                        elementTitle = 'Crane/Driver';
+                        break;
+                    };
+                }
+
+
+                document.title = headTitle;
+                $('.head-title').text(headTitle);
+                $('.el-title').text(elementTitle);
+            },
             initProperties = function () {
 
                 ////////////////////////// //////////////////////////
-                // check filter id.
-                var qs = commonManger.getQueryStrs();
+                // check filter transporter id.                
                 if (qs.id) {
 
                     filterNames = 'ID';
@@ -109,11 +132,22 @@
                         data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
                     });
                 }
+
+                if (qs.type) {
+                    $('#TypeID').val(qs.type);
+
+                    filterNames = 'TypeID';
+                    filterValues = qs.type;
+
+                    // update page name/title
+                    UpdatePageTypeTitle(qs.type);
+                }
+
                 ////////////////////////// //////////////////////////
 
 
                 gridColumns.push({
-                    "mDataProp": "PaymentID",
+                    "mDataProp": "Serial",
                     "bSortable": true
                 },
                     {
@@ -167,9 +201,18 @@
 
 
                     if (jsn1) {
-                        var payments = jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0;
-                        $('.totalPayments').text(numeral(payments).format('0,0.00'));
 
+                        var summaryData = {
+                            fees: jsn1.TotalFees ? jsn1.TotalFees * 1 : 0,
+                            payments: jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0
+                        };
+
+                        $('.TotalFees').text(numeral(summaryData.fees).format('0,0.00'));
+                        $('.TotalPayments').text(numeral(summaryData.payments).format('0,0.00'));
+
+                        // balance
+                        var dueAmount = (summaryData.fees) - (summaryData.payments);
+                        $('.DueAmount').text(numeral(dueAmount).format('0,0.00'));
                     }
 
                 };

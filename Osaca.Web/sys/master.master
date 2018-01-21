@@ -139,8 +139,59 @@
                         <span class="menu-text">Payments </span>
                     </a>
                 </li>
-                <li><a href="Transportation.aspx"><i class="menu-icon fa fa-car"></i><span class="menu-text">Transportation </span></a><b class="arrow"></b></li>
-                <li><a href="TransporterPayments.aspx"><i class="menu-icon fa fa-credit-card-alt"></i><span class="menu-text">Trans. Pay </span></a><b class="arrow"></b></li>
+                <li><a href="Transportation.aspx" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-car"></i>
+                    <span class="menu-text">Transportation </span></a>
+
+                    <b class="arrow fa fa-angle-down"></b>
+
+
+                    <b class="arrow"></b>
+                    <ul class="submenu">
+                        <li>
+                            <a href="Transportation.aspx">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                View list
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li>
+                            <a href="TransporterPayments.aspx">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Trans. Pay
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="Transportation.aspx?type=3" class="dropdown-toggle">
+                    <i class="menu-icon fa fa-car"></i>
+                    <span class="menu-text">Crane fees</span></a>
+                    <b class="arrow fa fa-angle-down"></b>
+                    <b class="arrow"></b>
+                    <ul class="submenu">
+                        <li>
+                            <a href="Transportation.aspx?type=3">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                View list
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+
+                        <li>
+                            <a href="TransporterPayments.aspx?type=3">
+                                <i class="menu-icon fa fa-caret-right"></i>
+                                Crane Pay.
+                            </a>
+
+                            <b class="arrow"></b>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="Expenses.aspx">
                         <i class="menu-icon fa fa-credit-card"></i>

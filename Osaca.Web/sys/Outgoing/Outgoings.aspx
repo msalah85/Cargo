@@ -139,10 +139,9 @@
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
-    <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.30"></script>
+    <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.31"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.27"></script>
+    <script src="/Scripts/select2/select2-optinal.min.js"></script>    
     <style>
         #masterForm .form-group {
             margin-bottom: 5px;
@@ -152,4 +151,5 @@
             margin-top: 7px
         }
     </style>
+
 </asp:Content>

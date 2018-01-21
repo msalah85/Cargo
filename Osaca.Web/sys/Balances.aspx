@@ -64,12 +64,12 @@
                                         </tr>
                                         <tr>
                                             <td class="center">3</td>
-                                            <td>Transportation fees</td>
+                                            <td>Trans/Driver fees</td>
                                             <td id="TransFees">0</td>
                                         </tr>
                                         <tr>
                                             <td class="center">4</td>
-                                            <td>Transportation payments</td>
+                                            <td>Trans/Driver payments</td>
                                             <td id="TransPayments">0</td>
                                         </tr>
                                         <tr class="info">

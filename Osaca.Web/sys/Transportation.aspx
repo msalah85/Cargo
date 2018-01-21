@@ -25,12 +25,12 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">Transportation</li>
+            <li class="active head-title">Transportation Fees</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Transportation Manager</h1>
+            <h1 class="head-title">Transportation Fees</h1>
         </div>
         <!-- search box -->
         <div class="row">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Search by Transporter</label>
+                        <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Search by <span class="el-title">Transporter</span></label>
                         <div class="col-sm-9">
                             <select id="User" class="required col-xs-10 col-sm-10 select2-filter" data-placeholder="Choose one..." data-allow-clear="true">
                                 <option></option>
@@ -87,7 +87,7 @@
                     <div class="widget-header">
                         <h5 class="widget-title bigger lighter">
                             <i class="ace-icon fa fa-table"></i>
-                            Transportation List
+                            <span class="head-title">Transportation Fees</span> List
                         </h5>
                         <div class="widget-toolbar">
                             <a href="#" data-action="fullscreen" class="white">
@@ -102,12 +102,10 @@
                                     <tr>
                                         <th>#</th>
                                         <th>Consignee</th>
-                                        <th>Transporter</th>
-                                        <th>Trans. Date</th>
+                                        <th class="el-title">Transporter</th>
+                                        <th>Date</th>
                                         <th class="hidden-480">Container No</th>
-                                        <th class="hidden-480">Trans. Charge</th>
-                                        <th class="hidden-480">Crane Charge</th>
-                                        <th class="hidden-480">Total Amount</th>
+                                        <th>Amount<sub>AED</sub></th>
                                         <th width="77px" class="hidden-print"></th>
                                     </tr>
                                 </thead>
@@ -116,12 +114,26 @@
                                     <tr>
                                         <td colspan="5"></td>
                                         <td class="tranCharge bolder"></td>
-                                        <td class="caragCharge bolder"></td>
-                                        <td class="totalCharge bolder"></td>
                                         <td></td>
                                     </tr>
                                 </tfoot>
                             </table>
+                            <div class="add-print">
+                                <table class="table">
+                                    <tr class="info">
+                                        <td width="80%"><strong class="pull-right">Total fees:</strong></td>
+                                        <td><span class="TotalFees">0</span> AED</td>
+                                    </tr>
+                                    <tr class="success">
+                                        <td><strong class="pull-right">Total payments:</strong></td>
+                                        <td><span class="TotalPayments">0</span> AED</td>
+                                    </tr>
+                                    <tr class="danger">
+                                        <td><strong class="pull-right">Due amount to transporers:</strong></td>
+                                        <td><span class="DueAmount">0</span> AED</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -133,7 +145,7 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
                                         <span class="white">&times;</span>
                                     </button>
-                                    Add/Edit Transportation
+                                    Add/Edit <span class="el-title">Transporter</span> fee
                                 </div>
                             </div>
                             <div class="modal-body">
@@ -141,6 +153,7 @@
                                     <div class="col-xs-12 col-sm-12">
                                         <form class="form-horizontal" role="form" id="aspnetForm">
                                             <div>
+                                                <input type="hidden" id="TypeID" value="0" />
                                                 <input type="hidden" id="TransportID" value="0" />
                                             </div>
                                             <div class="form-group">
@@ -152,7 +165,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="ClientID">Transporter name <span class="text-danger">*</span></label>
+                                                <label class="col-sm-3 control-label no-padding-right" for="ClientID"><span class="el-title">Transporter</span> name <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
                                                     <select class="col-sm-10 required" required id="TransporterID" name="TransporterID">
                                                         <option></option>
@@ -160,7 +173,7 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="TransportDate">Transport date <span class="text-danger">*</span></label>
+                                                <label class="col-sm-3 control-label no-padding-right" for="TransportDate">Date <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="col-sm-10 date-picker" data-date-format="dd-mm-yyyy" required id="TransportDate" name="TransportDate" placeholder="dd-mm-yyyy" />
                                                 </div>
@@ -172,16 +185,9 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="TransportCharge">Transport charge <span class="text-danger">*</span></label>
+                                                <label class="col-sm-3 control-label no-padding-right" for="TransportCharge">Amount <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="col-sm-10" id="TransportCharge" name="TransportCharge" required placeholder="00.00" />
-                                                    AED
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="CarageCharge">Carage charge <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10" id="CarageCharge" name="CarageCharge" required placeholder="00.00" />
                                                     AED
                                                 </div>
                                             </div>
@@ -243,5 +249,5 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/sys/transportations.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/transportations.min.js?v=1.32"></script>
 </asp:Content>

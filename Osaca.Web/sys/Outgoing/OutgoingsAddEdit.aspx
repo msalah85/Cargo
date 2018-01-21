@@ -89,7 +89,7 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js"></script>
+    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.25"></script>
     <script>pageManager.Init();</script>
 </asp:Content>
 
