@@ -39,6 +39,8 @@ var
                     bindReportControls = function (d) {
                         var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list, jsn1 = $.xml2json(xml).list1;
 
+                        console.log(xml, jsn)
+
                         if (jsn) {
                             // set all data
                             $.each(jsn, function (k, v) {
@@ -63,7 +65,8 @@ var
                         }
                     };
 
-                dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataList', bindReportControls, commonManger.errorException);
+                dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataList', bindReportControls,
+                    commonManger.errorException);
             },
             showPaymentsTotal = function () {
                 var _total = 0;

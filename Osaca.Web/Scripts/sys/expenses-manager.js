@@ -1,8 +1,13 @@
-﻿var targetdata; modalDialog = "addModal"; formName = 'aspnetForm'; deleteModalDialog = 'deleteModal';
+﻿var targetdata;
+modalDialog = "addModal";
+formName = 'aspnetForm';
+deleteModalDialog = 'deleteModal';
 tableName = "Expenses";
 pKey = "ExpenseID";
 gridId = "listItems";
 gridColumns = [];
+
+
 gridColumns.push(
     {
         "mDataProp": "ExpenseID",
@@ -17,6 +22,16 @@ gridColumns.push(
         "bSortable": false
     },
     {
+        "mDataProp": "Priority",
+        "bSortable": true
+    },
+    {
+        "mData": function (row) {
+            return row.Active === true ? '<i class="fa fa-check green"></i>' : '<i class="fa fa-remove red"></i>';
+        },
+        "bSortable": false
+    },
+    {
         "mDataProp": null,
         "bSortable": false,
         "mData": function () {
@@ -24,6 +39,11 @@ gridColumns.push(
                 '<button class="btn btn-danger btn-mini remove" title="حذف"><i class="fa fa-trash"></i></button>'
         }
     });
+
+$.extend(true, $.fn.dataTable.defaults, {
+    "order": [[3, "asc"]]
+});
+
 DefaultGridManager.Init();
 
 

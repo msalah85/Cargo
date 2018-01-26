@@ -187,7 +187,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right" for="TransportCharge">Amount <span class="text-danger">*</span></label>
                                                 <div class="col-sm-9">
-                                                    <input type="text" class="col-sm-10" id="TransportCharge" name="TransportCharge" required placeholder="00.00" />
+                                                    <input type="text" class="col-sm-10 money" id="TransportCharge" name="TransportCharge" required placeholder="00.00" />
                                                     AED
                                                 </div>
                                             </div>

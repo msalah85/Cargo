@@ -53,6 +53,8 @@
                                         <th>#</th>
                                         <th>Expense name</th>
                                         <th>Default value</th>
+                                        <th>Priority</th>
+                                        <th>Active</th>
                                         <th width="77px"></th>
                                     </tr>
                                 </thead>
@@ -86,9 +88,24 @@
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="DefaultValue">DefaultValue</label>
+                                                <label class="col-sm-3 control-label no-padding-right" for="DefaultValue">Default value</label>
                                                 <div class="col-sm-9">
                                                     <input type="text" class="col-sm-10" id="DefaultValue" placeholder="00.00" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="Priority">Priority</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="col-sm-10" required id="Priority" placeholder="1" value="1" />
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="Active">Active</label>
+                                                <div class="col-sm-9">
+                                                    <label>
+                                                        <input type="checkbox" class="inline" id="Active" />
+                                                        <span>Active (&#10004; Yes view me in new invoice).</span>
+                                                    </label>
                                                 </div>
                                             </div>
                                         </form>

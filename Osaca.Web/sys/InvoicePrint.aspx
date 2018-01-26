@@ -139,6 +139,10 @@
                                                 <i class="ace-icon fa fa-caret-right green"></i>
                                                 Bill of entry date: <span class="bolder date" id="BillOfEntryDate"></span>
                                             </li>
+                                            <li>
+                                                <i class="ace-icon fa fa-caret-right green"></i>
+                                                Customer TRN: <span class="bolder" id="ClientTRN"></span>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>

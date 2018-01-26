@@ -103,6 +103,12 @@
                                                     <input type="text" class="col-sm-10" id="Address" name="Address" placeholder="Client address" />
                                                 </div>
                                             </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" title="Client Tax Registration Number" for="ClientTRN">Client TRN</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="col-sm-10" id="ClientTRN" name="ClientTRN" placeholder="Client tax registration number" />
+                                                </div>
+                                            </div>
                                         </form>
                                     </div>
                                 </div>

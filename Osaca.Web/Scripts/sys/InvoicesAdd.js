@@ -177,7 +177,7 @@ var
                     $('.date-picker').text(function () {
                         return commonManger.formatJSONDateCal($(this).text());
                     });
-                    
+
 
                     // bind down select2(transfer/crane)
                     if (jsn2.TransporterID)
