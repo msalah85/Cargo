@@ -28,13 +28,21 @@ gridColumns.push(
         "bSortable": true
     },
     {
-        "mDataProp": "RefID",
+        "mData": function (d) { return d.RefID ? d.RefID : '' },
         "bSortable": true
     },
     {
-        "mDataProp": "Notes",
+        "mData": function (d) { return d.Notes ? d.Notes : '' },
         "bSortable": false,
         "sClass": "hidden-480"
+    },
+    {
+        "mDataProp": "VAT",
+        "bSortable": false,
+        "sClass": "hidden-480",
+        "mData": function (row) {
+            return numeral((row.VAT || 0) * 1).format('0,0.00');
+        }
     },
     {
         "mDataProp": "Amount",
@@ -57,11 +65,21 @@ gridColumns.push(
 $.extend(true, $.fn.dataTable.defaults, {
     "footerCallback": function (tfoot, data, start, end, display) {
         var api = this.api();
-
         $('.totalCharge').text(
-            api.column(5).data().reduce(function (a, b) {
-                return (a * 1) + (b * 1);
-            }, 0)
+            numeral(
+                api.column(6).data().reduce(function (a, b) {
+                    return (a * 1) + (numeral().unformat(b) * 1);
+                }, 0)
+            ).format('0,0.00')
+        );
+
+        // total vat
+        $('.totalVat').text(
+            numeral(
+                api.column(5).data().reduce(function (a, b) {
+                    return (a * 1) + (numeral().unformat(b) * 1);
+                }, 0)
+            ).format('0,0.00')
         );
     }
 });

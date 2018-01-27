@@ -83,6 +83,7 @@
                                         <th>Expense Type</th>
                                         <th>Ref. No.</th>
                                         <th>Notes</th>
+                                        <th>VAT(5%)</th>
                                         <th>Amount</th>
                                         <th width="77px" class="hidden-print"></th>
                                     </tr>
@@ -91,6 +92,7 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="5"><span class="pull-right">Total</span></td>
+                                        <td class="totalVat bolder"></td>
                                         <td class="totalCharge bolder"></td>
                                         <td></td>
                                     </tr>
@@ -139,9 +141,9 @@
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DefaultGridFilterManager.js?v=1.4"></script>
-    <script src="/Scripts/sys/Outgoing/Outgoings.js?v=1.31"></script>
+    <script src="/Scripts/sys/Outgoing/Outgoings.min.js?v=1.31"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
-    <script src="/Scripts/select2/select2-optinal.min.js"></script>    
+    <script src="/Scripts/select2/select2-optinal.min.js"></script>
     <style>
         #masterForm .form-group {
             margin-bottom: 5px;

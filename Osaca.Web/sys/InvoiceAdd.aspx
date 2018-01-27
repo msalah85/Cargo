@@ -96,7 +96,7 @@
                             <table id="listItems" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>#</th>
+                                        <th class="center">#</th>
                                         <th>Expense name</th>
                                         <th>Cost</th>
                                         <th>Amount/Customer</th>
@@ -195,6 +195,6 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.js?v=1.36"></script>
+    <script src="/Scripts/sys/InvoicesAdd.js?v=1.3"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

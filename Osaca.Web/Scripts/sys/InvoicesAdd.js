@@ -50,7 +50,14 @@ var
                     e.preventDefault();
                     var el = $(this).closest('tr');
                     if (el) {
-                        el.css({ 'transition': 'background-color 1s', 'background-color': 'red' }).fadeOut('slow').promise().done(function () { el.remove(); showPaymentsTotal(); });
+                        el.css({ 'transition': 'background-color 1s', 'background-color': 'red' }).fadeOut('slow').promise().done(function () {
+                            el.remove();
+
+                            reArrangGridIndexs(); // reorder indexes.
+
+                            showPaymentsTotal();
+
+                        });
                     }
                 });
 
@@ -70,7 +77,7 @@ var
                     if (expId && expValue)
                         updateVatInGrid(expId, expValue);
 
-                    showPaymentsTotal();
+                    showPaymentsTotal(); // recalculate total.
                 });
 
             },
@@ -78,18 +85,15 @@ var
             SaveAllData = function () {
                 var isValid = validateMayData();
 
-                console.log('form valid:' + isValid);
-
                 if (isValid) {
 
                     var
-                        _grid = $('#listItems tbody tr'),
-                        valuesDetails = _grid.map(function (i, v) {
+                        valuesDetails = $('#listItems tbody tr').map(function (i, v) {
                             var detailsId = $(v).find('td:eq(0)').attr('data-inv-details-id');
-                            return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').text() + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
+                            return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').attr('data-expenseid') + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
                         }).get(),
-                        TransporterID = $('#TransporterID').val(),
-                        CraneDriverID = $('#CraneDriverID').val(),
+                        TransporterID = $('#TransporterID').val() * 1 > 0 ? $('#TransporterID').val() : '',
+                        CraneDriverID = $('#CraneDriverID').val() * 1 > 0 ? $('#CraneDriverID').val() : '',
 
                         namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo',
                             'Notes', 'BillOfEntryDate', 'TransporterID', 'CraneDriverID'],
@@ -108,25 +112,15 @@ var
 
 
 
-                    // Validate trasporter
-                    _grid.each(function () {
+                    // Validate trasporter/Crane-Driver name 
+                    $('#listItems tbody tr').each(function () {
                         var transporterCraneExpenseName = $(this).find("td:eq(1)").text().toLowerCase(),
                             transporterCraneExpenseCost = $(this).find("td:eq(2) input").val() * 1,
                             transporterCraneExpenseCustVal = $(this).find("td:eq(3) input").val() * 1;
 
-                        console.log(
-                            transporterCraneExpenseName,
-                            TransporterID,
-                            CraneDriverID,
-
-                            transporterCraneExpenseName === 'transport charges' && TransporterID == null &&
-                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0),
-
-                            transporterCraneExpenseName === 'crane charges' && CraneDriverID == null &&
-                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)
-                        );
 
                         // validate transporter name
+                        // should be selected when there is transportation charge added up
                         if (transporterCraneExpenseName === 'transport charges' && TransporterID === '' &&
                             (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)) {
                             _valid = false;
@@ -135,6 +129,7 @@ var
                         }
 
                         // validate crane/driver name
+                        // should be selected when there is Carage charge value up.
                         if (transporterCraneExpenseName === 'crane charges' && CraneDriverID === '' &&
                             (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)) {
                             _valid = false;
@@ -143,13 +138,10 @@ var
                         }
 
                     }).promise().done(function () {
-                        console.log(_valid);
-
+                        // start save invoice.
                         if (_valid)
                             SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
                     });
-
-
 
 
                 } else {
@@ -168,10 +160,9 @@ var
             validateMayData = function () {
                 // validate all data before SaveAllData.
                 var _valid = true,
-                    _grid = $('#listItems tbody tr'),
                     requiredFields = {
                         client: $('#ClientID').val(),
-                        gridLength: _grid.length,
+                        gridLength: $('#listItems tbody').length,
                         date: commonManger.dateFormat($('#AddDate').val()),
                         container: $('#ContainerNo').val(),
                         declaration: $('#DeclarationNo').val(),
@@ -188,7 +179,7 @@ var
             successSaved = function (data) {
                 data = data.d;
                 if (data.Status) {
-                    //window.location.href = 'InvoicePrint.aspx?id=' + data.ID; //InvoicesView
+                    window.location.href = 'InvoicePrint.aspx?id=' + data.ID; //InvoicesView
                 } else {
                     commonManger.showMessage('Error!', 'Error occured!:' + data.message);
                 }
@@ -209,13 +200,12 @@ var
                     // for edit bill or new bill.
                     var detailData = (_id) ? jsn3 : jsn,
                         rows = $(detailData).map(function (i, v) {
-                            return $('<tr><td data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '">' + v.ExpenseID + '</td><td>' + v.ExpenseName + '</td>\
+                            return $('<tr><td data-expenseid="' + v.ExpenseID + '" data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '" class="center">' + (i + 1) + '</td><td>' + v.ExpenseName + '</td>\
                              <td><input data-expid="'+ v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td><td><input data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
-                        }).get(),
-                        _tbl = $('#listItems tbody');
+                        }).get();
 
-                    _tbl.append(rows);
+                    $('#listItems tbody').append(rows);
 
                     // show payments total amount.
                     showPaymentsTotal();
@@ -266,28 +256,31 @@ var
                     ExpenseName: $('#ExpenseID option:selected').text(),
                     Cost: $('#Cost').val(),
                     Amount: $('#Amount').val()
-                }, _tbl = $('#listItems tbody');
+                };
 
                 if (jsn) {
                     // collect table rows
                     var rows = $(jsn).map(function (i, v) {
-                        return $('<tr><td data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '">' + v.ExpenseID + '</td><td>' + v.ExpenseName + '</td>\
+                        return $('<tr><td data-expenseid="' + v.ExpenseID + '" data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '" class="center">' + (i + 1) + '</td><td>' + v.ExpenseName + '</td>\
                              <td><input type="number" value="' + numeral(v.Cost).format('0.0') + '" /></td><td><input type="number" value="' + numeral(v.Amount).format('0.0') + '" /></td>\
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
                     }).get(), isExist = false;
 
 
                     $('#listItems tbody tr').each(function (i, item) {
-                        if ($(this).children('td:eq(0)').text() === jsn.ExpenseID)
+                        if ($(this).children('td:eq(0)').attr('data-expenseid') === jsn.ExpenseID)
                             isExist = true;
                     });
 
 
                     if (!isExist) {
                         // populate to payments table
-                        _tbl.append(rows);
+                        $('#listItems tbody').append(rows);
                         // show payments total amount.
                         showPaymentsTotal();
+                        // re order rows indexs
+                        reArrangGridIndexs();
+
                     } else {
                         commonManger.showMessage('Data Exists:', 'Data already exists before.');
                     }
@@ -298,7 +291,6 @@ var
             showPaymentsTotal = function () {
                 var _totalCost = 0,
                     _total4Cust = 0;
-
 
                 $('#listItems tbody tr').each(function (i, item) {
                     try {
@@ -348,6 +340,11 @@ var
 
                 dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData',
                     bindData, commonManger.errorException);
+            },
+            reArrangGridIndexs = function () {
+                $('#listItems tbody tr').each(function (i, n) {
+                    $(this).find('td:eq(0)').text(i + 1);
+                });
             };
 
 
