@@ -142,10 +142,7 @@
                 <li><a href="Transportation.aspx" class="dropdown-toggle">
                     <i class="menu-icon fa fa-car"></i>
                     <span class="menu-text">Transportation </span></a>
-
                     <b class="arrow fa fa-angle-down"></b>
-
-
                     <b class="arrow"></b>
                     <ul class="submenu">
                         <li>
@@ -238,6 +235,12 @@
                     <a href="Banks.aspx">
                         <i class="menu-icon fa fa-pencil"></i>
                         <span class="menu-text">Banks</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="ClientsProfits.aspx">
+                        <i class="menu-icon fa fa-pencil"></i>
+                        <span class="menu-text">Profit</span>
                     </a>
                 </li>
             </ul>

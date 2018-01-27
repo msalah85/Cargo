@@ -64,7 +64,7 @@ var
                         var
                             rows = $(jsn).map(function (i, v) {
                                 latestBalance += v.Profit * 1;
-                                return `<tr><td>${v.ClientName}</td><td>${numeral(v.Profit).format('0,0.00')}</td></tr>`;
+                                return `<tr><td class="center">${i + 1}</td><td>${v.ClientName}</td><td>${numeral(v.Profit).format('0,0.00')}</td></tr>`;
                             }).get().join(),
                             $stet = $('.listItems tbody');
 

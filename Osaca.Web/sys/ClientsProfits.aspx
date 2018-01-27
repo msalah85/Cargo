@@ -60,6 +60,7 @@
                                 <table class="table table-striped table-bordered listItems">
                                     <thead>
                                         <tr>
+                                            <th class="center">#</th>
                                             <th>Customer</th>                                            
                                             <th>Profit <sub>AED</sub></th>
                                         </tr>
@@ -86,6 +87,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/client-Profit.js?v=1.30"></script>
+    <script src="/Scripts/sys/clientsProfits.js?v=1.30"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

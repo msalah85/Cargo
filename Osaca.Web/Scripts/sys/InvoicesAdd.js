@@ -76,12 +76,20 @@ var
             },
             // start Save data.
             SaveAllData = function () {
-                if (validateMayData()) {
+                var isValid = validateMayData();
 
-                    var valuesDetails = $('#listItems tbody tr').map(function (i, v) {
-                        var detailsId = $(v).find('td:eq(0)').attr('data-inv-details-id');
-                        return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').text() + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
-                    }).get(),
+                console.log('form valid:' + isValid);
+
+                if (isValid) {
+
+                    var
+                        _grid = $('#listItems tbody tr'),
+                        valuesDetails = _grid.map(function (i, v) {
+                            var detailsId = $(v).find('td:eq(0)').attr('data-inv-details-id');
+                            return (detailsId ? detailsId : 0) + ',0,' + $(v).find('td:eq(0)').text() + ',' + numeral().unformat($(v).find('td:eq(2) input').val()) + ',' + numeral().unformat($(v).find('td:eq(3) input').val());
+                        }).get(),
+                        TransporterID = $('#TransporterID').val(),
+                        CraneDriverID = $('#CraneDriverID').val(),
 
                         namesMaster = ['InvoiceID', 'ClientID', 'AddDate', 'TotalAmount', 'Profit', 'ContainerNo', 'DeclarationNo',
                             'Notes', 'BillOfEntryDate', 'TransporterID', 'CraneDriverID'],
@@ -89,11 +97,60 @@ var
                         valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()),
                         numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(),
                         $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val()),
-                        $('#TransporterID').val(), $('#CraneDriverID').val()],
+                            TransporterID, CraneDriverID],
 
-                        namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'];
+                        namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount'],
 
-                    SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
+                        _valid = true;
+
+
+
+
+
+
+                    // Validate trasporter
+                    _grid.each(function () {
+                        var transporterCraneExpenseName = $(this).find("td:eq(1)").text().toLowerCase(),
+                            transporterCraneExpenseCost = $(this).find("td:eq(2) input").val() * 1,
+                            transporterCraneExpenseCustVal = $(this).find("td:eq(3) input").val() * 1;
+
+                        console.log(
+                            transporterCraneExpenseName,
+                            TransporterID,
+                            CraneDriverID,
+
+                            transporterCraneExpenseName === 'transport charges' && TransporterID == null &&
+                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0),
+
+                            transporterCraneExpenseName === 'crane charges' && CraneDriverID == null &&
+                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)
+                        );
+
+                        // validate transporter name
+                        if (transporterCraneExpenseName === 'transport charges' && TransporterID === '' &&
+                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)) {
+                            _valid = false;
+                            commonManger.showMessage('Required fields', 'Please select transporter name.');
+                            return false;
+                        }
+
+                        // validate crane/driver name
+                        if (transporterCraneExpenseName === 'crane charges' && CraneDriverID === '' &&
+                            (transporterCraneExpenseCost > 0 || transporterCraneExpenseCustVal > 0)) {
+                            _valid = false;
+                            commonManger.showMessage('Required fields', 'Please select crane/driver name.');
+                            return false;
+                        }
+
+                    }).promise().done(function () {
+                        console.log(_valid);
+
+                        if (_valid)
+                            SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
+                    });
+
+
+
 
                 } else {
                     commonManger.showMessage('Data required', 'Please enter all mandatory fields.')
@@ -111,17 +168,19 @@ var
             validateMayData = function () {
                 // validate all data before SaveAllData.
                 var _valid = true,
+                    _grid = $('#listItems tbody tr'),
                     requiredFields = {
                         client: $('#ClientID').val(),
-                        gridLength: $('#listItems tbody tr').length,
+                        gridLength: _grid.length,
                         date: commonManger.dateFormat($('#AddDate').val()),
                         container: $('#ContainerNo').val(),
                         declaration: $('#DeclarationNo').val(),
-                        transporter: $('#TransporterID').val() * 1 > 0 ? $('#TransporterID').val() : ''
+                        transporter: $('#TransporterID').val() * 1 > 0 ? $('#TransporterID').val() : '',
+                        craneDriver: $('#CraneDriverID').val() * 1 > 0 ? $('#CraneDriverID').val() : ''
                     };
 
                 if (requiredFields.client === '' || requiredFields.gridLength <= 0 || requiredFields.date === '' ||
-                    requiredFields.container === '' || requiredFields.declaration === '' || requiredFields.transporter === '')
+                    requiredFields.container === '' || requiredFields.declaration === '')
                     _valid = false;
 
                 return _valid;
@@ -129,7 +188,7 @@ var
             successSaved = function (data) {
                 data = data.d;
                 if (data.Status) {
-                    window.location.href = 'InvoicePrint.aspx?id=' + data.ID; //InvoicesView
+                    //window.location.href = 'InvoicePrint.aspx?id=' + data.ID; //InvoicesView
                 } else {
                     commonManger.showMessage('Error!', 'Error occured!:' + data.message);
                 }
