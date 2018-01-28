@@ -1,12 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.0
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Osaca.Web", "http://localhost:54573", "{551AF319-25D9-4690-BFCF-93E29863152C}"
 	ProjectSection(WebsiteProperties) = preProject
 		UseIISExpress = "true"
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		ProjectReferences = "{d43b58a3-4e44-4bc6-a88f-ac94774c5ee5}|IraqCars.Business.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54573"
 		Debug.AspNetCompiler.PhysicalPath = "Osaca.Web\"

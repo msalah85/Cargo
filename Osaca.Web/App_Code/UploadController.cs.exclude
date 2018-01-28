@@ -257,6 +257,6 @@ namespace Share.CMS.Web.Api
     public class uploadModel
     {
         public string[] Name { get; set; }
-        public string ID { get; set; };
+        public string ID { get; set; }
     }
 }
