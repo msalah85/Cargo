@@ -57,7 +57,8 @@ gridColumns.push(
         "bSortable": false,
         sClass: 'hidden-print',
         "mData": function (d) {
-            return '<a href="outgoing/outgoingsaddedit.aspx?id=' + d.OutgoingID + '" class="btn btn-primary btn-mini" title="Edit"><i class="fa fa-pencil"></i></a> ' +
+            return '<a href="images.aspx?id=' + d.OutgoingID + '" class="btn btn-warning btn-mini" title="Upload receipt"><i class="fa fa-image"></i></a>' +
+                '<a href="outgoing/outgoingsaddedit.aspx?id=' + d.OutgoingID + '" class="btn btn-primary btn-mini" title="Edit"><i class="fa fa-pencil"></i></a>' +
                 '<button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>';
         }
     });

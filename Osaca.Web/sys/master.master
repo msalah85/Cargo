@@ -303,7 +303,8 @@
     <script src="/Content/sys/assets/js/ace/ace.widget-on-reload.min.js"></script>
     <script src="/Content/sys/assets/js/ace/ace.searchbox-autocomplete.min.js"></script>
     <script src="/Scripts/sys/app-master.min.js"></script>
-    
-    <script src="/Scripts/sys/imagesManager.js?v=2.7"></script>
+    <script src="/Content/sys/assets/js/bootbox.js"></script>
+
+    <script src="/Scripts/sys/imagesManager.js?v=2.9122"></script>
 </body>
 </html>

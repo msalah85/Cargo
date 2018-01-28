@@ -11,35 +11,36 @@ String.prototype.format = function () {
     return str;
 };
 
-var 
+var
     newPostManager = function () {
         var
             btnUpload = $('#uploadAll'),
-            sUrl = '/api/Upload/',
+            sUrl = '/api/Files/',
 
             init = function () {
                 pageEvents();
 
                 getProperties();
             },
-            $id = 0,
+            queryId = 0,
             getProperties = function () {
                 // Social settings
-                $id = commonManger.getQueryStrs().id;
-                var uRL = '/api/data/GetData',
+                queryId = commonManger.getQueryStrs().id;
+                $('#masterID').val(queryId ? queryId : 0);
+
+                var uRL = '/api/data.aspx/GetData',
                     data = {
                         actionName: 'Images_Properties',
-                        value: ($id ? $id : 0)
+                        value: (queryId ? queryId : 0)
                     },
                     settingCallBack = function (data) {
-                        data = commonManger.decoData(data),
+                        data = commonManger.xml2Json(data.d),
                             list = data.list,
                             list1 = data.list1;
 
 
-
                         if (list)
-                            $('.title').text(`(${list.PropertyTitle})`);
+                            $('.title').text(list.Notes);
 
 
 
@@ -48,14 +49,14 @@ var
 
                     };
 
-                if (!$id)
+                if (!queryId)
                     return;
 
                 // to go edit
-                $('.edit-me').attr('href', `PropertyAddEdit?id=${$id}`);
+                $('.edit-me').attr('href', "Outgoing/OutgoingsAddEdit.aspx?id=" + queryId);
 
 
-                dataService.callAjax('GET', data, uRL, settingCallBack,
+                dataService.callAjax('POST', JSON.stringify(data), uRL, settingCallBack,
                     commonManger.errorException);
             },
             enableCTRL = function (ctrl, isEnabled) {
@@ -70,6 +71,7 @@ var
             showMessage = function (typeID, message) {
                 var _msg = '<div class="alert alert-' + (typeID > 1 ? 'danger' : 'success') + '">' + message + '</div>';
                 $('.message').html(_msg);
+                $('.ace-file-input a.remove').trigger('click');
             },
             OnImagesSuccess = function (data) {
                 // reset gallery
@@ -78,14 +80,13 @@ var
 
                 $(data).each(function (i, item) {
                     var main = item.IsMain === 'true',
-                        img = '<li><a target="_blank" href="/public/images/' + item.MediaUrl + '" data-rel="colorbox">\
-                    <img style="width: 150px; height: 150px" src="/public/images/_thumb/' + item.MediaUrl + '" />\
+                        img = '<li><a target="_blank" href="/public/files/' + item.MediaUrl + '" data-rel="colorbox">\
+                    <img style="width: 150px; height: 150px" src="/public/files/_thumb/' + item.MediaUrl + '" />\
                     <div class="text">\
                         <div class="inner">' + (main ? "Main" : "") + '</div>\
                     </div>\
                 </a>\
                     <div class="tools tools-bottom">\
-                        <a href="javascript:void(0);" class="set-main ' + (main ? "hidden" : "") + '" data-id="' + item.MediaUrl + '" title="' + (main ? "Main" : "") + '"><i class="fa fa-thumb-tack"></i></a>\
                         <a class="itemToDelete" href="javascript:void(0);" data-id="' + item.MediaUrl + '" title="Delete"><i class="fa fa-trash red"></i></a>\
                     </div>\
                 </li>';
@@ -114,7 +115,7 @@ var
             uploadImages = function () {
                 var
                     post = {
-                        uRL: '/api/Upload/Save',
+                        uRL: '/api/Files/Send',
                         imgs: $('span.ace-file-name.large').map(function (i, item) {
                             return $(item).data('base64');
                         }).get(),
@@ -125,7 +126,7 @@ var
                     },
                     _data = {
                         Name: post.imgs,
-                        ID: $id
+                        ID: $('#masterID').val()
                     };
 
 
@@ -157,7 +158,7 @@ var
 
                             _img.onload = function () {
                                 if (!_img || (_img.height < 200 && _img.width < 200)) {
-                                    commonManger.showMessage('Too small !!!', `The image (${_file.name}) is too small, please select a large image.`);
+                                    commonManger.showMessage('Too small !!!', 'The image (' + _file.name + ') is too small, please select a large image.');
                                     $('.ace-file-input a.remove').trigger('click'); // remove the selected image
                                     validImg = false;
                                 }
@@ -213,7 +214,7 @@ var
 
                     confirmationMsg(funCallBak, 1); // delete
                 });
-                
+
 
             },
             confirmationMsg = function (funCallBack, resetDelete) {
@@ -231,7 +232,7 @@ var
                 var reader = new FileReader();
                 reader.onloadend = function () {
                     var $imgg = $('span.ace-file-name:eq(' + idex + ')');
-                    
+
                     if ($imgg) {
                         $imgg.data('base64', reader.result.split(',')[1]);
                     }
@@ -251,7 +252,7 @@ var
             },
             deletePicture = function (name) {
                 var
-                    _url = `${sUrl}Del`,
+                    _url = sUrl + 'Del',
                     dta = { id: name };
 
 
@@ -259,7 +260,9 @@ var
                     OnDeleteSuccess, commonManger.errorException);
             },
             onSetMainSuccess = function (d) {
-                if (d == "1") {
+                console.log(d);
+
+                if (d === "1") {
                     //$('#divIMagesList li a.hidden').removeClass('hidden').closest('li').find('div.text span').html('').removeClass('red');
                     //$('#divIMagesList li a[data-id="' + p + '"]').attr('title', 'Main').addClass('hidden').closest('li').find('div.text span').html("<span class='red'>Main</span>");
 

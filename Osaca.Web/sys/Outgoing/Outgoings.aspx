@@ -85,7 +85,7 @@
                                         <th>Notes</th>
                                         <th>VAT(5%)</th>
                                         <th>Amount</th>
-                                        <th width="77px" class="hidden-print"></th>
+                                        <th width="99px" class="hidden-print"></th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
