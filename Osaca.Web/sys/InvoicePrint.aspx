@@ -69,7 +69,7 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>Country Sea Clearing & Forwarding L.L.C</h1>
+            <h1>OSAKA Clearing & Forwarding L.L.C</h1>
         </div>
         <div class="space-6"></div>
         <div class="row" id="masterForm">
@@ -99,7 +99,7 @@
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
-                                            <b>Country Sea Clearing & Forwarding L.L.C</b>
+                                            <b>OSAKA Clearing & Forwarding L.L.C</b>
                                         </div>
                                     </div>
                                     <div>
@@ -171,7 +171,7 @@
                                 <div class="col-sm-7 pull-left"></div>
                             </div>
                             <div class="space-6"></div>
-                            <div class="well">Thank you for choosing Country Sea. We believe you will be satisfied by our services.</div>
+                            <div class="well">Thank you for choosing OSAKA. We believe you will be satisfied by our services.</div>
                             <p id="Notes"></p>
                         </div>
                     </div>

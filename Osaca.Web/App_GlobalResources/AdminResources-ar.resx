@@ -181,7 +181,7 @@
     <value>رسالة من صديقك {0}.</value>
   </data>
   <data name="SiteName" xml:space="preserve">
-    <value>Country Sea</value>
+    <value>OSAKA</value>
   </data>
   <data name="SitePath" xml:space="preserve">
     <value>http://taj-it.com</value>
@@ -199,7 +199,7 @@
     <value>Error in the system, please contact system administrator.</value>
   </data>
   <data name="SystemName" xml:space="preserve">
-    <value>Country Sea</value>
+    <value>OSAKA</value>
   </data>
   <data name="TrxNotFound" xml:space="preserve">
     <value>لم يتم العثور على بيانات لرقم المعاملة الذى تم إدخاله،يرجى المحاولة مرة أخرى بالرقم الصحيح.</value>

@@ -64,7 +64,7 @@
                 <a href="home.aspx" class="navbar-brand">
                     <small>
                         <i class="fa fa-th"></i>
-                        Country Sea System
+                        OSAKA System
                     </small>
                 </a>
             </div>
@@ -72,10 +72,10 @@
                 <ul class="nav ace-nav">
                     <li class="light-blue">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img class="nav-user-photo" src="/Content/sys/assets/avatars/avatar4.png" alt="Country Sea's Photo" />
+                            <img class="nav-user-photo" src="/Content/sys/assets/avatars/avatar4.png" alt="OSAKA's Photo" />
                             <span class="user-info">
                                 <small>Welcome,</small>
-                                Country Sea
+                                OSAKA
                             </span>
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
@@ -257,7 +257,7 @@
             <div class="footer-inner">
                 <div class="footer-content">
                     <span class="bigger-120">
-                        <span class="blue bolder">Country Sea</span>
+                        <span class="blue bolder">OSAKA</span>
                         CARGO &copy; 2010-<%: DateTime.Now.Year %>
                     </span>
                     &nbsp; &nbsp;

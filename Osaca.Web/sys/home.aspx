@@ -1,4 +1,4 @@
-<%@ Page Title="Country Sea System" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="home.aspx.cs" Inherits="sys_home"
+<%@ Page Title="OSAKA System" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="home.aspx.cs" Inherits="sys_home"
     EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <%@ Register Src="UserControls/PageSettings.ascx" TagPrefix="uc1" TagName="PageSettings" %>
@@ -20,7 +20,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="alert alert-block alert-success">
-                    <strong>Welcome</strong> To Country Sea MANAGEMENT SYSTEM
+                    <strong>Welcome</strong> To OSAKA MANAGEMENT SYSTEM
                    <button type="button" class="close" data-dismiss="alert"><i class="ace-icon fa fa-times"></i></button>
                 </div>
             </div>
