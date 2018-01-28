@@ -34,7 +34,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-3 control-label no-padding-right" for="ClientID">Outgoing Type <span class="text-danger">*</span></label>
+                    <label class="col-sm-3 control-label no-padding-right" for="ClientID">Outgoing type <span class="text-danger">*</span></label>
                     <div class="col-sm-9 col-xs-12">
                         <select id="ExpenseTypeID" name="ExpenseTypeID" class="form-control required col-xs-12 col-sm-10 select2"
                             required data-placeholder="Choose type..." data-allow-clear="true" data-fn-name="ExpenseTypes_Select2">
@@ -48,18 +48,24 @@
                         <input type="text" id="AddDate" name="AddDate" required class="form-control required today date-picker col-xs-12 col-md-10" data-date-format="dd-mm-yyyy" />
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="VAT">VAT(5%) <span class="text-danger">*</span></label>
+                    <div class="col-sm-9 col-xs-12">
+                        <input type="text" id="VAT" name="VAT" required class="form-control money required col-xs-12 col-md-10" placeholder="0.05" />
+                    </div>
+                </div>
             </div>
             <div class="col-sm-12 col-md-6">
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Ref. No.</label>
                     <div class="col-sm-9 col-xs-12">
-                        <input type="text" id="RefID" class="form-control col-xs-12 col-md-10" />
+                        <input type="text" id="RefID" class="form-control col-xs-12 col-md-10" placeholder="Reference number like 123" />
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-3 control-label no-padding-right" for="DeclarationNo">Notes</label>
                     <div class="col-sm-9 col-xs-12">
-                        <textarea cols="6" rows="3" id="Notes" class="form-control col-xs-12 col-md-10"></textarea>
+                        <textarea cols="6" rows="6" id="Notes" class="form-control col-xs-12 col-md-10" placeholder="Remarks.."></textarea>
                     </div>
                 </div>
             </div>
@@ -77,6 +83,10 @@
         </div>
         <div class="row">
             <div class="col-xs-9 widget-container-col">
+                <a class="btn btn-app btn-light pull-right" href="Outgoing/Outgoings.aspx">
+                    <i class="ace-icon fa fa-undo"></i>
+                    Cancel
+                </a>
                 <button class="btn btn-app btn-success pull-right" id="SaveAll">
                     <i class="ace-icon fa fa-save"></i>
                     Save
@@ -89,7 +99,7 @@
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.25"></script>
+    <script src="/Scripts/sys/Outgoing/OutgoingsAdd.min.js?v=1.26"></script>
     <script>pageManager.Init();</script>
 </asp:Content>
 

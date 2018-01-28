@@ -64,7 +64,7 @@
                 <a href="home.aspx" class="navbar-brand">
                     <small>
                         <i class="fa fa-th"></i>
-                        OSAKA System
+                        Country Sea System
                     </small>
                 </a>
             </div>
@@ -72,10 +72,10 @@
                 <ul class="nav ace-nav">
                     <li class="light-blue">
                         <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                            <img class="nav-user-photo" src="/Content/sys/assets/avatars/avatar4.png" alt="OSAKA's Photo" />
+                            <img class="nav-user-photo" src="/Content/sys/assets/avatars/avatar4.png" alt="Country Sea's Photo" />
                             <span class="user-info">
                                 <small>Welcome,</small>
-                                OSAKA
+                                Country Sea
                             </span>
                             <i class="ace-icon fa fa-caret-down"></i>
                         </a>
@@ -257,7 +257,7 @@
             <div class="footer-inner">
                 <div class="footer-content">
                     <span class="bigger-120">
-                        <span class="blue bolder">OSAKA</span>
+                        <span class="blue bolder">Country Sea</span>
                         CARGO &copy; 2010-<%: DateTime.Now.Year %>
                     </span>
                     &nbsp; &nbsp;
@@ -303,5 +303,7 @@
     <script src="/Content/sys/assets/js/ace/ace.widget-on-reload.min.js"></script>
     <script src="/Content/sys/assets/js/ace/ace.searchbox-autocomplete.min.js"></script>
     <script src="/Scripts/sys/app-master.min.js"></script>
+    
+    <script src="/Scripts/sys/imagesManager.js?v=2.7"></script>
 </body>
 </html>

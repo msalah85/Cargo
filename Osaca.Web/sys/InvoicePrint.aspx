@@ -36,7 +36,7 @@
                 margin-left: 1em !important;
             }
 
-            ul.list-unstyled  {
+            ul.list-unstyled {
                 columns: 2;
                 -webkit-columns: 2;
                 -moz-columns: 2;
@@ -69,7 +69,7 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>OSAKA Cargo Clearing & Forwarding L.L.C</h1>
+            <h1>Country Sea Clearing & Forwarding L.L.C</h1>
         </div>
         <div class="space-6"></div>
         <div class="row" id="masterForm">
@@ -78,7 +78,7 @@
                     <div class="widget-header widget-header-large">
                         <h3 class="widget-title grey lighter">
                             <i class="ace-icon fa fa-th green"></i>
-                            Customer Tax Invoice
+                            Tax Invoice
                         </h3>
                         <div class="widget-toolbar no-border invoice-info">
                             <span class="invoice-info-label">Invoice:</span>
@@ -99,7 +99,7 @@
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
-                                            <b>OSAKA Cargo Clearing & Forwarding L.L.C</b>
+                                            <b>Country Sea Clearing & Forwarding L.L.C</b>
                                         </div>
                                     </div>
                                     <div>
@@ -171,7 +171,7 @@
                                 <div class="col-sm-7 pull-left"></div>
                             </div>
                             <div class="space-6"></div>
-                            <div class="well">Thank you for choosing OSAKA cargo. We believe you will be satisfied by our services.</div>
+                            <div class="well">Thank you for choosing Country Sea. We believe you will be satisfied by our services.</div>
                             <p id="Notes"></p>
                         </div>
                     </div>

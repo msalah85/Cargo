@@ -580,5 +580,17 @@
     "inputFiles": [
       "Scripts/sys/transporter-payments.js"
     ]
+  },
+  {
+    "outputFileName": "Scripts/sys/utilities.min.js",
+    "inputFiles": [
+      "Scripts/sys/utilities.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/imagesManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/imagesManager.js"
+    ]
   }
 ]

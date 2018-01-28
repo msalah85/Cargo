@@ -86,7 +86,7 @@ var DefaultGridManager = function () {
                  "text": "<i class='fa fa-print bigger-110 grey'></i> <span class='hidden'>Print</span>",
                  "className": "btn btn-white btn-primary btn-bold",
                  autoPrint: true,
-                 message: 'OSAKA Cargo'
+                 message: 'Country Sea'
              }
            ]
        });

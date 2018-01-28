@@ -19,7 +19,7 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>OSAKA CARGO Balance</h1>
+            <h1>Country Sea Balance</h1>
         </div>
         <div class="space-6"></div>
         <div class="row" id="masterForm">

@@ -13,12 +13,12 @@
                 <i class="ace-icon fa fa-home home-icon"></i>
                 <a href="home">Home</a>
             </li>
-            <li class="active">OSAKA CARGO > Customer Statement</li>
+            <li class="active">Country Sea > Customer Statement</li>
         </ul>
     </div>
     <div class="page-content">
         <div class="page-header">
-            <h1>OSAKA CARGO: Customer Statement</h1>
+            <h1>Country Sea: Customer Statement</h1>
         </div>
         <div class="space-6"></div>
         <div class="row hidden-print">

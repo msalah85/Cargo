@@ -8,7 +8,7 @@
     <title>Login - Basher Systems</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <meta name="description" content="OSAKA Cargo login" />
+    <meta name="description" content="Country Sea login" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <link rel="stylesheet" href="/Content/sys/assets/css/bootstrap.css" />
     <link rel="stylesheet" href="/Content/sys/assets/css/font-awesome.css" />
@@ -39,7 +39,7 @@
                                 <span class="red">Basher</span>
                                 <span class="white" id="id-text2">Systems</span>
                             </h1>
-                            <h4 class="light-blue" id="id-company-text">&copy; OSAKA CARGO</h4>
+                            <h4 class="light-blue" id="id-company-text">&copy; Country Sea</h4>
                         </div>
                         <div class="space-6"></div>
                         <div class="position-relative">

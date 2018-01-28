@@ -20,6 +20,13 @@ var
                 pageEvents();
             },
             pageEvents = function () {
+
+                var objs = {
+                    amount: $('#Amount'),
+                    vat: $('#VAT'),
+                    save: $('#SaveAll')
+                };
+
                 //validation
                 $('#' + formName).validate({
                     errorElement: 'div',
@@ -55,9 +62,22 @@ var
                 });
 
                 // save all data
-                $('#SaveAll').click(function (e) {
+                objs.save.click(function (e) {
                     e.preventDefault();
                     SaveAllData();
+                });
+
+
+                // vat change
+
+                objs.amount.on('keyup', function () {
+                    var _this = $(this);
+                    objs.vat.val(0);
+
+                    if ($.isNumeric(_this.val())) {
+                        objs.vat.val(_this.val() * 0.05);
+                    }
+
                 });
             },
 
@@ -100,7 +120,10 @@ var
                     });
 
                     $('.date-picker').val(moment(jsn.AddDate).format('DD-MM-YYYY'));
-                    $('.money').val(numeral(jsn.Amount).format('0.00'));
+
+                    $('.money').val(function () {
+                        return numeral($(this).val()).format('0.00');
+                    });
 
                     var newOption = new Option(jsn.ExpenseTypeName, jsn.ExpenseTypeID, true, true);
                     $("select.select2").append(newOption).trigger('change');
