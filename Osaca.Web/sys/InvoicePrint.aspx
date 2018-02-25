@@ -10,8 +10,6 @@
             content: url(/Content/sys/assets/images/CargoLogo.png);
             display: none;
         }
-
-
         @media print {
             .arrowed-right.arrowed-in {
                 padding: 10px 0;
