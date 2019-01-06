@@ -35,14 +35,11 @@ var
                 $('#btnSearch').click(function (e) {
                     e.preventDefault();
 
-
                     searchPrm.from = commonManger.dateFormat($('#From').val());
                     searchPrm.to = commonManger.dateFormat($('#To').val());
 
-
                     getReport();
                 });
-
             },
             getReport = function () {
                 var _id = commonManger.getQueryStrs().id || 0,
@@ -64,6 +61,7 @@ var
 
                         if (jsn) {
                             $('#ClientName').text(jsn.ClientName);
+                            document.title = jsn.ClientName.split(' ').join('-');
                         }
 
 

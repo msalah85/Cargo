@@ -55,6 +55,7 @@
                                         <th>Default value</th>
                                         <th>Priority</th>
                                         <th>Active</th>
+                                        <th>Is Vatable</th>
                                         <th width="77px"></th>
                                     </tr>
                                 </thead>
@@ -108,6 +109,16 @@
                                                     </label>
                                                 </div>
                                             </div>
+
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="IsVatable">Is Vatable</label>
+                                                <div class="col-sm-9">
+                                                    <label>
+                                                        <input type="checkbox" class="inline" id="IsVatable" />
+                                                    </label>
+                                                </div>
+                                            </div>
+
                                         </form>
                                     </div>
                                 </div>
@@ -162,5 +173,6 @@
         </div>
     </div>
     <script src="/Scripts/sys/DefaultGridManager.min.js?v=1.30"></script>
-    <script src="/Scripts/sys/expenses-manager.min.js"></script>
+    <%--<script src="/Scripts/sys/expenses-manager.min.js"></script>--%>
+    <script src="../Scripts/sys/expenses-manager.js"></script>
 </asp:Content>

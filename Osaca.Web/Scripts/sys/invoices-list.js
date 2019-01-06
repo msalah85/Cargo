@@ -1,15 +1,12 @@
-﻿var targetdata;
-formName = 'aspnetForm';
+﻿formName = 'aspnetForm';
 deleteModalDialog = 'deleteModal';
 tableName = "Invoices";
 pKey = "InvoiceID";
 gridId = "listItems";
-gridColumns = [],
-    $clientID = $('.txtSearch'),
-    filterNames = '',
-    filterValues = '';
-
-
+gridColumns = [];
+$clientID = $('.txtSearch');
+filterNames = '';
+filterValues = '';
 
 var
     pageManager = function () {
@@ -31,12 +28,12 @@ var
                     var searchObj = {
                         client: $clientID.val() * 1 > 0 ? $clientID.val() : '',
                         from: commonManger.dateFormat($('#DateFrom').val()),
-                        to: commonManger.dateFormat($('#DateTo').val()),
+                        to: commonManger.dateFormat($('#DateTo').val())
                     };
 
                     filterNames = 'ID~From~To';
                     filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
-                    
+
                     // update result
                     DefaultGridManager.updateGrid();
 
@@ -81,18 +78,7 @@ var
                     $('#aspnetForm').submit();
                 });
             },
-            BindListSearch = function (d) {
-                var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list, jsn1 = $.xml2json(xml).list1;
-                // clients
-                if (jsn) {
-                    var options = $(jsn).map(function (i, v) { return $('<option />').val(v.ClientID).text(v.ClientName); }).get();
-                    $('#ClientID').append(options).trigger('chosen:updated').trigger("liszt:updated");
-                }
-            },
-            setDataToSearch = function () {
-                var dto = { actionName: "ClientPayments_Properties" };
-                dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataDirect', BindListSearch, commonManger.errorException);
-            },
+
             initProperties = function () {
 
                 ////////////////////////// //////////////////////////
@@ -106,7 +92,7 @@ var
 
                     // set selected client
                     $clientID.select2("trigger", "select", {
-                        data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
+                        data: { id: qs.id, text: qs.name.split('+').join(' ') }
                     });
                 }
 
@@ -127,33 +113,31 @@ var
                         "bSortable": true
                     },
                     {
-                        "mData": function (d) { return d.ContainerNo ? d.ContainerNo : '' },
+                        "mData": function (d) { return d.ContainerNo ? d.ContainerNo : ''; },
                         "bSortable": false
                     },
                     {
-                        "mData": function (d) { return d.DeclarationNo ? d.DeclarationNo : '' },
+                        "mData": function (d) { return d.DeclarationNo ? d.DeclarationNo : ''; },
                         "bSortable": false
                     },
                     {
-                        "mData": function (d) { return numeral(d.TotalAmount).format('0,0.00') },
+                        "mData": function (d) { return numeral(d.TotalAmount).format('0,0.00'); },
                         "bSortable": false
                     },
                     {
-                        "mData": function (d) { return numeral(d.ServiceChargeAmount).format('0,0.00') },
+                        "mData": function (d) { return numeral(d.ServiceChargeAmount).format('0,0.00'); },
                         "bSortable": false
                     },
                     { // vat tax applied only on service charge amount.
-                        "mData": function (d) { return numeral(d.VATAmount).format('0,0.00') },
+                        "mData": function (d) { return numeral(d.VATAmount).format('0,0.00'); },
                         "bSortable": false
                     },
                     {
                         "mDataProp": null,
                         "bSortable": false,
                         "mData": function (d) {
-                            var
-                                editDelete = ' <a class="btn btn-info btn-mini" title="Edit" href="InvoiceAdd.aspx?id=' + d.InvoiceID + '"><i class="fa fa-pencil"></i></a> <button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>'
-
-                            return '<a class="btn btn-grey btn-mini" title="Print" href="InvoicePrint.aspx?id=' + d.InvoiceID + '"><i class="fa fa-print"></i></a>' + (editDelete);
+                            var editDelete = ' <a class="btn btn-info btn-mini" title="Edit" href="InvoiceAdd.aspx?id=' + d.InvoiceID + '"><i class="fa fa-pencil"></i></a> <button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>';
+                            return '<a class="btn btn-grey btn-mini" title="Print" href="InvoicePrint.aspx?id=' + d.InvoiceID + '"><i class="fa fa-print"></i></a>' + editDelete;
                         }
                     });
 
@@ -165,7 +149,6 @@ var
 
 
                     if (jsn1) {
-
                         var clientObj = {
                             invoices: jsn1.TotalInvoices ? jsn1.TotalInvoices * 1 : 0,
                             payments: jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0
@@ -175,10 +158,9 @@ var
                         $('.TotalPayments').text(numeral(clientObj.payments).format('0,0.00'));
 
                         // balance
-                        var duAmount = (clientObj.invoices) - (clientObj.payments);
+                        var duAmount = clientObj.invoices - clientObj.payments;
                         $('.clientBalance').text(numeral(duAmount).format('0,0.00'));
                     }
-
                 };
 
                 // init grid

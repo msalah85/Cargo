@@ -32,6 +32,12 @@ gridColumns.push(
         "bSortable": false
     },
     {
+        "mData": function (row) {
+            return row.IsVatable === true ? '<i class="fa fa-check green"></i>' : '<i class="fa fa-remove red"></i>';
+        },
+        "bSortable": false
+    },
+    {
         "mDataProp": null,
         "bSortable": false,
         "mData": function () {

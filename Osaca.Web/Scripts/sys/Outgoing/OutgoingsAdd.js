@@ -1,5 +1,4 @@
-﻿
-//=======================================
+﻿//=======================================
 // Developer: M. Salah (5-1-2018)
 // Email: eng.msalah.abdullah@gmail.com
 //=======================================
@@ -84,16 +83,10 @@ var
             // start Save data.
             SaveAllData = function () {
                 if (validateMayData()) {
-                    var
-                        fnName = tableName + '_Save',
-                        allKeys = commonManger.Returncontrolsval(formName),
-                        namesMaster = allKeys[0],
-                        valuesMaster = allKeys[1];
-
-                    commonManger.saveDefaultData(formName, formName, successSaved, null);
+                    commonManger.saveDefaultData(formName, formName, successSaved);
 
                 } else {
-                    commonManger.showMessage('Data required', 'Please enter all mandatory fields.')
+                    commonManger.showMessage('Data required', 'Please enter all mandatory fields.');
                 }
             },
             validateMayData = function () {

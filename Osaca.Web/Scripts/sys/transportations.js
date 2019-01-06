@@ -43,8 +43,8 @@ var
         }
         // users
         if (jsn1) {
-            var options = $(jsn1).map(function (i, v) { return $('<option />').val(v.UserID).text(v.UserFullName); }).get();
-            $('#TransporterID, #User').append(options);
+            var _options = $(jsn1).map(function (i, v) { return $('<option />').val(v.UserID).text(v.UserFullName); }).get();
+            $('#TransporterID, #User').append(_options);
         }
 
         $('select').trigger('chosen:updated').trigger("liszt:updated");
@@ -212,7 +212,7 @@ $('#btnSearch').click(function (e) {
         from: commonManger.dateFormat($('#DateFrom').val()),
         to: commonManger.dateFormat($('#DateTo').val()),
     };
-    filterNames = 'Client~User~From~To';
+    filterNames = 'Client~TrID~From~To';
     filterValues = $.map(searchObj, function (el) { return el }).join('~');
 
     if (qs.type) {

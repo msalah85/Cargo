@@ -44,7 +44,8 @@ public partial class api_data : System.Web.UI.Page
 
         // create filter parameters
         string[,] _params = {{"DisplayStart",param.iDisplayStart.ToString()}, {"DisplayLength", param.iDisplayLength.ToString()},
-                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()}, {"SortDirection", sortDirection}};
+                             {"SearchParam", param.sSearch}, {"SortColumn", sortColumnIndex.ToString()}, {"SortDirection", sortDirection},
+                             {"User", SessionManager.Current.ID}};
 
         // get all of data.
         var _ds = new Select().SelectLists(Context.Request["funName"], _params);
@@ -98,10 +99,10 @@ public partial class api_data : System.Web.UI.Page
 
     [WebMethod]
     [ScriptMethod(UseHttpGet = false)]
-    public static object saveData(string actionName, string[] names, string[] values)
+    public static object SaveData(string actionName, string[] names, string[] values)
     {   // start save data.
         var saved = new Save().SaveRow(actionName, names, values);
-        object data = new { };
+        object data = new { ID = 0, status = false, message = Resources.Resource_ar.ErrorSave };
 
         if (saved != -1)
         {
@@ -111,10 +112,6 @@ public partial class api_data : System.Web.UI.Page
                 Status = true,
                 message = Resources.Resource_ar.SuccessSave
             };
-        }
-        else
-        {
-            data = new { ID = 0, status = false, message = Resources.Resource_ar.ErrorSave };
         }
 
         return data;
@@ -128,15 +125,15 @@ public partial class api_data : System.Web.UI.Page
         jQueryDataTableParamModel param = new jQueryDataTableParamModel();
         HttpContext Context = HttpContext.Current;
 
-        param.sSearch = String.IsNullOrEmpty(Context.Request["sSearch"]) ? "" : Context.Request["sSearch"];
-        param.iDisplayStart += String.IsNullOrEmpty(Context.Request["iDisplayStart"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayStart"]);
-        param.iDisplayLength = String.IsNullOrEmpty(Context.Request["iDisplayLength"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayLength"]);
+        param.sSearch = string.IsNullOrEmpty(Context.Request["sSearch"]) ? "" : Context.Request["sSearch"];
+        param.iDisplayStart += string.IsNullOrEmpty(Context.Request["iDisplayStart"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayStart"]);
+        param.iDisplayLength = string.IsNullOrEmpty(Context.Request["iDisplayLength"]) ? 0 : Convert.ToInt32(Context.Request["iDisplayLength"]);
         var sortColumnIndex = Convert.ToInt32(Context.Request["iSortCol_0"]);
         var sortDirection = Context.Request["sSortDir_0"] ?? "desc"; // asc or desc
-        
+
         // grid static parameters
-        string[] names = { "DisplayStart", "DisplayLength", "SortColumn", "SortDirection", "SearchParam" },
-                 values = { param.iDisplayStart.ToString(), param.iDisplayLength.ToString(), sortColumnIndex.ToString(), sortDirection, param.sSearch },
+        string[] names = { "DisplayStart", "DisplayLength", "SortColumn", "SortDirection", "SearchParam", "User" },
+                 values = { param.iDisplayStart.ToString(), param.iDisplayLength.ToString(), sortColumnIndex.ToString(), sortDirection, param.sSearch, SessionManager.Current.ID },
 
         // get dynamic more parameters from user
         addtionNames = string.IsNullOrEmpty(Context.Request["names"]) ? new string[0] : Context.Request["names"].Split('~'),
@@ -173,7 +170,7 @@ public partial class api_data : System.Web.UI.Page
     #region "Clients Login"
 
     [WebMethod]
-    public static object login(string text1, string text2)
+    public static object Login(string text1, string text2)
     {
         // create filter paramters
         //string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
@@ -457,14 +454,14 @@ public partial class api_data : System.Web.UI.Page
     #endregion
 
     [WebMethod]
-    public static string decryptPassword(string value)
+    public static string DecryptPassword(string value)
     {
         string _pass = EncryptDecryptString.Decrypt(value, "Taj$$Key");
         return _pass;
     }
 
     [WebMethod]
-    public static String InlineEdit(string name, string value, string pk, string table, string id)
+    public static string InlineEdit(string name, string value, string pk, string table, string id)
     {
         // enhance value
         value = value.Replace("'", " ");

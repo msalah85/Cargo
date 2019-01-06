@@ -125,8 +125,16 @@
                                     <div class="col-xs-12 col-sm-12">
                                         <form class="form-horizontal" role="form" id="aspnetForm">
                                             <div>
-                                                <input type="hidden" class="noreset" id="TypeID" value="2" />
                                                 <input type="hidden" id="PaymentID" value="0" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-3 control-label no-padding-right" for="TypeID">Type <span class="text-danger">*</span></label>
+                                                <div class="col-sm-9">
+                                                    <select class="col-sm-10 required" required id="TypeID" name="TypeID">
+                                                        <option value="2">Transportation</option>
+                                                        <option value="3">Crane fee</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label no-padding-right" for="TransporterID"><span class="el-title">Transporter</span> name <span class="text-danger">*</span></label>

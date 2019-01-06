@@ -1,8 +1,7 @@
-﻿using Minutesuae.SystemUtilities;
-using ShareWeb.Business.Business;
-using System;
-using System.Web.Services;
+﻿using System;
 using System.Web.UI;
+using System.Web.Services;
+using ShareWeb.Business.Business;
 
 public partial class sys_Default : Page
 {
@@ -20,10 +19,10 @@ public partial class sys_Default : Page
     {
         bool login_state = false;
 
-        string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
+        //string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
 
         // create filter paramters
-        string[,] _params = { { "UserName", text1 }, { "Password", _pass } };
+        string[,] _params = { { "UserName", text1 }, { "Password", text2 } };
 
         // get all of data.
         var _ds = new Select().SelectLists("Users_Login", _params);

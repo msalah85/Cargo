@@ -5,7 +5,7 @@
     <link href="/Scripts/select2/select2.css" rel="stylesheet" />
     <link href="/Scripts/select2/select2-optional.css" rel="stylesheet" />
     <script src="/Scripts/sys/Common.min.js?v=1.30"></script>
-    <script src="/Scripts/sys/DataService.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/DataService.js?v=1.30"></script>
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
@@ -100,6 +100,7 @@
                                         <th>Expense name</th>
                                         <th>Cost</th>
                                         <th>Amount/Customer</th>
+                                        <th>VAT Amount</th>
                                         <th width="97px"></th>
                                     </tr>
                                 </thead>
@@ -110,25 +111,24 @@
                 </div>
                 <div class="hr hr-18 dotted hr-double"></div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Transporter name</label>
-                            <div class="col-sm-9">
-                                <select id="TransporterID" name="TransporterID" class="col-xs-10 col-sm-10 select2" data-fn-name="Users_Select2"
-                                    data-placeholder="Choose a transporter name" data-allow-clear="true">
+                    <div class="col-sm-7">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <label class="control-label no-padding-right" for="TransporterID">Transporter name</label>
+                                <select id="TransporterID" name="TransporterID" class="select2" data-fn-name="Users_Select2"
+                                    data-placeholder="Choose a transporter name" data-allow-clear="true" style="width:250px;">
                                 </select>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-3 control-label no-padding-right" for="TransporterID">Crane/Driver name</label>
-                            <div class="col-sm-9">
-                                <select id="CraneDriverID" name="CraneDriverID" class="col-xs-10 col-sm-10 select2" data-fn-name="Users_Select2"
-                                    data-placeholder="Choose a crane/driver name" data-allow-clear="true">
+                            <div class="col-md-6">
+                                <label class="control-label no-padding-right" for="CraneDriverID">Crane/Driver name</label>
+                                <input type="hidden" id="type" value="3" />
+                                <select id="CraneDriverID" name="CraneDriverID" class="select2" data-fn-name="Users_Select2" data-srch-names="type"
+                                    data-placeholder="Choose a crane/driver name" data-allow-clear="true" style="width:250px;">
                                 </select>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6 pull-right">
+                    <div class="col-sm-5 pull-right">
                         <h4 class="pull-right">Total amount : <span class="red" id="TotalAmount">0</span> AED,
                             Profit : <span class="red" id="TotalProfit">0</span> AED
                         </h4>
@@ -195,6 +195,6 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/InvoicesAdd.js?v=1.3"></script>
+    <script src="/Scripts/sys/InvoicesAdd.min.js?v=1.7"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

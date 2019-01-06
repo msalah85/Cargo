@@ -27,11 +27,11 @@
                     var searchObj = {
                         Transporter: $TransporterID.val() * 1 > 0 ? $TransporterID.val() : '',
                         from: commonManger.dateFormat($('#DateFrom').val()),
-                        to: commonManger.dateFormat($('#DateTo').val()),
+                        to: commonManger.dateFormat($('#DateTo').val())
                     };
 
                     filterNames = 'ID~From~To';
-                    filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
+                    filterValues = $.map(searchObj, function (el) { return el || ''; }).join('~');
 
 
                     if (qs.type) {
@@ -91,8 +91,8 @@
 
                 // banks
                 if (jsn1) {
-                    var options = $(jsn1).map(function (i, v) { return $('<option />').val(v.BankID).text(v.BankName); }).get();
-                    $('#BankID').append(options).trigger('chosen:updated').trigger("liszt:updated");
+                    var _options = $(jsn1).map(function (i, v) { return $('<option />').val(v.BankID).text(v.BankName); }).get();
+                    $('#BankID').append(_options).trigger('chosen:updated').trigger("liszt:updated");
                 }
             },
             setDataToSearch = function () {
@@ -109,7 +109,7 @@
                         headTitle = 'Crane/Driver Payments';
                         elementTitle = 'Crane/Driver';
                         break;
-                    };
+                    }
                 }
 
 

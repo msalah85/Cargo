@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Print Invoice" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicePrint.aspx.cs" Inherits="sys_InvoicePrint" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
+﻿<%@ Page Title="ContainerNo:" Language="C#" MasterPageFile="master.master" AutoEventWireup="true" CodeFile="InvoicePrint.aspx.cs" Inherits="sys_InvoicePrint1" EnableTheming="false" EnableViewState="false" ViewStateMode="Disabled" EnableSessionState="ReadOnly" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script src="/Scripts/sys/jquery-dateFormat.min.js"></script>
@@ -11,6 +11,9 @@
             display: none;
         }
 
+        .widget-body .table thead:first-child tr {
+            background: #eee;
+        }
 
         @media print {
             .arrowed-right.arrowed-in {
@@ -99,7 +102,7 @@
                                 <div class="col-sm-6">
                                     <div class="row">
                                         <div class="col-xs-11 label label-lg label-info arrowed-in arrowed-right">
-                                            <b>OSAKA Clearing & Forwarding L.L.C</b>
+                                            <b>OSAKA Cargo Clearing & Forwarding L.L.C</b>
                                         </div>
                                     </div>
                                     <div>
@@ -110,10 +113,10 @@
                                             </li>
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right blue"></i>
-                                                Mobile: <b class="red">+971-50 930 3753 , +971-50 930 3898</b>
+                                                Mobile: <b class="red">+971 4 385 7012, +971 55 713 6363</b>
                                             </li>
                                             <li><i class="ace-icon fa fa-caret-right blue"></i>
-                                                Email: <b class="blue">TAHIRNASEER11@YAHOO.COM</b></li>
+                                                Email: <b class="blue">HANGUWAL@YAHOO.COM</b></li>
                                             <li><i class="ace-icon fa fa-caret-right blue"></i>
                                                 TRN: <b class="blue" id="Val"></b></li>
                                         </ul>
@@ -158,9 +161,18 @@
                                         <th class="center">#</th>
                                         <th>Expense name</th>
                                         <th>Amount</th>
+                                        <th>VAT Amount</th>
                                     </tr>
                                 </thead>
                                 <tbody></tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td style="background-color: #e7f2f8" id="tdTotalAmount"></td>
+                                        <td style="background-color: #e7f2f8" id="tdVatAmount"></td>
+                                    </tr>
+                                </tfoot>
                             </table>
                             <div class="hr hr8 hr-double hr-dotted"></div>
                             <div class="row">
@@ -171,8 +183,8 @@
                                 <div class="col-sm-7 pull-left"></div>
                             </div>
                             <div class="space-6"></div>
-                            <div class="well">Thank you for choosing OSAKA. We believe you will be satisfied by our services.</div>
                             <p id="Notes"></p>
+                            <div class="well">Thank you for choosing OSAKA. We believe you will be satisfied by our services.</div>
                         </div>
                     </div>
                 </div>
@@ -181,6 +193,6 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-    <script src="/Scripts/sys/InvoicesPrint.min.js?v=1.30"></script>
+    <script src="/Scripts/sys/InvoicesPrint.js?v=1.1"></script>
     <script>pageManager.Init();</script>
 </asp:Content>

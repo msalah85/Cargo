@@ -46,7 +46,6 @@ public partial class sys_InvoiceAdd : System.Web.UI.Page
         }
 
         object data = new { };
-
         SqlCommand command = DataAccess.CreateCommand();
 
         try

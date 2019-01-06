@@ -62,8 +62,8 @@
                                         <tr>
                                             <th class="center">#</th>
                                             <th>Date</th>
-                                            <th>Container No</th>
-                                            <th>Declaration No</th>
+                                            <th>Container No/Bank</th>
+                                            <th>Declaration No/Check No</th>
                                             <th>Debit <sub>AED</sub></th>
                                             <th>Credit <sub>AED</sub></th>
                                             <th>Balance <sub>AED</sub></th>

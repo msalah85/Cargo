@@ -21,7 +21,7 @@ var
                     e.preventDefault();
 
                     var formName = 'searchForm',
-                        allKeys = commonManger.Returncontrolsval(formName);
+                        allKeys = commonManger.ReturnControlsVal(formName);
 
                     filterNames = allKeys[0].join('~');
                     filterValues = allKeys[1].join('~');

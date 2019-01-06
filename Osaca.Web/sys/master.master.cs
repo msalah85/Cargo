@@ -7,5 +7,7 @@ public partial class sys_master : MasterPage
     {
         if (SessionManager.Current.ID == "0")
             Server.Transfer("~/sys/default.aspx");
+
+        divUser.InnerText = SessionManager.Current.ID;
     }
 }

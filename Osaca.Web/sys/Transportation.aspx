@@ -153,40 +153,48 @@
                                     <div class="col-xs-12 col-sm-12">
                                         <form class="form-horizontal" role="form" id="aspnetForm">
                                             <div>
-                                                <input type="hidden" id="TypeID" value="0" />
                                                 <input type="hidden" id="TransportID" value="0" />
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="ClientID">Consignee name <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-4 control-label no-padding-right" for="TypeID">Type <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
+                                                    <select class="col-sm-10 required" required id="TypeID" name="TypeID">
+                                                        <option value="2">Transportation</option>
+                                                        <option value="3">Crane fee</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label no-padding-right" for="ClientID">Consignee name <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
                                                     <select class="col-sm-10 required" required id="ConsigneeID" name="ConsigneeID">
                                                         <option></option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="ClientID"><span class="el-title">Transporter</span> name <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-4 control-label no-padding-right" for="ClientID"><span class="el-title">Transporter</span> name <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
                                                     <select class="col-sm-10 required" required id="TransporterID" name="TransporterID">
                                                         <option></option>
                                                     </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="TransportDate">Date <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-4 control-label no-padding-right" for="TransportDate">Date <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
                                                     <input type="text" class="col-sm-10 date-picker" data-date-format="dd-mm-yyyy" required id="TransportDate" name="TransportDate" placeholder="dd-mm-yyyy" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="ContainerNo">Container No. <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-4 control-label no-padding-right" for="ContainerNo">Container No. <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
                                                     <input type="text" class="col-sm-10" required id="ContainerNo" name="ContainerNo" placeholder="MSKU00000" />
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label no-padding-right" for="TransportCharge">Amount <span class="text-danger">*</span></label>
-                                                <div class="col-sm-9">
+                                                <label class="col-sm-4 control-label no-padding-right" for="TransportCharge">Amount <span class="text-danger">*</span></label>
+                                                <div class="col-sm-8">
                                                     <input type="text" class="col-sm-10 money" id="TransportCharge" name="TransportCharge" required placeholder="00.00" />
                                                     AED
                                                 </div>

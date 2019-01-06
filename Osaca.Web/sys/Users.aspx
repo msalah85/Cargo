@@ -85,6 +85,7 @@
                                                         <option value="1">Employee</option>
                                                         <option value="2">Transporter</option>
                                                         <option value="3">Crane/Driver</option>
+                                                        <!--<option value="4">New Office</option>-->
                                                     </select>
                                                 </div>
                                             </div>

@@ -1,8 +1,12 @@
-﻿var targetdata; modalDialog = "addModal"; formName = 'aspnetForm'; deleteModalDialog = 'deleteModal';
+﻿
+modalDialog = "addModal";
+formName = 'aspnetForm';
+deleteModalDialog = 'deleteModal';
 tableName = "Clients";
 pKey = "ClientID";
 gridId = "listItems";
 gridColumns = [];
+
 gridColumns.push(
     {
         "mDataProp": "ClientID",
@@ -42,6 +46,7 @@ gridColumns.push(
                 '<button class="btn btn-danger btn-mini remove" title="Delete"><i class="fa fa-trash"></i></button>';
         }
     });
+
 DefaultGridManager.Init();
 
 //validation

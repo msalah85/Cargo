@@ -78,16 +78,16 @@ var commonManger = function () {
                     if ($(this).attr('id') && !$(this).hasClass('hasfunction') && !$(this).hasClass('noreset')) {
                         var ElementId = $(this).attr('id');
                         var Ctype = $(this).prop('type');
-                        if (Ctype == "text" || Ctype == "number" || Ctype == "email" || Ctype == "date") {
+                        if (Ctype === "text" || Ctype === "number" || Ctype === "email" || Ctype === "date") {
                             $(this).val(value = "");
                         }
-                        else if (Ctype == "checkbox") {
+                        else if (Ctype === "checkbox") {
                             $(this).prop("checked", true);
                         }
-                        else if (Ctype == "hidden") {
+                        else if (Ctype === "hidden") {
                             $(this).val(value = "0");
                         }
-                        else if (Ctype == "textarea") {
+                        else if (Ctype === "textarea") {
                             if ($(this).hasClass('textareaSpecial')) {
                                 CKEDITOR.instances[ElementId].setData('<p></p>');
                             } else { $(this).val(value = ""); }
@@ -99,7 +99,7 @@ var commonManger = function () {
                     if ($(this).attr('name')) {
                         var ElementId = $(this).attr('id');
                         var Ctype = $(this).prop('type');
-                        if (Ctype == "select-one") {
+                        if (Ctype === "select-one") {
                             $('#' + ElementId).val("");
                             if ($('#' + ElementId).hasClass("chzn-select")) {
                                 $('.chzn-select').val('');
@@ -121,7 +121,7 @@ var commonManger = function () {
             $.each(data, function (index, Basicdata) {
                 if (data.tbl_name != 150 && data.tbl_name != 160) {
                     for (var i = 0; i < selectElementsInForm.length; i++) {
-                        if (Basicdata.tbl_name == i) {
+                        if (Basicdata.tbl_name === i) {
                             $('#' + selectElementsInForm[i] + '').append("<option value='" + Basicdata.ID + "'>" + Basicdata.Name + "</option>");
                             if ($('#' + selectElementsInForm[i] + '').hasClass('chzn-select')) {
                                 $('#' + selectElementsInForm[i] + '').chosen().trigger('chosen:updated').trigger("liszt:updated");
@@ -204,7 +204,7 @@ var commonManger = function () {
                             ElementId = $(this).attr('id');
                             var Ctype = $(this).prop('type');
                             if (Ctype != "undefined" || Ctype != '') {
-                                if (Ctype == "text" || Ctype == "hidden" || Ctype == "number" || Ctype == "email" || Ctype == "date" || Ctype == "textarea") {
+                                if (Ctype === "text" || Ctype === "hidden" || Ctype === "number" || Ctype === "email" || Ctype === "date" || Ctype === "textarea") {
                                     if ($(this).hasClass('textareaSpecial')) {
                                         CKEDITOR.instances[ElementId].setData(ArrayData[ElementId])
                                     }
@@ -224,16 +224,16 @@ var commonManger = function () {
                                         }
                                     }
                                 }
-                                else if (Ctype == "select-one" && $('#' + ElementId).hasClass("showvalue")) {
+                                else if (Ctype === "select-one" && $('#' + ElementId).hasClass("showvalue")) {
                                     $('#' + ElementId + ' option').filter(function (index) { return $(this).text() === ArrayData[ElementId]; }).attr('selected', 'selected');
                                 }
-                                else if (Ctype == "select-one" && !$('#' + ElementId).hasClass("showvalue")) {
+                                else if (Ctype === "select-one" && !$('#' + ElementId).hasClass("showvalue")) {
                                     $('#' + ElementId).val(ArrayData[ElementId]);
                                     if ($('#' + ElementId).hasClass("chzn-select")) {
                                         $('#' + ElementId).chosen().trigger('chosen:updated').trigger("liszt:updated");
                                     }
                                 }
-                                else if (Ctype == "checkbox") {
+                                else if (Ctype === "checkbox") {
                                     $(this).prop("checked", ArrayData[ElementId]);
                                 }
                                 else if ($(this).is("label")) {
@@ -304,29 +304,34 @@ var commonManger = function () {
                 });
             return valuesids;
         },
-        SaveDataMasterDetails = function (modalDialog, form, success, error, fieldsDetails, valuesDetails, actionName, flage) {
-            var ParamValues = [], ParamNames = [], arrayall = Returncontrolsval(form);
+        SaveDataMasterDetails = function (form, success, fieldsDetails, valuesDetails, actionName, flage) {
+            var ParamValues = [], ParamNames = [],
+                arrayall = ReturnControlsVal(form);
             ParamNames = arrayall[0];
             ParamValues = arrayall[1];
-            var DTO = { 'values': ParamValues, 'actionName': actionName, 'Parm_names': ParamNames, 'fieldsDetails': fieldsDetails, 'valuesDetails': valuesDetails, 'flage': flage };
-            dataService.callAjax('Post', JSON.stringify(DTO), mainServiceUrl + 'SaveDataMasterDetails',
-                function (data) {
+            var
+                DTO = {
+                    'values': ParamValues, 'actionName': actionName, 'Parm_names': ParamNames,
+                    'fieldsDetails': fieldsDetails, 'valuesDetails': valuesDetails, 'flage': flage
+                },
+                successFn = function (data) {
                     commonManger.showMessage('Data saved:', data.d.message);
                     $.fn.afterSave(ParamValues);
                     success(data);
-                }, errorException);
+                };
+
+            dataService.callAjax('Post', JSON.stringify(DTO), mainServiceUrl + 'SaveDataMasterDetails', successFn, errorException);
         },
-        Returncontrolsval = function (controlid) {
-            var values = [], valuesids = [], valuecollection = [], ElementId = "";
-            console.log(controlid);
+        ReturnControlsVal = function (controlid) {
+            var values = [], valuesids = [], valuecollection = [];
+
             $("#" + controlid).find('input,select,textarea')
                 .each(function () {
                     if ($(this).attr('id')) {
                         if (!$(this).hasClass("notneed")) {
-                            ElementId = $(this).attr('id');
                             var Ctype = $(this).prop('type');
-                            if (Ctype != "undefined" || Ctype != '') {
-                                if (Ctype == "text" || Ctype == "hidden" || Ctype == "number" || Ctype == "email" || Ctype == "date" || Ctype == "tel") {
+                            if (Ctype !== "undefined" || Ctype !== '') {
+                                if (Ctype === "text" || Ctype === "hidden" || Ctype === "number" || Ctype === "email" || Ctype === "date" || Ctype === "tel") {
                                     if ($(this).hasClass('date-picker')) { // date format
                                         values.push(changeDateFormat($(this).val()));
                                         valuesids.push($(this).attr('id'));
@@ -335,24 +340,24 @@ var commonManger = function () {
                                         valuesids.push($(this).attr('id'));
                                     }
                                 }
-                                else if (Ctype == "hidden") {
-                                    if ($(this).val() == "") {
+                                else if (Ctype === "hidden") {
+                                    if ($(this).val() === "") {
                                         values.push("0");
                                     }
                                     else { values.push($(this).val()); }
                                     valuesids.push($(this).attr('id'));
                                 }
-                                else if (Ctype == "select-one") {
+                                else if (Ctype === "select-one") {
                                     values.push($(this).find('option:selected').val());
                                     valuesids.push($(this).attr('id'));
                                 }
-                                else if (Ctype == "checkbox") {
+                                else if (Ctype === "checkbox") {
                                     $(this).prop('checked', function (i, value) {
                                         values.push(value);
                                     });
                                     valuesids.push($(this).attr('id'));
                                 }
-                                else if (Ctype == "textarea") {
+                                else if (Ctype === "textarea") {
                                     if ($(this).hasClass('textareaSpecial')) {
                                         var ckdata = CKEDITOR.instances.Details.getData();
                                         values.push(ckdata);
@@ -372,61 +377,66 @@ var commonManger = function () {
                     }
 
                 });
+
+            valuesids.push('User');
+            values.push($('user:eq(0)').text());
+
             valuecollection.push(valuesids, values);
             return valuecollection;
         },
         // global save data
-        saveDefaultData = function (modalDialog, form, success, error) {
+        saveDefaultData = function (modalDialog, form, success) {
             if (!$.fn.beforeSave()) {
                 return;
             }
-            var ParamValues = [], ParamNames = [], arrayall = Returncontrolsval(formName), actionName = tableName + "_Save";
+            var ParamValues = [], ParamNames = [], arrayall = ReturnControlsVal(formName), actionName = tableName + "_Save";
             ParamNames = arrayall[0]; ParamValues = arrayall[1];
 
-            var DTO = { 'actionName': actionName, 'names': ParamNames, 'values': ParamValues };
-            console.log(DTO);
-            modalDialog = $('#' + modalDialog);
+            var DTO = { 'actionName': actionName, 'names': ParamNames, 'values': ParamValues },
+                successFn = function (data) {
+                    $('#' + modalDialog).modal('hide');
+                    if (data.d.Status) // show success message if done.
+                        success(data);
+                    else // show error message
+                        showMessage('Error', data.d.message);
+                    // reset form after saving done. by m.salah 31-1-2015
+                    commonManger.ResetControls(formName);
+                };
 
             // if validation complete 
             var isvalidatedForm = applyValidation(form);
             if (isvalidatedForm) {
-                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'saveData',
-                    function (data) {
-                        $(modalDialog).modal('hide');
-                        if (data.d.Status) // show success message if done.
-                            success(data);
-                        else // show error message
-                            showMessage('Error', data.d.message);
-                        // reset form after saving done. by m.salah 31-1-2015
-                        commonManger.ResetControls(formName);
-                    }, errorException);
+                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'saveData', successFn, errorException);
             }
         },
         saveData = function (modalDialog, form, success, error, actionName, flage, afterSave) {
             var ParamValues = [];
             var ParamNames = [];
-            var arrayall = Returncontrolsval(form);
+            var arrayall = ReturnControlsVal(form);
             ParamNames = arrayall[0];
             ParamValues = arrayall[1];
-            DTO = { 'values': ParamValues, 'actionName': actionName, 'Parm_names': ParamNames, 'flage': flage };
+            var DTO = { 'values': ParamValues, 'actionName': actionName, 'Parm_names': ParamNames, 'flage': flage },
+                successFn = function (data) {
+                    data = data.d;
+                    $(modalDialog).modal('hide');
+                    if (data.Status) { // show success message if done.
+                        success(data); afterSave(data.serializdata);
+                        commonManger.showMessage('Saved:', 'Data saved:');
+                    }
+                    else {// show error message
+                        commonManger.showMessage('Error', data.message);
+                    }
+                    // reset form after saving done. by m.salah 31-1-2015
+                    commonManger.ResetControls(form);
+                };
+
             modalDialog = $('#' + modalDialog);
-            // if validation complete 
+
+            // if validation complete
             var isvalidatedForm = applyValidation(form);
             if (isvalidatedForm) {
-                dataService.callAjax('Post', JSON.stringify(DTO), mainServiceUrl + 'saveData',
-                    function (data) {
-                        data = data.d;
-                        $(modalDialog).modal('hide');
-                        if (data.Status) { // show success message if done.
-                            success(data); afterSave(data.serializdata);
-                            commonManger.showMessage('Saved:', 'Data saved:');
-                        }
-                        else {// show error message
-                            commonManger.showMessage('Error', data.message);
-                        }
-                        // reset form after saving done. by m.salah 31-1-2015
-                        commonManger.ResetControls(form);
-                    }, errorException);
+                dataService.callAjax('Post', JSON.stringify(DTO), mainServiceUrl + 'SaveData',
+                    successFn, errorException);
             }
             else {
                 $(modalDialog).modal('hide');
@@ -466,7 +476,7 @@ var commonManger = function () {
             return $(input).text();
         },
         formatJSONDate = function (jsonDate) {
-            if (jsonDate == null)
+            if (jsonDate === null)
                 return '';
             var newDate = new Date(parseInt(jsonDate.substr(6))); //dateFormat(jsonDate, "mm/dd/yyyy");
             var dat = newDate.getDate() + "-" + newDate.getMonth() + 1 + "-" + newDate.getFullYear();
@@ -479,7 +489,7 @@ var commonManger = function () {
             return newDate;
         },
         changeDateFormat = function (date, currentFormat, endFormat) {
-            if (!date || date == '')
+            if (!date || date === '')
                 return '';
 
             // default formats
@@ -557,7 +567,7 @@ var commonManger = function () {
         returnFiledsNames: returnFiledsNames,
         returnFiledsNamesToSave: returnFiledsNamesToSave,
         SaveDataMasterDetails: SaveDataMasterDetails,
-        Returncontrolsval: Returncontrolsval,
+        ReturnControlsVal: ReturnControlsVal,
         getCurrentDate: getCurrentDate,
         saveData: saveData,
         saveDefaultData: saveDefaultData,
@@ -580,6 +590,6 @@ var commonManger = function () {
         comp2json: comp2Json,
         xml2Json: xml2Json,
         printPage: printPage,
-        dateFormat: changeDateFormat,
+        dateFormat: changeDateFormat
     };
 }();

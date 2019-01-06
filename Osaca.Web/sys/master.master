@@ -6,7 +6,7 @@
 <head runat="server">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta charset="utf-8" />
-    <title><%: Page.Title %> - Basher</title>
+    <title><%: Page.Title %> - Basher</title>    
     <meta name="description" content="Basher Systems - eng.msalah.abdullah@gmail.com" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
     <base href="/sys/" />
@@ -53,6 +53,7 @@
 </head>
 <body class="skin-2">
     <div id="navbar" class="navbar navbar-default ace-save-state">
+    <asp:PlaceHolder runat="server"><user style="display:none" class="hidden" runat="server" id="divUser"></user></asp:PlaceHolder>
         <div class="navbar-container ace-save-state" id="navbar-container">
             <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
                 <span class="sr-only">Toggle sidebar</span>
@@ -207,6 +208,14 @@
                         <span class="menu-text">Outgoings</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="/sys/VatReport.aspx">
+                        <i class="menu-icon fa fa-money"></i>
+                        <span class="menu-text">VAT Reports</span>
+                    </a>
+                </li>
+
                 <li>
                     <a href="documents/docsview.aspx">
                         <i class="menu-icon fa fa-file"></i>
@@ -243,6 +252,12 @@
                         <span class="menu-text">Profit</span>
                     </a>
                 </li>
+                <li>
+                    <a href="SummaryLists.aspx">
+                        <i class="menu-icon fa fa-pencil"></i>
+                        <span class="menu-text">Summary</span>
+                    </a>
+                </li>
             </ul>
             <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
                 <i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state" data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
@@ -257,8 +272,7 @@
             <div class="footer-inner">
                 <div class="footer-content">
                     <span class="bigger-120">
-                        <span class="blue bolder">OSAKA</span>
-                        CARGO &copy; 2010-<%: DateTime.Now.Year %>
+                        <span class="blue bolder">OSAKA</span> &copy; 2010-<%: DateTime.Now.Year %>
                     </span>
                     &nbsp; &nbsp;
                         <span class="action-buttons hidden-print">

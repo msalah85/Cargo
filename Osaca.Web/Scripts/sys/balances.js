@@ -18,6 +18,7 @@ var
             BindReportControls = function (d) {
                 var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list;
 
+
                 if (jsn) {
                     $.each(jsn, function (k, v) {
                         $('#' + k).text(numeral(v).format('0,0.00'));
@@ -63,8 +64,8 @@ var
                 }
             },
             getReport = function () {
-                var functionName = "Balances_Select", DTO = { 'actionName': functionName };
-                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetDataDirect', BindReportControls, commonManger.errorException);
+                var functionName = "Balances_Select", DTO = { 'actionName': functionName, value: $('user:eq(0)').text() };
+                dataService.callAjax('Post', JSON.stringify(DTO), sUrl + 'GetData', BindReportControls, commonManger.errorException);
             },
             showPaymentsTotal = function () {
                 var _total = 0;
